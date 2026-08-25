@@ -1,0 +1,10 @@
+{
+  "description": "Empowering users to craft their personal narratives, this platform offers tools for self-discovery, goal-setting, and creative expression.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
