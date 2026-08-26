@@ -19,6 +19,16 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Mobile-only global font scale-down.
+   Tailwind's text-* utilities are rem-based, so shrinking the root
+   font-size here scales headings, body text, buttons, and labels
+   together, proportionally, on every page — no per-class edits needed. */
+@media (max-width: 767px) {
+  html {
+    font-size: 90%;
+  }
+}
+
 body {
   font-family: var(--font-body);
   background-color: #ffffff;

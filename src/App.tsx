@@ -421,11 +421,11 @@ export default function App() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           {/* Images collage */}
           <div className="relative">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="flex flex-col gap-4">
               <img
                 src={IMG_ABOUT}
                 alt="WYD team at work"
-                className="w-full h-64 object-cover rounded-2xl"
+                className="w-full h-48 md:h-56 object-cover rounded-2xl"
                 onError={(e) => {
                   ;(e.target as HTMLImageElement).style.opacity = "0"
                 }}
@@ -433,7 +433,7 @@ export default function App() {
               <img
                 src={IMG_TEAM}
                 alt="WYD team collaboration"
-                className="w-full h-64 object-cover rounded-2xl mt-8"
+                className="w-full h-48 md:h-56 object-cover rounded-2xl"
                 onError={(e) => {
                   ;(e.target as HTMLImageElement).style.opacity = "0"
                 }}
@@ -441,16 +441,16 @@ export default function App() {
             </div>
             {/* Badge */}
             <div
-              className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-white shadow-xl px-6 py-4 rounded-2xl text-center"
+              className="absolute -bottom-4 -right-3 md:-right-6 bg-white shadow-xl px-4 py-3 rounded-xl text-center"
               style={{ boxShadow: `0 8px 32px ${BLUE}20` }}
             >
               <div
-                className="font-display text-3xl font-bold"
+                className="font-display text-xl font-bold"
                 style={{ color: PINK }}
               >
                 500+
               </div>
-              <div className="font-body text-xs text-[#9aa3b5] mt-0.5">
+              <div className="font-body text-[10px] text-[#9aa3b5] mt-0.5 whitespace-nowrap">
                 Lives Transformed
               </div>
             </div>
@@ -464,7 +464,7 @@ export default function App() {
             >
               Who We Are
             </div>
-            <h2 className="font-display text-4xl md:text-5xl font-bold leading-[1.1] mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.1] mb-6">
               More than a
               <br />
               <em className="italic font-light" style={{ color: BLUE }}>
@@ -587,7 +587,7 @@ export default function App() {
       <section className="py-20 px-6 md:px-10">
         <div className="max-w-7xl mx-auto">
           <div
-            className="grid grid-cols-2 md:grid-cols-4 rounded-3xl overflow-hidden"
+            className="grid grid-cols-2 md:grid-cols-4 rounded-2xl md:rounded-3xl overflow-hidden"
             style={{
               background: `linear-gradient(135deg, ${DARK} 0%, #1a2d5a 100%)`,
             }}
@@ -595,22 +595,59 @@ export default function App() {
             {stats.map((s, i) => (
               <div
                 key={i}
-                className={`px-8 py-12 text-center ${
+                className={`px-4 py-8 md:px-8 md:py-12 text-center ${
                   i < stats.length - 1 ? "border-r border-white/10" : ""
                 }`}
               >
                 <div
-                  className="font-display text-5xl md:text-6xl font-bold mb-2"
+                  className="font-display text-3xl sm:text-4xl md:text-6xl font-bold mb-1 md:mb-2"
                   style={{ color: i % 2 === 0 ? BLUSH : PINK }}
                 >
                   {s.value}
                 </div>
-                <div className="font-body text-xs text-white/40 tracking-wide uppercase">
+                <div className="font-body text-[10px] md:text-xs text-white/40 tracking-wide uppercase leading-tight">
                   {s.label}
                 </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+       {/* CTA */}
+      <section
+        className="relative overflow-hidden py-24 md:py-32"
+        style={{ background: DARK }}
+      >
+        <div
+          className="absolute -right-32 -top-32 w-[500px] h-[500px] rounded-full blur-[130px] opacity-30"
+          style={{ background: BLUE }}
+        />
+        <div
+          className="absolute -left-32 bottom-0 w-[450px] h-[450px] rounded-full blur-[130px] opacity-20"
+          style={{ background: PINK }}
+        />
+        <div className="relative max-w-3xl mx-auto px-6 md:px-10 text-center">
+          <div
+            className="inline-block text-xs font-semibold tracking-[0.2em] uppercase px-4 py-1.5 rounded-full mb-5"
+            style={{ background: BLUSH, color: PINK }}
+          >
+            Ready When You Are
+          </div>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white leading-tight">
+            Let's talk about your{" "}
+            <span style={{ color: PINK }}>destiny.</span>
+          </h2>
+          <p className="font-body text-white/60 text-base md:text-lg max-w-xl mx-auto leading-8 mt-6">
+            Book a free consultation and let's shape your next chapter together.
+          </p>
+          <button
+            onClick={() => (window.location.href = "/contact")}
+            className="mt-10 px-8 py-4 font-body text-sm font-bold text-white transition-transform hover:scale-[1.03]"
+            style={{ background: PINK }}
+          >
+            Get In Touch →
+          </button>
         </div>
       </section>
 

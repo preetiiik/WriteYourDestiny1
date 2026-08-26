@@ -265,18 +265,18 @@ export default function Services() {
             <div>
 
               <div
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-wide mb-7"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide mb-6 fade-up"
                 style={{
-                  background: "#fff0f7",
+                  background: BLUSH,
                   color: PINK,
+                  animationDelay: "0.05s",
                 }}
               >
                 <span
-                  className="w-2 h-2 rounded-full"
+                  className="w-1.5 h-1.5 rounded-full"
                   style={{ background: PINK }}
                 />
-
-                OUR SERVICES
+                Our Services
               </div>
 
               <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight">
