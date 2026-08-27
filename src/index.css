@@ -2,7 +2,7 @@
 
 @import 'tailwindcss';
 
-@theme {
+@theme{
   --font-display: 'Manrope', sans-serif;
   --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
 

@@ -2,10 +2,24 @@ import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import logo from "@/imports/ChatGPT_Image_Aug_24__2026__12_02_21_PM.png"
 
+/* Same design tokens as the home page (App.tsx) */
 const BLUE = "#1355B2"
 const PINK = "#F5569B"
 const BLUSH = "#FFCBEB"
 const DARK = "#0a1a3d"
+const SKYBLUE = "C3DBFD"
+
+function Eyebrow({ children }: { children: React.ReactNode }) {
+  return (
+    <div
+      className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide"
+      style={{ background: BLUSH, color: PINK }}
+    >
+      <span className="w-1.5 h-1.5 rounded-full" style={{ background: PINK }} />
+      {children}
+    </div>
+  )
+}
 
 export default function Contact() {
   const navigate = useNavigate()
@@ -56,10 +70,10 @@ export default function Contact() {
               Services
             </button>
             <button
-              className="nav-link font-body text-sm font-semibold"
-              style={{ color: PINK }}
+              onClick={() => navigate("/jobs")}
+              className="nav-link font-body text-sm font-medium text-[#4a5568] hover:text-[#0a1a3d] transition-colors"
             >
-              Contact
+              Find Jobs
             </button>
             <button
               onClick={() => scrollTo("contact")}
@@ -100,35 +114,52 @@ export default function Contact() {
         >
           <div className="bg-white border-t border-gray-100 px-6 py-5 flex flex-col gap-4">
             <button
-              onClick={() => navigate("/about")}
-              className="text-left text-[#4a5568] font-body text-base"
+              onClick={() => {
+                navigate("/about")
+                setMenuOpen(false)
+              }}
+              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
             >
               About
             </button>
             <button
-              onClick={() => navigate("/services")}
-              className="text-left text-[#4a5568] font-body text-base"
+              onClick={() => {
+                navigate("/services")
+                setMenuOpen(false)
+              }}
+              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
             >
               Services
             </button>
             <button
-              className="text-left font-body text-base font-semibold"
-              style={{ color: PINK }}
+              onClick={() => {
+                navigate("/jobs")
+                setMenuOpen(false)
+              }}
+              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
             >
-              Contact
+              Find Jobs
             </button>
           </div>
         </div>
       </nav>
 
       {/* PAGE HEADER */}
-      <section className="pt-32 pb-10 px-6 md:px-10" style={{ background: BLUSH + "30" }}>
-        <div className="max-w-7xl mx-auto text-center">
-          <div
-            className="inline-block text-xs font-semibold tracking-[0.2em] uppercase px-4 py-1.5 rounded-full mb-5"
-            style={{ background: BLUSH, color: PINK }}
-          >
-            Get In Touch
+      <section className="pt-32 pb-16 md:pt-36 md:pb-20 relative overflow-hidden">
+        <div
+          className="absolute top-0 right-0 w-1/2 h-full"
+          style={{
+            background: `linear-gradient(135deg, ${SKYBLUE}60 0%, ${BLUSH}20 100%)`,
+          }}
+        />
+        <div
+          className="absolute -top-32 -right-32 w-96 h-96 rounded-full"
+          style={{ background: BLUSH, filter: "blur(80px)", opacity: 0.6 }}
+        />
+
+        <div className="relative max-w-7xl mx-auto px-6 md:px-10 text-center">
+          <div className="flex justify-center mb-6">
+            <Eyebrow>Get In Touch</Eyebrow>
           </div>
           <h1 className="font-display text-4xl md:text-5xl font-bold leading-tight">
             Let's write your
@@ -158,42 +189,80 @@ export default function Contact() {
             </p>
 
             <div className="space-y-6">
-              {[
-                {
-                  icon: "📍",
-                  label: "Location",
-                  text: "BM Plaza, Deshpande Nagar, Hubli, Karnataka",
-                },
-                { icon: "📞", label: "Phone", text: "+91 9606351695" },
-                {
-                  icon: "🕐",
-                  label: "Hours",
-                  text: "Mon–Fri: 9:30am – 6:30pm\nSat: 9:30am – 2:30pm",
-                },
-              ].map((c) => (
-                <div key={c.label} className="flex items-start gap-4">
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0"
-                    style={{ background: BLUE }}
-                  >
-                    {c.icon}
-                  </div>
-                  <div>
-                    <p className="font-body text-xs text-[#9aa3b5] uppercase tracking-widest mb-0.5">
-                      {c.label}
-                    </p>
-                    <p className="font-body text-sm text-[#0a1a3d] whitespace-pre-line">
-                      {c.text}
-                    </p>
-                  </div>
+              {/* Location */}
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=BM+Plaza,+Deshpande+Nagar,+Hubli,+Karnataka"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 group cursor-pointer"
+              >
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 transition-transform duration-300 group-hover:scale-110"
+                  style={{ background: BLUE }}
+                >
+                  📍
                 </div>
-              ))}
+
+                <div>
+                  <p className="font-body text-xs text-[#9aa3b5] uppercase tracking-widest mb-0.5">
+                    Location
+                  </p>
+
+                  <p className="font-body text-sm text-[#0a1a3d] group-hover:text-[#1355B2] transition-colors">
+                    BM Plaza, Deshpande Nagar, Hubli, Karnataka
+                  </p>
+                </div>
+              </a>
+
+              {/* Phone */}
+              <a
+                href="tel:+919606351695"
+                className="flex items-start gap-4 group cursor-pointer"
+              >
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 transition-transform duration-300 group-hover:scale-110"
+                  style={{ background: BLUE }}
+                >
+                  📞
+                </div>
+
+                <div>
+                  <p className="font-body text-xs text-[#9aa3b5] uppercase tracking-widest mb-0.5">
+                    Phone
+                  </p>
+
+                  <p className="font-body text-sm text-[#0a1a3d] group-hover:text-[#1355B2] transition-colors">
+                    +91 9606351695
+                  </p>
+                </div>
+              </a>
+
+              {/* Hours */}
+              <div className="flex items-start gap-4">
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0"
+                  style={{ background: BLUE }}
+                >
+                  🕐
+                </div>
+
+                <div>
+                  <p className="font-body text-xs text-[#9aa3b5] uppercase tracking-widest mb-0.5">
+                    Hours
+                  </p>
+
+                  <p className="font-body text-sm text-[#0a1a3d] whitespace-pre-line">
+                    Mon–Fri: 9:30am – 6:30pm{"\n"}
+                    Sat: 9:30am – 2:30pm
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Form */}
           <div
-            className="bg-white rounded-3xl p-8 shadow-xl"
+            className="bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100"
             style={{ boxShadow: `0 24px 64px ${BLUE}20` }}
           >
             <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
@@ -267,44 +336,137 @@ export default function Contact() {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-10 px-6 md:px-10" style={{ background: DARK }}>
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="bg-white rounded-xl px-4 py-2 inline-flex items-center shrink-0">
-            <img
-              src={logo}
-              alt="Write Your Destiny"
-              className="h-8 w-auto object-contain"
-            />
+      <footer className="pt-16 pb-8 px-6 md:px-10" style={{ background: BLUE }}>
+        <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {/* Logo + tagline */}
+          <div>
+            <button
+              onClick={() => navigate("/")}
+              className="bg-white rounded-xl px-4 py-2 inline-flex items-center shrink-0 mb-4 transition-transform duration-300 hover:scale-105"
+              aria-label="Go to home"
+            >
+              <img src={logo} alt="Write Your Destiny" className="h-8 w-auto object-contain" />
+            </button>
+            <p className="font-body text-sm text-white/70 leading-relaxed">
+              Welcome to Write Your Destiny (WYD), a global HR boutique dedicated to shaping
+              careers.
+            </p>
           </div>
-          <p className="font-body text-xs text-white/30 text-center">
-            © {new Date().getFullYear()} Write Your Destiny. All Rights
-            Reserved. Hubli, Karnataka. Powered by{" "}
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="font-display text-white font-bold mb-4">Quick Links</h3>
+            <div className="flex flex-col gap-2.5">
+              <button
+                onClick={() => navigate("/")}
+                className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
+              >
+                Home
+              </button>
+              <button
+                onClick={() => navigate("/about")}
+                className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
+              >
+                About Us
+              </button>
+              <button
+                onClick={() => navigate("/services")}
+                className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
+              >
+                Our Services
+              </button>
+              <button
+                onClick={() => navigate("/about#blogs")}
+                className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
+              >
+                Our Blogs
+              </button>
+              <button
+                onClick={() => navigate("/jobs")}
+                className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
+              >
+                Find Jobs
+              </button>
+              <button
+                onClick={() => navigate("/contact")}
+                className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
+              >
+                Contact Us
+              </button>
+            </div>
+          </div>
+
+          {/* Contact Us */}
+          <div>
+            <h3 className="font-display text-white font-bold mb-4">Contact Us</h3>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=WYD+3rd+Floor+BM+Plaza+Near+Sharada+Hotel+Deshpande+Nagar+Hubli"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block font-body text-sm text-white/70 hover:text-white leading-relaxed mb-3 transition-colors"
+            >
+              WYD 3rd Floor, BM Plaza
+              <br />
+              Near Sharada Hotel
+              <br />
+              Deshpande Nagar, Hubli
+            </a>
+            <a
+              href="tel:+919606351695"
+              className="block font-body text-sm text-white/70 hover:text-white mb-1 transition-colors"
+            >
+              Phone: +91 9606351695
+            </a>
+            <a
+              href="mailto:shreedevi.roogi@writeyourdestiny.in"
+              className="block font-body text-sm text-white/70 hover:text-white break-all transition-colors"
+            >
+              Email: shreedevi.roogi@writeyourdestiny.in
+            </a>
+          </div>
+
+          {/* Working Hours */}
+          <div>
+            <h3 className="font-display text-white font-bold mb-4">Working Hours</h3>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=WYD+BM+Plaza+Deshpande+Nagar+Hubli"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block font-body text-sm text-white/70 hover:text-white leading-relaxed transition-colors"
+            >
+              Monday to Friday
+              <br />
+              9:30 am to 6:30 pm
+              <br />
+              <br />
+              Saturday
+              <br />
+              9:30 am to 2:30 pm
+            </a>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/10">
+          <p className="font-body text-xs text-white/50 text-center">
+            © {new Date().getFullYear()} Write Your Destiny. All Rights Reserved.{" "}
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Hubli+Karnataka"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Hubli, Karnataka
+            </a>
+            . Powered by{" "}
             <a
               href="https://www.spitel.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/50 hover:text-white/80 transition-colors"
+              className="hover:text-white transition-colors"
             >
               Spitel Pvt. Ltd.
             </a>
           </p>
-          <div className="flex gap-6">
-            <button
-              onClick={() => navigate("/about")}
-              className="font-body text-xs text-white/30 hover:text-white/70 transition-colors"
-            >
-              About
-            </button>
-            <button
-              onClick={() => navigate("/services")}
-              className="font-body text-xs text-white/30 hover:text-white/70 transition-colors"
-            >
-              Services
-            </button>
-            <button className="font-body text-xs text-white/70">
-              Contact
-            </button>
-          </div>
         </div>
       </footer>
     </div>
