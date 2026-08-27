@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import logo from "@/imports/ChatGPT_Image_Aug_24__2026__12_02_21_PM.png"
+import ctaBg from "@/imports/cta-support-illustration.png"
+
+// const DARK = "#0a1a3d"
 
 /* Same design tokens as the home page (App.tsx) */
 const BLUE = "#1355B2"
@@ -758,29 +761,39 @@ export default function Jobs() {
           }`}
         >
           <div className="bg-white border-t border-gray-100 px-6 py-5 flex flex-col gap-4">
-            <button
-              onClick={() => {
-                navigate("/about")
-                setMenuOpen(false)
-              }}
-              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
-            >
-              About
-            </button>
-            <button
-              onClick={goToServices}
-              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
-            >
-              Services
-            </button>
-            <button
-              onClick={() => setMenuOpen(false)}
-              className="text-left font-body text-base font-semibold transition-colors"
-              style={{ color: PINK }}
-            >
-              Find Jobs
-            </button>
-          </div>
+  <button
+    onClick={() => navigate("/about")}
+    className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+  >
+    About
+  </button>
+
+  <button
+    onClick={() => navigate("/services")}
+    className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+  >
+    Services
+  </button>
+
+  <button
+    onClick={() => navigate("/jobs")}
+    className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+  >
+    Find Jobs
+  </button>
+
+  {/* Get Started */}
+  <button
+    onClick={() => {
+      navigate("/contact")
+      setMenuOpen(false)
+    }}
+    className="w-full py-3 mt-2 text-sm font-semibold text-white transition-all duration-300 hover:opacity-90"
+    style={{ background: PINK }}
+  >
+    Get Started →
+  </button>
+</div>
         </div>
       </nav>
 
@@ -856,38 +869,42 @@ export default function Jobs() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative overflow-hidden py-24 md:py-32" style={{ background: DARK }}>
-        <div
-          className="absolute -right-32 -top-32 w-[500px] h-[500px] rounded-full blur-[130px] opacity-30"
-          style={{ background: BLUE }}
-        />
-        <div
-          className="absolute -left-32 bottom-0 w-[450px] h-[450px] rounded-full blur-[130px] opacity-20"
-          style={{ background: PINK }}
-        />
-        <div className="relative max-w-3xl mx-auto px-6 md:px-10 text-center">
-          <div
-            className="inline-block text-xs font-semibold tracking-[0.2em] uppercase px-4 py-1.5 rounded-full mb-5"
-            style={{ background: BLUSH, color: PINK }}
-          >
-            Ready When You Are
-          </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white leading-tight">
-            Let's talk about your <span style={{ color: PINK }}>destiny.</span>
-          </h2>
-          <p className="font-body text-white/60 text-base md:text-lg max-w-xl mx-auto leading-8 mt-6">
-            Book a free consultation and let's shape your next chapter together.
-          </p>
-          <button
-            onClick={() => navigate("/contact")}
-            className="mt-10 px-8 py-4 font-body text-sm font-bold text-white transition-transform hover:scale-[1.03]"
-            style={{ background: PINK }}
-          >
-            Get In Touch →
-          </button>
-        </div>
-      </section>
+       {/* CTA */}
+<section
+  className="relative overflow-hidden py-24 md:py-28 px-6 md:px-10"
+  style={{ background: DARK }}
+>
+  <img
+    src={ctaBg}
+    alt=""
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+
+  {/* Blue overlay - 45% */}
+  <div className="absolute inset-0 bg-[#0a1a3d]/85" />
+
+  <div className="relative max-w-2xl mx-auto text-center">
+    <div className="inline-block text-xs font-semibold tracking-[0.2em] uppercase px-4 py-1.5 rounded-full bg-white/15 text-white">
+      Ready When You Are
+    </div>
+
+    <h2 className="font-display mt-6 text-3xl md:text-4xl font-bold text-white leading-tight">
+      Let's talk about your <span style={{ color: PINK }}>destiny.</span>
+    </h2>
+
+    <p className="font-body text-white/80 text-base max-w-xl mx-auto leading-7 mt-5">
+      Book a free consultation and let's shape your next chapter together.
+    </p>
+
+    <button
+      onClick={() => navigate("/contact")}
+      className="font-body mt-8 px-8 py-4 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+      style={{ background: PINK }}
+    >
+      Get In Touch →
+    </button>
+  </div>
+</section>
 
       {/* FOOTER */}
       <footer className="pt-16 pb-8 px-6 md:px-10" style={{ background: BLUE }}>

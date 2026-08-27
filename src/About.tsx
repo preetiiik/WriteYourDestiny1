@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+
 import logo from "@/imports/ChatGPT_Image_Aug_24__2026__12_02_21_PM.png"
 import reelResumeTips from "@/imports/reel-resume-tips.png"
 import reelOverseasEducation from "@/imports/reel-overseas-education.png"
@@ -13,6 +14,7 @@ import imgBharati from "@/imports/bharati.png"
 import imgVaishnavi from "@/imports/vaishnavi.png"
 import imgTeamHero from "@/imports/team-photo.png"
 import imgFoundersStory from "@/imports/founders-story.png"
+import ctaBg from "@/imports/cta-support-illustration.png"
 
 /* Same design tokens as the home page (App.tsx) */
 const BLUE = "#1355B2"
@@ -20,6 +22,7 @@ const PINK = "#F5569B"
 const BLUSH = "#FFCBEB"
 const DARK = "#0a1a3d"
 const SKYBLUE = "C3DBFD"
+const INK = "#14213D"
 
 /* Hero/portrait photo for this page */
 const IMG_ABOUT_HERO = imgTeamHero
@@ -213,91 +216,118 @@ export default function About() {
           }`}
         >
           <div className="bg-white border-t border-gray-100 px-6 py-5 flex flex-col gap-4">
-            <button
-              onClick={() => scrollTo("story")}
-              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
-            >
-              About
-            </button>
-            <button
-              onClick={goToServices}
-              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
-            >
-              Services
-            </button>
-            <button
-              onClick={() => navigate("/jobs")}
-              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
-            >
-              Find Jobs
-            </button>
-          </div>
+  <button
+    onClick={() => navigate("/about")}
+    className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+  >
+    About
+  </button>
+
+  <button
+    onClick={() => navigate("/services")}
+    className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+  >
+    Services
+  </button>
+
+  <button
+    onClick={() => navigate("/jobs")}
+    className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+  >
+    Find Jobs
+  </button>
+
+  {/* Get Started */}
+  <button
+    onClick={() => {
+      navigate("/contact")
+      setMenuOpen(false)
+    }}
+    className="w-full py-3 mt-2 text-sm font-semibold text-white transition-all duration-300 hover:opacity-90"
+    style={{ background: PINK }}
+  >
+    Get Started →
+  </button>
+</div>
         </div>
       </nav>
 
       {/* HERO */}
-      <section id="story" className="pt-28 pb-20 md:pt-32 md:pb-24 relative">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div
-            className="absolute top-0 right-0 w-1/2 h-full"
-            style={{
-              background: `linear-gradient(135deg, ${SKYBLUE}60 0%, ${BLUSH}20 100%)`,
-            }}
-          />
-          <div
-            className="absolute -top-32 -right-32 w-96 h-96 rounded-full"
-            style={{ background: BLUSH, filter: "blur(80px)", opacity: 0.6 }}
-          />
+     {/* HERO */}
+<section id="story" className="relative overflow-hidden">
+  {/* Mobile: full photo, no crop, no overlay text */}
+  <div className="md:hidden pt-16">
+    <img
+      src={IMG_ABOUT_HERO}
+      alt="Write Your Destiny team"
+      className="w-full h-auto"
+      onError={(e) => {
+        ;(e.target as HTMLImageElement).style.display = "none"
+      }}
+    />
+    <div className="px-6 py-8" style={{ background: DARK }}>
+      <div
+        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide mb-5"
+        style={{ background: "rgba(255,255,255,0.1)", color: "#FFCBEB" }}
+      >
+        <span className="w-1.5 h-1.5 rounded-full" style={{ background: PINK }} />
+        Who We Are
+      </div>
+      <h1 className="font-display text-4xl font-bold leading-tight text-white">
+        About <span style={{ color: PINK }}>Us.</span>
+      </h1>
+      <p className="font-display italic text-lg font-light mt-3 text-white/85">
+        Know us a little more here.
+      </p>
+    </div>
+  </div>
+
+  {/* Desktop: original full-bleed overlay hero, unchanged */}
+  <div className="hidden md:flex relative h-[600px] overflow-hidden items-end">
+    <div className="absolute inset-0">
+      <img
+        src={IMG_ABOUT_HERO}
+        alt="Write Your Destiny team"
+        className="w-full h-full object-cover"
+        onError={(e) => {
+          ;(e.target as HTMLImageElement).style.display = "none"
+        }}
+      />
+      <div
+        className="absolute inset-x-0 bottom-0 h-2/3"
+        style={{
+          background: `linear-gradient(180deg, transparent 0%, ${DARK}66 45%, ${DARK}e6 85%, ${DARK} 100%)`,
+        }}
+      />
+    </div>
+    <div className="relative max-w-7xl mx-auto px-10 pb-14 w-full">
+      <div className="max-w-2xl" style={{ textShadow: "0 2px 16px rgba(10,26,61,0.55)" }}>
+        <div
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide mb-6"
+          style={{ background: "rgba(10,26,61,0.55)", color: "#FFCBEB", backdropFilter: "blur(6px)" }}
+        >
+          <span className="w-1.5 h-1.5 rounded-full" style={{ background: PINK }} />
+          Who We Are
         </div>
+        <h1 className="font-display text-5xl lg:text-6xl font-bold leading-tight text-white">
+          About <span style={{ color: PINK }}>Us.</span>
+        </h1>
+        <p className="font-display italic text-xl font-light mt-3 text-white/85">
+          Know us a little more here.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div className="relative max-w-7xl mx-auto px-6 md:px-10">
-          <div className="mb-14 max-w-2xl">
-            <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide mb-6"
-              style={{ background: BLUSH, color: PINK }}
-            >
-              <span className="w-1.5 h-1.5 rounded-full" style={{ background: PINK }} />
-              Who We Are
-            </div>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              About{" "}
-              <span style={{ color: PINK }}>Us.</span>
-            </h1>
-            <p className="font-display italic text-lg md:text-xl font-light mt-3" style={{ color: BLUE }}>
-              Know us a little more here.
+      {/* WELCOME COPY */}
+      <section className="py-20 px-6 md:px-10">
+        <div className="max-w-3xl mx-auto space-y-4">
+          {welcomeParagraphs.map((p, i) => (
+            <p key={i} className="font-body text-sm md:text-[15px] leading-relaxed text-[#6b7a99]">
+              {p}
             </p>
-          </div>
-
-          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 items-start">
-            <div className="relative lg:-mt-8">
-              <div
-                className="absolute -bottom-6 -left-6 w-32 h-32 rounded-full opacity-30"
-                style={{ background: `${PINK}20` }}
-              />
-              <div
-                className="relative overflow-hidden lg:sticky lg:top-24"
-                style={{ borderRadius: "60% 40% 70% 30% / 50% 60% 40% 60%" }}
-              >
-                <img
-                  src={IMG_ABOUT_HERO}
-                  alt="Write Your Destiny team"
-                  className="w-full h-[420px] md:h-[480px] object-contain bg-white"
-                  onError={(e) => {
-                    ;(e.target as HTMLImageElement).style.display = "none"
-                  }}
-                />
-              </div>
-            </div>
-
-            {/* The real "Welcome to WYD" copy */}
-            <div className="space-y-4">
-              {welcomeParagraphs.map((p, i) => (
-                <p key={i} className="font-body text-sm md:text-[15px] leading-relaxed text-[#6b7a99]">
-                  {p}
-                </p>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -480,38 +510,44 @@ export default function About() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative overflow-hidden py-24 md:py-32" style={{ background: DARK }}>
-        <div
-          className="absolute -right-32 -top-32 w-[500px] h-[500px] rounded-full blur-[130px] opacity-30"
-          style={{ background: BLUE }}
-        />
-        <div
-          className="absolute -left-32 bottom-0 w-[450px] h-[450px] rounded-full blur-[130px] opacity-20"
-          style={{ background: PINK }}
-        />
-        <div className="relative max-w-3xl mx-auto px-6 md:px-10 text-center">
-          <div
-            className="inline-block text-xs font-semibold tracking-[0.2em] uppercase px-4 py-1.5 rounded-full mb-5"
-            style={{ background: BLUSH, color: PINK }}
-          >
-            Ready When You Are
-          </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white leading-tight">
-            Let's talk about your <span style={{ color: PINK }}>destiny.</span>
-          </h2>
-          <p className="font-body text-white/60 text-base md:text-lg max-w-xl mx-auto leading-8 mt-6">
-            Book a free consultation and let's shape your next chapter together.
-          </p>
-          <button
-            onClick={() => navigate("/contact")}
-            className="mt-10 px-8 py-4 font-body text-sm font-bold text-white transition-transform hover:scale-[1.03]"
-            style={{ background: PINK }}
-          >
-            Get In Touch →
-          </button>
-        </div>
-      </section>
+      {/* import ctaBg from "../assets/cta-support-illustration.png"; */}
+
+{/* CTA */}
+<section
+  className="relative overflow-hidden py-24 md:py-28 px-6 md:px-10"
+  style={{ background: INK }}
+>
+  <img
+    src={ctaBg}
+    alt=""
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+
+  {/* Blue overlay - 45% */}
+  <div className="absolute inset-0 bg-[#0a1a3d]/85" />
+
+  <div className="relative max-w-2xl mx-auto text-center">
+    <div className="inline-block text-xs font-semibold tracking-[0.2em] uppercase px-4 py-1.5 rounded-full bg-white/15 text-white">
+      Ready When You Are
+    </div>
+
+    <h2 className="font-display mt-6 text-3xl md:text-4xl font-bold text-white leading-tight">
+      Let's talk about your <span style={{ color: PINK }}>destiny.</span>
+    </h2>
+
+    <p className="font-body text-white/80 text-base max-w-xl mx-auto leading-7 mt-5">
+      Book a free consultation and let's shape your next chapter together.
+    </p>
+
+    <button
+      onClick={() => navigate("/contact")}
+      className="font-body mt-8 px-8 py-4 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+      style={{ background: PINK }}
+    >
+      Get In Touch →
+    </button>
+  </div>
+</section>
 
       {/* BLOGS */}
       <section id="blogs" className="py-20 px-6 md:px-10" style={{ background: BLUSH + "40" }}>

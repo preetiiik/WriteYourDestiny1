@@ -113,34 +113,39 @@ export default function Contact() {
           }`}
         >
           <div className="bg-white border-t border-gray-100 px-6 py-5 flex flex-col gap-4">
-            <button
-              onClick={() => {
-                navigate("/about")
-                setMenuOpen(false)
-              }}
-              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
-            >
-              About
-            </button>
-            <button
-              onClick={() => {
-                navigate("/services")
-                setMenuOpen(false)
-              }}
-              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
-            >
-              Services
-            </button>
-            <button
-              onClick={() => {
-                navigate("/jobs")
-                setMenuOpen(false)
-              }}
-              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
-            >
-              Find Jobs
-            </button>
-          </div>
+  <button
+    onClick={() => navigate("/about")}
+    className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+  >
+    About
+  </button>
+
+  <button
+    onClick={() => navigate("/services")}
+    className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+  >
+    Services
+  </button>
+
+  <button
+    onClick={() => navigate("/jobs")}
+    className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+  >
+    Find Jobs
+  </button>
+
+  {/* Get Started */}
+  <button
+    onClick={() => {
+      navigate("/contact")
+      setMenuOpen(false)
+    }}
+    className="w-full py-3 mt-2 text-sm font-semibold text-white transition-all duration-300 hover:opacity-90"
+    style={{ background: PINK }}
+  >
+    Get Started →
+  </button>
+</div>
         </div>
       </nav>
 

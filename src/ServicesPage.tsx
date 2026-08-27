@@ -10,6 +10,9 @@ import iconBehavioralSkills from "@/imports/icon-behavioral-skills.png"
 import iconInterviewingSkills from "@/imports/icon-interviewing-skills.png"
 import iconPsychologicalTraining from "@/imports/icon-psychological-training.png"
 import imgAbroad from "@/imports/ielts-overseas.png"
+import ctaBg from "@/imports/cta-support-illustration.png"
+
+// const DARK = "#0a1a3d"
 
 /* Same design tokens as the home page (App.tsx) */
 const BLUE = "#1355B2"
@@ -270,45 +273,62 @@ export default function Services() {
           }`}
         >
           <div className="bg-white border-t border-gray-100 px-6 py-5 flex flex-col gap-4">
-            <button
-              onClick={() => {
-                navigate("/about")
-                setMenuOpen(false)
-              }}
-              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
-            >
-              About
-            </button>
-            <button
-              onClick={() => setMenuOpen(false)}
-              className="text-left font-body text-base font-semibold"
-              style={{ color: PINK }}
-            >
-              Services
-            </button>
-            <button
-              onClick={() => navigate("/jobs")}
-              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
-            >
-              Find Jobs
-            </button>
-          </div>
+  <button
+    onClick={() => navigate("/about")}
+    className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+  >
+    About
+  </button>
+
+  <button
+    onClick={() => navigate("/services")}
+    className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+  >
+    Services
+  </button>
+
+  <button
+    onClick={() => navigate("/jobs")}
+    className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+  >
+    Find Jobs
+  </button>
+
+  {/* Get Started */}
+  <button
+    onClick={() => {
+      navigate("/contact")
+      setMenuOpen(false)
+    }}
+    className="w-full py-3 mt-2 text-sm font-semibold text-white transition-all duration-300 hover:opacity-90"
+    style={{ background: PINK }}
+  >
+    Get Started →
+  </button>
+</div>
         </div>
       </nav>
 
       {/* HERO */}
-      <section id="services-hero" className="pt-28 pb-20 md:pt-32 md:pb-24 relative overflow-hidden">
+      <section
+        id="services-hero"
+        className="relative overflow-hidden pt-28 pb-20 md:pt-36 md:pb-22 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${IMG_HERO})` }}
+      >
+        {/* Scrim for text legibility over the photo */}
         <div
-          className="absolute top-0 right-0 w-1/2 h-full"
-          style={{ background: `linear-gradient(135deg, ${SKYBLUE}60 0%, ${BLUSH}20 100%)` }}
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(180deg, ${DARK}b3 35%, ${DARK}85 95%, ${DARK}cc 100%)`,
+          }}
         />
         <div
           className="absolute -top-32 -right-32 w-96 h-96 rounded-full"
-          style={{ background: BLUSH, filter: "blur(80px)", opacity: 0.6 }}
+          style={{ background: BLUSH, filter: "blur(90px)", opacity: 0.25 }}
         />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-10">
-          <div className="mb-14 max-w-2xl">
+          <div className="max-w-2xl">
             <div
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide mb-6"
               style={{ background: BLUSH, color: PINK }}
@@ -316,70 +336,46 @@ export default function Services() {
               <span className="w-1.5 h-1.5 rounded-full" style={{ background: PINK }} />
               What We Do
             </div>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1]">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white">
               Solutions that empower people.
               <br />
               Transform <span style={{ color: PINK }}>futures.</span>
             </h1>
-            <p className="font-display italic text-lg md:text-xl font-light mt-3" style={{ color: BLUE }}>
+            <p className="font-display italic text-lg md:text-xl font-light mt-3 text-white/90">
               End-to-end solutions that create real impact.
             </p>
-          </div>
 
-          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
-            <div className="relative">
-              <div
-                className="absolute -bottom-6 -left-6 w-32 h-32 rounded-full opacity-30"
-                style={{ background: `${PINK}20` }}
-              />
-              <div
-                className="relative overflow-hidden"
-                style={{ borderRadius: "60% 40% 70% 30% / 50% 60% 40% 60%" }}
-              >
-                <img
-                  src={IMG_HERO}
-                  alt="WYD team working together"
-                  className="w-full h-[380px] md:h-[440px] object-cover object-top"
-                  onError={(e) => {
-                    ;(e.target as HTMLImageElement).style.display = "none"
-                  }}
-                />
+            <p className="font-body text-lg text-white/80 leading-relaxed mt-8 mb-10 max-w-xl">
+              From hiring the right talent to building skills and guiding global dreams — we
+              provide end-to-end solutions that create real impact.
+            </p>
+
+            <div className="flex gap-8 mb-10">
+              <div>
+                <div className="font-display text-2xl font-bold" style={{ color: PINK }}>
+                  50+
+                </div>
+                <div className="font-body text-xs text-white/70 mt-0.5">
+                  Careers shaped across India
+                </div>
+              </div>
+              <div>
+                <div className="font-display text-2xl font-bold" style={{ color: PINK }}>
+                  3
+                </div>
+                <div className="font-body text-xs text-white/70 mt-0.5">
+                  Core service pillars
+                </div>
               </div>
             </div>
 
-            <div>
-              <p className="font-body text-lg text-[#6b7a99] leading-relaxed mb-8">
-                From hiring the right talent to building skills and guiding global dreams — we
-                provide end-to-end solutions that create real impact.
-              </p>
-
-              <div className="flex gap-8 mb-10">
-                <div>
-                  <div className="font-display text-2xl font-bold" style={{ color: PINK }}>
-                    50+
-                  </div>
-                  <div className="font-body text-xs text-[#9aa3b5] mt-0.5">
-                    Careers shaped across India
-                  </div>
-                </div>
-                <div>
-                  <div className="font-display text-2xl font-bold" style={{ color: PINK }}>
-                    3
-                  </div>
-                  <div className="font-body text-xs text-[#9aa3b5] mt-0.5">
-                    Core service pillars
-                  </div>
-                </div>
-              </div>
-
-              <button
-                onClick={() => scrollTo("core-services")}
-                className="px-8 py-4 font-semibold text-sm tracking-wide text-white transition-all duration-300 hover:opacity-90 hover:shadow-lg"
-                style={{ background: BLUE, boxShadow: `0 4px 24px ${BLUE}40` }}
-              >
-                Explore Our Services →
-              </button>
-            </div>
+            <button
+              onClick={() => scrollTo("core-services")}
+              className="px-8 py-4 font-semibold text-sm tracking-wide text-white transition-all duration-300 hover:opacity-90 hover:shadow-lg"
+              style={{ background: BLUE, boxShadow: `0 4px 24px ${BLUE}40` }}
+            >
+              Explore Our Services →
+            </button>
           </div>
         </div>
       </section>
@@ -719,38 +715,42 @@ export default function Services() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative overflow-hidden py-24 md:py-32" style={{ background: DARK }}>
-        <div
-          className="absolute -right-32 -top-32 w-[500px] h-[500px] rounded-full blur-[130px] opacity-30"
-          style={{ background: BLUE }}
-        />
-        <div
-          className="absolute -left-32 bottom-0 w-[450px] h-[450px] rounded-full blur-[130px] opacity-20"
-          style={{ background: PINK }}
-        />
-        <div className="relative max-w-3xl mx-auto px-6 md:px-10 text-center">
-          <div
-            className="inline-block text-xs font-semibold tracking-[0.2em] uppercase px-4 py-1.5 rounded-full mb-5"
-            style={{ background: BLUSH, color: PINK }}
-          >
-            Ready When You Are
-          </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white leading-tight">
-            Ready to discover <span style={{ color: PINK }}>what's possible?</span>
-          </h2>
-          <p className="font-body text-white/60 text-base md:text-lg max-w-xl mx-auto leading-8 mt-6">
-            Let's work together to shape brighter futures for individuals and organizations.
-          </p>
-          <button
-            onClick={() => navigate("/contact")}
-            className="mt-10 px-8 py-4 font-body text-sm font-bold text-white transition-transform hover:scale-[1.03]"
-            style={{ background: PINK }}
-          >
-            Let's Talk →
-          </button>
-        </div>
-      </section>
+       {/* CTA */}
+<section
+  className="relative overflow-hidden py-24 md:py-28 px-6 md:px-10"
+  style={{ background: DARK }}
+>
+  <img
+    src={ctaBg}
+    alt=""
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+
+  {/* Blue overlay - 45% */}
+  <div className="absolute inset-0 bg-[#0a1a3d]/85" />
+
+  <div className="relative max-w-2xl mx-auto text-center">
+    <div className="inline-block text-xs font-semibold tracking-[0.2em] uppercase px-4 py-1.5 rounded-full bg-white/15 text-white">
+      Ready When You Are
+    </div>
+
+    <h2 className="font-display mt-6 text-3xl md:text-4xl font-bold text-white leading-tight">
+      Let's talk about your <span style={{ color: PINK }}>destiny.</span>
+    </h2>
+
+    <p className="font-body text-white/80 text-base max-w-xl mx-auto leading-7 mt-5">
+      Book a free consultation and let's shape your next chapter together.
+    </p>
+
+    <button
+      onClick={() => navigate("/contact")}
+      className="font-body mt-8 px-8 py-4 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+      style={{ background: PINK }}
+    >
+      Get In Touch →
+    </button>
+  </div>
+</section>
 
       {/* BLOGS */}
       <section id="blogs" className="py-20 px-6 md:px-10" style={{ background: BLUSH + "40" }}>
