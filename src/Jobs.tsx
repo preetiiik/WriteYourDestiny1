@@ -22,9 +22,7 @@ type Job = {
   type: string
   location: string
   experience?: string
-  blurb: string
-  responsibilities: string[]
-  skills: string[]
+  description: string
   contact: Contact
 }
 
@@ -35,14 +33,45 @@ const jobs: Job[] = [
     type: "Full-time",
     location: "Bangalore & Hyderabad",
     experience: "2–4 years",
-    blurb: "L1/L2 helpdesk and incident-management support for desktops, mobile devices, Cisco phones, and enterprise systems.",
-    responsibilities: [
-      "Respond to technical assistance requests by phone and email, owning incidents end to end in the ticketing system",
-      "Troubleshoot desktops, laptops, mobile devices, and Cisco/IP phones",
-      "Support Active Directory, networking, messaging, and ESX-hosted virtual machines",
-      "Escalate issues appropriately and maintain clean ticket documentation and hygiene",
-    ],
-    skills: ["MDM", "Networking", "Active Directory", "Cisco", "RSA SecurID", "VPN", "Microsoft Office / O365", "Incident Management"],
+    description: `Responsibilities:-
+
+Strong communication skills, oral and
+Respond to requests for technical assistance by phone, email,
+Enter and manage all incidents and problems in the incident management system and act as a liaison between users and technical escalation teams.
+Knowledge on Service Now ticketing tool
+Energetically follow-up on open incidents and provide status updates while carrying the ticket from its cradle to grave.
+Escalate problems (when required) to the appropriate
+Maintain hygiene in ticket documentation, category selection and overall ticket
+Identify and learn appropriate software and hardware used and supported by the
+Where applicable, encourage users to use self-help resources and demo them on how to find answers on common issues or FAQs.
+2-4 years of relevant experience in troubleshooting technical issues related to Desktops, laptops, mobile devices, Cisco Phones.
+In depth understanding of virtual computers hosted via ESX servers and experience in configuring and troubleshooting them.
+Understanding on Active Directory, Networking, Messaging and Hardware
+Advanced troubleshooting experience in Microsoft Office applications suite including Teams, O365.
+Experience in troubleshooting issues related to VPN, RSA SecurID, Corporate applications on Mobile devices through any MDM service.
+Experience in troubleshooting issues related to Cisco Phones, IP Phones, Jabber,
+Incident Management knowledge, experience with Turrets will be added
+Extended working hours when business
+Flexibility to work in rotational shifts and week
+Ability to work under high
+Required:-
+
+MDM MOBILE DEVICES
+NETWORKING
+ACTIVE DIRECTORY
+CISCO Additional Skillsets
+RSA
+VENDOR MANAGEMENT
+VPN
+DOCUMENTATION
+ENGINEER
+INCIDENT MANAGEMENT
+LIAISON
+MASTER DATA MANAGEMENT
+MICROSOFT OFFICE
+STRONG COMMUNICATION SKILLS
+SYSTEMS ENGINEER
+TECHNICAL ASSISTANCE`,
     contact: { phone: "+91 9480193535", email: "anushap.wyd@gmail.com" },
   },
   {
@@ -50,14 +79,30 @@ const jobs: Job[] = [
     title: "Mainframe Developer",
     type: "Full-time",
     location: "Bangalore & Hyderabad",
-    blurb: "Develop and support mainframe systems (L3), working across DB2, SQL, COBOL, and clearing/CCP connectivity.",
-    responsibilities: [
-      "Develop, debug, and support COBOL-based mainframe applications",
-      "Work across DB2, SQL, JCL, CICS, VSAM, and IBM MQ",
-      "Support clearing business operations and CCP connectivity",
-      "Troubleshoot user issues and maintain clear technical documentation",
-    ],
-    skills: ["COBOL", "DB2", "SQL", "JCL", "CICS", "VSAM", "IBM MQ", "Mainframe SDLC"],
+    description: `Seeking an experienced Mainframe Specialist with hands-on development experience, particularly in L3 support, to manage and troubleshoot mainframe systems. The role involves working with DB2, SQL, COBOL, and other mainframe tools, supporting clearing business and CCP connectivity. Key Responsibilities
+
+Develop and support mainframe systems, focusing on L3
+Write and debug COBOL
+Work with DB2, SQL, JCL, CICS, VSAM, and IBM
+Support clearing business and CCP
+Troubleshoot and resolve user issues, providing technical
+Communicate effectively with users and
+Create documentation and track
+Multitask across various technical issues and Must-Have Skills
+Experience in Mainframe development
+Experience with DB2 and SQL
+Proficiency in COBOL programming
+Knowledge of JCL, CICS, VSAM
+Experience with IBM MQ
+Understanding of SDLC on mainframe
+Problem-solving skills
+Technical expertise in mainframe systems
+Customer service skills
+Attention to detail
+Multitasking abilities Nice-to-Have Skills
+Experience supporting clearing business
+Experience with CCP connectivity
+Business acumen in global markets and financial products`,
     contact: { phone: "+91 9480193535", email: "anushap.wyd@gmail.com" },
   },
   {
@@ -65,14 +110,34 @@ const jobs: Job[] = [
     title: "Executive Helpdesk Support Analyst",
     type: "Full-time",
     location: "Bangalore & Hyderabad",
-    blurb: "White-glove IT support for senior executives globally, with cradle-to-grave ownership of every issue.",
-    responsibilities: [
-      "Provide white-glove technical support to top executives via phone or email",
-      "Own issues end to end with timely updates and strong ticket hygiene",
-      "Troubleshoot Windows, Active Directory, Outlook, and Microsoft Office issues",
-      "Support Citrix/VMware/VDI environments and mobile OS (iOS/Android) issues",
-    ],
-    skills: ["Windows 7/10/11", "Active Directory", "LAN/WAN", "Citrix/VMware", "Microsoft 365", "Zoom"],
+    description: `Provide high-level technical support to top executives globally, ensuring swift and accurate resolution of issues. Collaborate with engineering teams to troubleshoot and maintain effective documentation.
+
+Key Responsibilities
+
+Provide white-glove treatment to clients and address requests via phone or
+Engage engineering teams for troubleshooting and maintain effective
+Perform cradle-to-grave ownership of issues with timely updates and follow-
+Demonstrate excellent ticket hygiene and manage ticket
+Analyze current practices for improvement and suggest strategic
+Develop subject matter expertise in supported systems and
+Must-Have Skills
+
+High school diploma
+Solid technical knowledge of Microsoft Windows platform (Windows 7, 10, 11)
+Experience with Zoom, Networking, LAN, WAN, and corporate enterprise domain infrastructure
+Troubleshooting skills with Windows desktop and server operating systems
+Knowledge of Microsoft Active Directory and Outlook
+Understanding of Microsoft Office products (Word, Excel, PowerPoint)
+Basic conceptual knowledge of Citrix/VMware/VDI/Virtualization
+Mobile OS (iOS/Android) application troubleshooting
+Strong customer service skills and focus on ownership
+Good English communication skills
+Flexibility to work 24×7 shifts occasionally
+Nice-to-Have Skills
+
+Technical knowledge of Microsoft 365 Suite
+Experience with iOS and Android devices
+Experience in high-level customer support or VIP support roles`,
     contact: { phone: "+91 9480193535", email: "anushap.wyd@gmail.com" },
   },
   {
@@ -80,14 +145,16 @@ const jobs: Job[] = [
     title: "Java/JavaScript Developer — L3 Support",
     type: "Full-time",
     location: "Bangalore & Hyderabad",
-    blurb: "A pure L3 support role at McLaren Strategic Solutions, debugging and resolving complex Java/JavaScript issues.",
-    responsibilities: [
-      "Provide L3 support, debugging complex Java and JavaScript issues",
-      "Collaborate cross-functionally to ensure seamless application delivery",
-      "Optimize SQL queries and perform basic Linux maintenance",
-      "Maintain and enhance backend and frontend components",
-    ],
-    skills: ["Java", "JavaScript", "SQL", "Linux", "Debugging", "Analytical Thinking"],
+    description: `Seeking a Java/JavaScript developer with strong debugging and analytical skills for a pure L3 support role at McLaren Strategic Solutions. The role involves code reading and writing, problem-solving, and collaboration in a support-focused environment. Key Responsibilities
+
+Provide L3 support for Java/JavaScript Debug and solve complex technical issues.
+Collaborate with cross-functional teams to ensure seamless application
+Optimize SQL queries and perform basic Linux Maintain and enhance backend/frontend technologies.
+Must-Have Skills
+
+Java programming experience JavaScript programming experience Intermediate SQL skills
+Basic Linux command-line operations Strong debugging and problem-solving skills Analytical thinking
+Communication and collaboration skills Willingness to work in a support-oriented L3 role`,
     contact: { phone: "+91 9480193535", email: "anushap.wyd@gmail.com" },
   },
   {
@@ -96,14 +163,33 @@ const jobs: Job[] = [
     type: "Contract",
     location: "Bangalore & Hyderabad",
     experience: "4+ years",
-    blurb: "Contract Java developer for AR/VR and advanced AI initiatives spanning computer vision, speech, and LLM-based NLU.",
-    responsibilities: [
-      "Build backend services in Java 11+ and Spring within a microservices architecture",
-      "Work with Kafka for messaging and MongoDB (or equivalents)",
-      "Apply strong SDLC practices across the development lifecycle",
-      "Contribute to test automation with JUnit, mocking, and Gherkin (nice to have)",
-    ],
-    skills: ["Java", "Microservices", "Kafka", "MongoDB", "Spring", "GitLab", "JUnit"],
+    description: `AR/VR and Advanced AI (Computer Vision, Speech
+
+Transcription and Synthesis, Natural Language Understanding with LLMs)
+
+Must Haves:
+
+4+ years of Java Development experience
+Java 11+
+Spring
+Experience working with microservices architecture Kafka for messaging – to some extent or equivalent MongoDB – to some extent or equivalent Strong understanding of SDLC
+Nice to haves:
+
+Gitlab – experience with others is generally fine, they can learn
+Gitlab Test automation (JUnit, Mocking, Gherkin) – candidate does not need deep expertise in all, should have some general experience in automation
+Required Skills:
+
+JAVA
+MICROSERVICE
+JUNIT
+AUTOMATED TESTING
+KAFKA
+Additional Skills:
+
+MONGODB
+SPRING
+GITLAB
+SDLC`,
     contact: { phone: "+91 9632951356", email: "rashmivangi@writeyourdestiny.in" },
   },
   {
@@ -112,14 +198,43 @@ const jobs: Job[] = [
     type: "Full-time",
     location: "Hyderabad",
     experience: "2–4 years (5+ with strong communication)",
-    blurb: "Support role for service/finance-industry clients, combining ServiceNow, project management, and reporting.",
-    responsibilities: [
-      "Support ServiceNow-based service operations for finance/service-industry clients",
-      "Apply project management skills across client engagements",
-      "Build reporting, pie charts, and dashboards in Excel (Bloomberg experience a plus)",
-      "Communicate clearly and consistently with stakeholders",
-    ],
-    skills: ["ServiceNow", "Project Management", "Excel Reporting", "Bloomberg", "Python / Data Analytics"],
+    description: ` Please find the below keywords/ skills to look for Services:
+
+Candidates should be from Service based industry/ finance industry
+Candidates with BE background / technical courses like Python or Data Analytics
+Experience in Service Now application
+Experience in project management
+Experience in Bloomberg ( Good to have )
+Experience/ Knowledge in Excel ( Pie charts, Graphs, Reporting )
+Excellent Communication
+Experience – 2 to 4 Years ( 5 years with excellent communication skills will work )
+Required
+
+B2B
+FIREWALL
+INCIDENT MANAGEMENT
+IOS
+AUTHENTICATION
+Additional Skillsets
+
+PROJECT MANAGEMENT
+TIME MANAGEMENT
+VENDOR MANAGEMENT
+WEALTH MANAGEMENT
+APPLICATION DEVELOPMENT
+EBUSINESS
+FINANCIAL MARKETS
+MARKETING
+OPERATIONS
+PYTHON
+RISK MANAGEMENT
+SELF MOTIVATED
+STATISTICAL ANALYSIS
+TECHNICAL SUPPORT
+TELEPHONE
+TRADING
+TRAINING
+VBA`,
     contact: { phone: "+91 9353019779" },
   },
   {
@@ -127,14 +242,29 @@ const jobs: Job[] = [
     title: "Engineering Support Level 2 — Portfolio Analytics",
     type: "Full-time",
     location: "Bangalore",
-    blurb: "L2 escalation support for portfolio analytics platforms, mentoring juniors and driving SRE improvements.",
-    responsibilities: [
-      "Resolve escalated support issues from L1 (Marquee Helpdesk) for senior clients",
-      "Mentor junior team members and participate in on-call rotations",
-      "Automate manual processes to improve efficiency and reduce risk",
-      "Code and debug in Python, with basic UI/API integration knowledge",
-    ],
-    skills: ["Python", "API Debugging", "SRE Practices", "Documentation", "Java (nice to have)"],
+    description: `The role involves providing advanced support and resolution for senior external clients and internal stakeholders, mentoring junior team members, and developing strategies to ensure platform scalability and reliability. The position requires coding and debugging skills, particularly in Python, and the ability to automate processes.
+
+Key Responsibilities
+Investigate and drive support resolution with senior external clients and internal stakeholders.
+Serve as a point of escalation for support issues from Marquee Helpdesk (L1).
+Provide mentorship and guidance to junior team
+Develop and mature the SRE strategy for scalability, reliability, and
+Automate manual processes to increase efficiency and reduce
+Troubleshoot and resolve complex technical issues with cross-functional
+Work closely with the engineering team to drive resolution of client
+Participate in on-call rotations and respond to
+Continuously improve processes and systems for reliability and risk
+Influence and suggest improvements on roadmap for enhancing client
+Create documentation/runbooks and code snippets for clients and internal
+Must-Have Skills
+Comfortable coding and debugging in Python. Basic knowledge of UI and API integration.
+
+Clear and empathetic communication skills.
+
+Ability to execute on support issues and automate resolution of repeat issues.
+
+Nice-to Have Skills Java knowledge.
+Experience in debugging API calls. Writing quality-of-life snippets for`,
     contact: { phone: "+91 9632951356", email: "rashmivangi@writeyourdestiny.in" },
   },
   {
@@ -142,14 +272,32 @@ const jobs: Job[] = [
     title: "AppBank Workplace Web Platform Specialist",
     type: "Full-time",
     location: "Bangalore",
-    blurb: "Technical support and maintenance for internal web platforms, keeping them stable, secure, and performant.",
-    responsibilities: [
-      "Provide escalated support, monitoring, and maintenance for web platform applications",
-      "Perform root cause analysis and build out operational runbooks",
-      "Support deployments, configuration updates, and disaster recovery processes",
-      "Collaborate with development teams on application enhancements",
-    ],
-    skills: ["Linux", "Application Support", "Technical Writing", "DevOps / CI-CD", "AWS", "SQL / NoSQL"],
+    description: `The AppBank Workplace Web Platform Specialist is responsible for providing technical support and maintenance for web platforms, ensuring stability and performance. The role involves troubleshooting, system monitoring, and collaborating with development teams to enhance application efficiency.
+
+Key Responsibilities
+Provide escalated technical support for web platform application
+Perform system monitoring, maintenance, and
+Assist in the deployment, configuration, and updates of
+Develop and maintain technical
+Manage incidents and communicate with users and
+Conduct root cause analysis for recurring
+Analyze failure patterns and advise on permanent
+Utilize tools for failure remediation and system health
+Participate in the change management
+Build and improve runbooks for operational
+Implement and maintain disaster recovery
+Collaborate with development teams for application
+Support integration of new technologies to enhance
+Must-Have Skills
+
+Application support experience in web platforms Expertise in Linux environment
+Troubleshooting system issues Technical writing skills
+Experience in monitoring and operations Good verbal and written communication skills
+Nice-to-Have Skills
+
+Understanding of DevOps and CI/CD best practices
+Full-stack development experience with Java and a UI framework like React Knowledge of relational (SQL) and NoSQL databases
+Experience with CMS like Adobe Experience Manager Experience with cloud computing platforms, ideally AWS Skills in analyzing system and application logs Proficiency with configuration management tools`,
     contact: { phone: "+91 9632951356", email: "rashmivangi@writeyourdestiny.in" },
   },
   {
@@ -157,14 +305,20 @@ const jobs: Job[] = [
     title: "Application Security Specialist",
     type: "Remote",
     location: "Remote",
-    blurb: "Own application security through advanced risk assessment and secure software development practices.",
-    responsibilities: [
-      "Implement advanced application security concepts and risk assessments",
-      "Integrate secure software development practices into the SDLC",
-      "Identify and mitigate vulnerabilities throughout the development lifecycle",
-      "Support threat modeling and security testing initiatives (nice to have)",
-    ],
-    skills: ["CASP+", "CSSLP", "Risk Assessment", "Secure SDLC", "Threat Modeling"],
+    description: `Remote
+
+The Application Security Specialist is responsible for ensuring the security of software applications through advanced security concepts, risk assessment, and secure software development practices.
+
+Key Responsibilities
+Implement advanced application security concepts. Conduct risk assessments and manage security
+Develop and integrate secure software development
+Identify and mitigate security vulnerabilities throughout the software development
+Must-Have Skills
+
+Certified Application Security Professional Plus (CASP+) Certified Secure Software Lifecycle Professional (CSSLP) Advanced knowledge in application security
+Risk assessment and management Secure software development practices
+Nice-to Have Skills Threat modeling Security testing
+Experience with enterprise security architecture`,
     contact: { phone: "+91 9632976073", email: "shreya@writeyourdestiny.in" },
   },
   {
@@ -172,14 +326,31 @@ const jobs: Job[] = [
     title: "Internal Compliance Auditor",
     type: "Remote",
     location: "Remote",
-    blurb: "Ensure adherence to internal policy and regulatory requirements through audits, analysis, and training.",
-    responsibilities: [
-      "Perform regular audits and build risk-based audit plans",
-      "Analyze data to identify compliance gaps and prepare detailed audit reports",
-      "Recommend policy and control improvements and track corrective actions",
-      "Stay current on regulatory changes and train employees on compliance",
-    ],
-    skills: ["Auditing", "Data Analysis & Reporting", "Regulatory Compliance", "CIA / CCEP (nice to have)"],
+    description: `Remote
+
+The Internal Compliance Auditor ensures adherence to internal policies, external regulations, and legal requirements by conducting audits, analyzing data, and recommending improvements. This role involves staying updated on regulatory changes and providing training to employees.
+
+Key Responsibilities
+Perform regular audits to assess compliance with internal policies and external regulations.
+Create audit plans, including risk assessments and
+Gather and analyze data to identify potential compliance gaps and
+Prepare detailed audit reports outlining findings, recommendations, and corrective actions.
+Suggest changes to policies, procedures, and controls to enhance
+Track the implementation of corrective actions and ensure effective
+Stay informed about regulatory changes and industry best
+Educate employees on compliance-related
+Assist with investigations related to compliance
+Must-Have Skills
+
+Strong analytical and problem-solving skills
+Excellent communication and interpersonal skills
+Proficiency in data analysis and reporting
+Knowledge of relevant regulations and compliance standards
+Ability to work independently and as part of a team
+Experience in auditing or compliance roles
+Nice-to-Have Skills
+
+Relevant certifications (e.g., Certified Internal Auditor, Certified Compliance & Ethics Professional)`,
     contact: { phone: "+91 9632976073", email: "shreya@writeyourdestiny.in" },
   },
   {
@@ -188,14 +359,34 @@ const jobs: Job[] = [
     type: "Remote",
     location: "Remote",
     experience: "3–5 years",
-    blurb: "Turn vendor, location, talent, and regulatory data into insight that drives ecosystem decisions at Aokah.",
-    responsibilities: [
-      "Analyze vendor, regulatory, and location data to surface trends and gaps",
-      "Build dashboards and reports — heatmaps, readiness scores, compliance risk",
-      "Validate data quality and support predictive modeling efforts",
-      "Partner cross-functionally to define KPIs and measurement frameworks",
-    ],
-    skills: ["SQL", "Excel / Google Sheets", "Power BI / Looker / Tableau", "Python / R (nice to have)"],
+    description: `Remote
+
+Role Overview
+
+The Data Analyst at Aokah will transform vast volumes of vendor, location, talent, and regulatory data into actionable insights for enterprise decision-makers. Your core mission is to convert complex data into visual stories, trends, and signals that inform ecosystem orchestration, risk scoring, and strategic benchmarking. Ideal candidates will possess a high level of analytical rigor, storytelling acumen, and a collaborative mindset.
+
+Key Responsibilities
+
+Analyse vendor, regulatory, and location-based data to identify trends, gaps, and emerging signals.
+Build dashboards and reports that drive ecosystem insights (heatmaps, readiness scores, compliance risk).
+Collaborate with cross-functional teams to define KPIs and measurement
+Validate sourced data quality, consistency, and
+Support predictive modeling efforts by shaping inputs and interpreting Develop comparative insights across cities, vendor types, and functions.
+Highlight anomalies in setup timelines, vendor compliance, and talent Required Skills &amp; Qualifications
+3–5 years in analytics or consulting roles within platform or operations-driven
+Fluency in SQL and spreadsheet modeling (Google Sheets, Excel). Experience with BI/visualization tools (PowerBI, Looker, Tableau). Understanding of basic statistics and data storytelling techniques.
+Strong verbal and written communication Preferred Experience
+Familiarity with vendor ecosystems, regulatory scoring, or city
+Exposure to R or Python for advanced
+Experience working in early-stage tech or SaaS Culture &amp; Values at Aokah
+We believe in the power of insight to drive transformation. Analysts at Aokah aren’t just number crunchers—they are intelligence partners who help customers and internal teams see what others Intellectual curiosity, collaboration, and resilience define our analytics team.
+Benefits &amp; Growth Opportunities Competitive compensation and equity plan.
+
+Access to AI-powered tools and data science mentorship. Learning credits for upskilling in analytics and visualization.
+
+Work on global projects with real impact in talent, infra, and regulatory transformation.
+
+Contribute to platform strategy by translating insight into features.`,
     contact: { phone: "+91 9353019779", email: "aishwarya@writeyourdestiny.in" },
   },
   {
@@ -204,14 +395,30 @@ const jobs: Job[] = [
     type: "Remote",
     location: "Remote",
     experience: "3–5 years",
-    blurb: "Build scalable data ingestion pipelines and ETL workflows powering vendor and regulatory data products.",
-    responsibilities: [
-      "Design and optimize scalable data ingestion pipelines (APIs, crawlers, connectors)",
-      "Build ETL/ELT pipelines using Airflow, Kafka, or NiFi",
-      "Integrate external sources such as Dun & Bradstreet, ESG repositories, and regulatory feeds",
-      "Maintain data lake and warehouse environments (Redshift, Snowflake, BigQuery)",
-    ],
-    skills: ["Python", "SQL", "Airflow", "Web Scraping (Scrapy/BeautifulSoup)", "AWS / GCP / Azure"],
+    description: `Remote
+
+Key Responsibilities
+Design, implement, and optimize scalable data ingestion pipelines (APIs, crawlers,connectors).
+Develop robust scrapers and web crawlers for open data
+Normalize and transform structured/unstructured vendor, location, and regulatory data.
+Implement ETL/ELT pipelines using tools such as Apache Airflow, Kafka, or NiFi.
+Ensure high-availability, version control, and quality assurance of data
+Collaborate cross-functionally to support analytics, ML model development, and orchestration features.
+Integrate with external data sources like Dun &amp; Bradstreet, ESG repositories, and regulatory feeds.
+Design and maintain data lake and warehouse environments (e.g., Redshift, Snowflake, BigQuery).
+Enforce data privacy, compliance (GDPR, CCPA), and security
+Required Skills &amp; Qualifications:
+
+3–5 years of experience in data engineering
+Strong programming in Python and
+Deep familiarity with ETL workflows, web scraping libraries (Scrapy, BeautifulSoup), and API handling.
+Expertise in data pipeline orchestration tools (Airflow, Prefect).
+Experience with cloud data platforms (AWS, GCP, Azure).
+Hands-on experience with structured and unstructured data
+Preferred Experience
+Prior exposure to regulatory, location intelligence, or B2B marketplace
+Familiarity with vendor intelligence or compliance-oriented
+Understanding of data governance, metadata management, and version control practices.`,
     contact: { phone: "+91 9353019779", email: "aishwarya@writeyourdestiny.in" },
   },
   {
@@ -220,14 +427,50 @@ const jobs: Job[] = [
     type: "Remote",
     location: "Remote",
     experience: "4+ years",
-    blurb: "Senior E2E test engineer owning automated test strategy and execution across the SDLC.",
-    responsibilities: [
-      "Design and execute end-to-end test strategies across the SDLC",
-      "Build and maintain automated test scripts using Selenium, Serenity, and Python",
-      "Manage test cases and defects using QTest and JIRA",
-      "Integrate automated tests into CI/CD pipelines with the DevOps team",
-    ],
-    skills: ["Selenium", "Serenity", "Python", "QTest", "Agile / Scrum"],
+    description: `Remote
+
+Overview
+
+We are seeking an experienced Senior E2E Test Engineer with 4 + years of expertise in end-to-end testing, test automation, and agile methodologies. The ideal candidate will have experience in tools such as QTest, Selenium, Serenity, and Python for building and executing comprehensive test plans
+
+for complex applications. As a Senior Test Engineer, you will collaborate with development teams to ensure the delivery of high-quality software products.
+
+Key Responsibilities
+
+Development, and execution of comprehensive end-to-end test strategies for
+Develop and maintain automated test scripts using Selenium, Serenity, and Collaborate with cross-functional teams (Development, product, QA) in an Agile environment
+to ensure effective communication and testing workflows. Manage test cases, defects, and overall test execution using
+Write and maintain test documentation, including test plans, test cases, and Analyze test results, report defects, and provide detailed feedback to development teams.
+Work closely with the DevOps team to ensure automated tests are integrated into the CI/CD
+Pipeline.
+
+Skills & Qualifications
+
+4+ years of experience in End-to-End (E2E) testing and test
+Software Development Life Cycle (SDLC) & Software Testing Life Cycle (STLC)
+Agile Methodologies: Understanding of Agile principles and Scrum or Kanban
+Testing Methodologies: Knowledge of different approaches, including functional, regression, integration, E2E, and acceptance
+Test Case Design Techniques: Skills in designing test cases using boundary value analysis, equivalence partitioning, decision tables,
+Test Case Development and Execution: Experience in creating and executing test cases based
+on requirements.
+
+Defect Life Cycle Management: Understanding defect reporting, prioritization, and tracking
+through its life cycle.
+
+Reporting: Ability to document and report testing results clearly and
+Testing Certifications (optional): ISTQB or similar certifications can be
+Proficient in Selenium WebDriver for browser
+Hands-on experience with Serenity for writing automated acceptance
+Strong programming skills in Python for test scripting and
+Experience using QTest for managing test cases, test execution, and defect
+Understanding of API testing, performance testing, and test
+Excellent problem-solving skills, attention to detail, and the ability to work in a fast-paced
+environment.
+
+Strong communication skills, both written and
+Experience with additional test frameworks like JUnit, TestNG, or
+Knowledge of cloud-based testing tools or
+Experience in working with JIRA or other project management`,
     contact: { phone: "+91 9901561096", email: "bhagyashree.wyd@gmail.com" },
   },
   {
@@ -236,14 +479,39 @@ const jobs: Job[] = [
     type: "Full-time",
     location: "Bengaluru",
     experience: "3–5 years",
-    blurb: "Mid-level engineering role building and testing features against the product backlog in an agile team.",
-    responsibilities: [
-      "Develop and test code that delivers agreed product features",
-      "Write automated test scripts and validate against user-story acceptance criteria",
-      "Follow agile methodology for design, documentation, and delivery",
-      "Work closely with infrastructure and security partners",
-    ],
-    skills: ["Java", "Spring Boot", "Kotlin", "OOP", "Automated Unit Testing"],
+    description: `Overview
+
+Job Title: Development Engineer – Mid-Ops Years of exp: 5-12 Yrs
+
+Key responsibility
+
+Support to Develop and test code to deliver functionality that meets the overall business strategy and objectives
+Support to Build the work needed to implement features from the product backlog
+Support Size user stories
+Support Unit test code, create automated test scripts, and execute all other testing-related tasks
+Test deliverables against a user story’s acceptance tests
+Support to Execute necessary project documentation
+Work closely with other team to ensure that features meet business needs
+Follow industry-standard agile software design methodology for development and documentation
+Work with infrastructure, security, and other partners
+3-5 years in an engineering role
+1-3 years participating in agile development
+Scrum certification, a plus
+Experience with test-driven development and software test automation
+Deep experience working in an agile environment (e.g. user stories, iterative development, etc.)
+TECHNICAL SKILLS
+
+Must Have
+A highly skilled Java Software Developer
+Automated Unit Testing
+developing Java Spring boot application
+Kotlin Programming Language
+OOPs
+Nice To Have
+
+Cloud Deployment
+Integration Testing
+Micronaut`,
     contact: { phone: "+91 9901561096", email: "bhagyashree.wyd@gmail.com" },
   },
   {
@@ -252,14 +520,24 @@ const jobs: Job[] = [
     type: "Full-time",
     location: "Bangalore",
     experience: "5–10 years",
-    blurb: "Backend engineer designing and maintaining scalable, high-performance server-side systems.",
-    responsibilities: [
-      "Design, develop, and maintain robust backend systems and APIs",
-      "Collaborate with front-end developers, product managers, and stakeholders on requirements",
-      "Write clean, tested, maintainable code and participate in code reviews",
-      "Troubleshoot backend issues and stay current with emerging technologies",
-    ],
-    skills: ["Java / Kotlin / Python", "SQL / MySQL / PostgreSQL", "REST APIs", "Microservices", "AWS / Azure / GCP", "CI/CD"],
+    description: `As a Backend Software Engineer, you will be responsible for designing, developing, and maintaining server-side applications. You will collaborate with cross-functional teams to ensure seamless integration of various components and deliver high-performance, scalable solutions. Key Responsibilities:
+Design, develop, and maintain robust backend systems and
+Collaborate with front-end developers, product managers, and other stakeholders to understand requirements and deliver effective
+Write clean, maintainable, and efficient code following best practices and coding standards.
+Conduct thorough testing and debugging to ensure high-quality
+Participate in code reviews to uphold code quality and share
+Stay current with emerging backend technologies and methodologies, incorporating them as appropriate.
+Troubleshoot and resolve backend-related
+Required Skills and Qualifications:
+Bachelor’s degree in Computer Science, Engineering, or a related
+5 to 10 years of experience in backend
+Proficiency in backend languages such as Java , Kotlin, Python
+Experience with database technologies like SQL, MySQL, PostgreSQL, or
+Strong understanding of RESTful APIs and microservices
+Familiarity with version control systems, preferably
+Knowledge of cloud platforms (AWS, Azure, or Google Cloud) and CI/CD
+Excellent problem-solving skills and attention to
+Strong communication and teamwork`,
     contact: { phone: "+91 9901561096", email: "bhagyashree.wyd@gmail.com" },
   },
   {
@@ -268,14 +546,66 @@ const jobs: Job[] = [
     type: "Full-time",
     location: "Hyderabad, Bangalore",
     experience: "5–7 years",
-    blurb: "End-to-end QA engineer covering automation, performance, API, and database testing.",
-    responsibilities: [
-      "Design and maintain automated test scripts (Selenium) across UI, API, and database layers",
-      "Run performance testing with JMeter and API testing with Postman/Rest Assured",
-      "Validate data integrity with SQL and automate tasks with Unix shell scripting",
-      "Manage the defect lifecycle in JIRA and mentor junior QA engineers",
-    ],
-    skills: ["Selenium", "JMeter", "Postman", "SQL", "Unix Shell Scripting", "CI/CD"],
+    description: `Key Responsibilities:
+
+Automation & Functional Testing:
+
+Design, develop, and maintain automated test scripts using Selenium and other relevant tools.
+Ensure test coverage across all layers: UI, API, database, and backend
+Execute functional, regression, and integration tests to validate application Features
+Performance Testing:
+
+Utilize JMeter to simulate load, stress, and scalability testing for
+Analyze performance bottlenecks and collaborate with development teams to optimize system efficiency.
+API Testing:
+
+Leverage Postman for testing RESTful APIs and validating JSON
+Develop reusable scripts for automated API testing using tools like Rest Assured or similar frameworks. Database Validation:
+Write SQL queries to validate data integrity, perform database testing, and ensure proper data flow across systems. Unix Shell Scripting:
+Create and execute Unix shell scripts for log analysis, data processing, and automation tasks.
+Test Planning & Strategy:
+
+Develop comprehensive test plans, strategies, and scenarios to ensure high-quality deliverables.
+Identify gaps in test coverage and proactively address them with innovative
+Defect Management & Reporting:
+
+Troubleshoot defects, perform root cause analysis (RCA), and manage defect lifecycle within tools like Jira.
+Provide detailed and actionable bug reports to development Collaboration & Leadership:
+Work closely with product managers, developers, and stakeholders to understand requirements and define test objectives.
+Mentor junior QA engineers, fostering a culture of quality and continuous
+Documentation:
+
+Maintain clear documentation for test cases, test results, and automation
+Ensure traceability between requirements, test cases, and
+Required Skills & Qualifications:
+
+Experience:
+
+Selenium for UI automation
+JMeter for performance testing
+Postman for API testing
+SQL for database validation
+Unix Shell Scripting for automation and debugging
+Minimum 5-7 years of experience in QA engineering, with strong expertise in automation and performance testing.
+Proven experience with the following tools and technologies
+Skills:
+
+Proficiency in JSON for validating API responses and data
+Strong knowledge of QA methodologies, testing techniques, and SDLC
+Experience with version control systems like
+Familiarity with CI/CD pipelines and tools like
+Understanding of Agile frameworks and DevOps
+Ability to debug code and identify defects in collaboration with
+Preferred Skills (Nice to Have):
+
+Familiarity with cloud platforms (e.g., Azure) for deploying and testing
+Knowledge of containerization tools like Docker and orchestration systems
+like Kubernetes.
+
+Experience with performance monitoring tools (e.g., New Relic, Dynatrace).
+Exposure to advanced scripting languages like Python or Java for test
+Experience with Kafka for messaging systems and data
+Knowledge of microservices architecture`,
     contact: { phone: "+91 9632951356", email: "rashmivangi@writeyourdestiny.in" },
   },
   {
@@ -284,14 +614,44 @@ const jobs: Job[] = [
     type: "Full-time",
     location: "Bangalore & Hyderabad",
     experience: "6–10 years",
-    blurb: "Design and optimize enterprise-scale data pipelines and lakehouse architecture on Azure.",
-    responsibilities: [
-      "Build high-performance data pipelines using Azure Databricks and Apache Spark",
-      "Implement and optimize Azure Data Lake and Synapse Analytics architecture",
-      "Develop ETL/ELT pipelines with Data Factory, Databricks notebooks, and PySpark",
-      "Ensure governance, security, and performance optimization of big data workloads",
-    ],
-    skills: ["Azure Databricks", "Azure Data Lake", "Synapse Analytics", "PySpark", "Python", "SQL"],
+    description: `Overview: We are hiring a Senior Data Engineer (6 to 10 years) with deep expertise in Azure Data Bricks, Azure Data Lake, and Azure Synapse Analytics to join our high-performing team. The ideal candidate will have a proven track record in designing, building, and optimizing big data pipelines and architectures while leveraging their technical proficiency in cloud-based data engineering. This role requires a strategic thinker who can bridge the gap between raw data and actionable insights, enabling data-driven decision-making for large-scale enterprise initiatives. A strong foundation in distributed computing, ETL frameworks, and advanced data modeling is crucial. The individual will work closely with data architects, analysts, and business teams to deliver scalable and efficient data Solutions. Roles & Responsibilities Data Engineering & Architecture:
+Design, develop, and maintain high-performance data pipelines for structured and unstructured data using Azure Data Bricks and Apache
+Build and manage scalable data ingestion frameworks for batch and real-time data processing.
+Implement and optimize data lake architecture in Azure Data Lake to support analytics and reporting workloads.
+Develop and optimize data models and queries in Azure Synapse Analytics to power BI and analytics use cases.
+Cloud-Based Data Solutions:
+Architect and implement modern data lakehouses combining the best of data lakes and data warehouses.
+Leverage Azure services like Data Factory, Event Hub, and Blob Storage for end-to-end data workflows.
+Ensure security, compliance, and governance of data through Azure Role-Based Access Control (RBAC) and Data Lake ACLs.
+ETL/ELT Development:
+Develop robust ETL/ELT pipelines using Azure Data Factory, Data Bricks notebooks, and PySpark.
+Perform data transformations, cleansing, and validation to prepare datasets for analysis.
+Manage and monitor job orchestration, ensuring pipelines run efficiently and
+Performance Optimization:
+Optimize Spark jobs and SQL queries for large-scale data processing. Implement partitioning, caching, and indexing strategies to improve performance and scalability of big data workloads.
+Conduct capacity planning and recommend infrastructure optimizations for cost-effectiveness.
+Collaboration & Stakeholder Management:
+Work closely with business analysts, data scientists, and product teams to understand data requirements and deliver solutions.
+Participate in cross-functional design sessions to translate business needs into technical specifications.
+Provide thought leadership on best practices in data engineering and cloud
+Documentation & Knowledge Sharing:
+Create detailed documentation for data workflows, pipelines, and architectural decisions.
+Mentor junior team members and promote a culture of learning and
+Requirements:
+Experience:6+ years of experience in data engineering, big data, or cloud-based data solutions.
+Proven expertise with Azure Data Bricks, Azure Data Lake, and Azure Synapse Analytics.
+Technical Skills:
+Strong hands-on experience with Apache Spark and distributed data processing frameworks.
+Advanced proficiency in Python and SQL for data manipulation and pipeline
+Deep understanding of data modeling for OLAP, OLTP, and dimensional data models.
+Experience with ETL/ELT tools like Azure Data Factory or
+Familiarity with Azure DevOps for CI/CD pipelines and version
+Big Data Ecosystem:
+Familiarity with Delta Lake for managing big data in
+Experience with streaming data frameworks like Kafka, Event Hub, or Spark
+Cloud Expertise:
+Strong understanding of Azure cloud architecture, including storage, compute, and networking.
+Knowledge of Azure security best practices, such as encryption and key`,
     contact: { phone: "+91 9901561096", email: "bhagyashree.wyd@gmail.com" },
   },
   {
@@ -300,14 +660,36 @@ const jobs: Job[] = [
     type: "Full-time",
     location: "Bengaluru, Chennai, Hyderabad, Pune",
     experience: "10+ years",
-    blurb: "Design and manage conceptual, logical, and physical data models supporting analytics and governance.",
-    responsibilities: [
-      "Develop and maintain data models that translate business needs into database design",
-      "Optimize existing models to support analytics and reporting",
-      "Ensure models support data governance, quality, and security standards",
-      "Document models, metadata, and lineage for stakeholders",
-    ],
-    skills: ["ER/Studio / ERwin", "SQL", "Dimensional Modeling", "Cloud Data Services", "MDM"],
+    description: `Overview:
+
+A Data Modeller is responsible for designing, implementing, and managing data models that support the strategic and operational needs of an organization. This role involves translating business requirements into data structures, ensuring consistency, accuracy, and efficiency in data storage and retrieval processes.
+
+Roles and Responsibilities:
+
+Develop and maintain conceptual, logical, and physical data models.Collaborate with business analysts, data architects, and stakeholders to gather data requirements.
+Translate business needs into efficient database
+Optimize and refine existing data models to support analytics and
+Ensure data models support data governance, quality, and security
+Work closely with database developers and administrators on
+Document data models, metadata, and data
+Required Skills and Qualifications:
+
+Bachelor’s or Master’s degree in Computer Science, Information Systems, Data Science, or related
+Data Modeling Tools: ER/Studio, ERwin, SQL Developer Data Modeler, or
+Database Technologies: Proficiency in SQL and familiarity with databases like Oracle, SQL
+Server, MySQL, and
+Data Warehousing: Experience with dimensional modeling, star and snowflake
+ETL Processes: Knowledge of Extract, Transform, Load processes and
+Cloud Platforms: Familiarity with cloud data services (e.g., AWS Redshift, Azure Synapse, and Google Big Query).
+Metadata Management & Data Governance: Understanding of data cataloging and governance
+Strong analytical and problem-solving
+Excellent communication skills to work with business stakeholders and technical
+Ability to document models clearly and explain complex data
+10+ years in data modeling, data architecture, or related
+Experience working in Agile or DevOps environments is often
+Understanding of normalization/denormalization.
+Experience with business intelligence and reporting
+Familiarity with master data management (MDM)`,
     contact: { phone: "+91 9901561096", email: "bhagyashree.wyd@gmail.com" },
   },
   {
@@ -315,14 +697,20 @@ const jobs: Job[] = [
     title: "Security Engineer",
     type: "Full-time",
     location: "Chennai",
-    blurb: "Safeguard AI and ML systems from emerging threats through security frameworks and governance.",
-    responsibilities: [
-      "Embed security and governance best practices across development and deployment",
-      "Serve as SME driving adoption of standards and compliance automation",
-      "Evaluate and implement emerging security technologies",
-      "Lead incident response and root cause analysis initiatives",
-    ],
-    skills: ["Cryptography", "Vulnerability Assessment", "Penetration Testing", "OWASP for LLMs", "CISSP / CEH / CISM (nice to have)"],
+    description: `Overview:
+The AI Security Engineer is responsible for safeguarding AI and machine learning systems from emerging cyber threats. This role involves designing, developing, and implementing security frameworks, tools, and protocols to ensure the integrity, confidentiality, and availability of AI models, data, and infrastructure. The engineer collaborates closely with software development, DevOps, and security teams to proactively identify and mitigate vulnerabilities in AI-driven environments. Roles & Responsibilities:
+Collaborate with engineering, DevOps, and data teams to embed security and governance best practices throughout the development and deployment
+Serve as the subject matter expert for security and governance, driving adoption of standards,reusable templates, and automation for compliance
+Evaluate and implement emerging security and governance technologies to enhance protection, visibility, and operational efficiency.
+Lead incident response, root cause analysis, and continuous improvement initiatives to strengthen security controls and governance processes.
+Requirements:
+Experience with cryptography, encryption, vulnerability assessment, and penetration testing.
+Deep understanding of adversarial attacks, model poisoning, data manipulation, and privacy risks in AI.
+Knowledge of application security concepts, including OWASP Top Ten for LLM applications.
+Experience with security tools (e.g., Splunk, Nessus, Wireshark) and cloud security practices.
+Education & Certifications
+Bachelor’s degree in Computer Science, Information Security, or related
+Relevant certifications such as CISSP, CEH, CISM, or CompTIA Security+ are a`,
     contact: { phone: "+91 9901561096", email: "bhagyashree.wyd@gmail.com" },
   },
   {
@@ -331,14 +719,28 @@ const jobs: Job[] = [
     type: "Full-time",
     location: "Bengaluru, Hyderabad, Chennai",
     experience: "5+ years",
-    blurb: "Bridge product, engineering, and analytics teams for analytics-friendly system and table design.",
-    responsibilities: [
-      "Support end-to-end system and table design for new product features",
-      "Review and validate data schemas for analytics alignment",
-      "Conduct data validation against legacy systems and external sources",
-      "Align cross-functional stakeholders on data strategy and delivery timelines",
-    ],
-    skills: ["SQL", "Data Analysis", "Google Cloud Platform", "Data Architecture (plus)"],
+    description: `Responsibilities:
+Support the analytics needs,
+
+Partner with product, engineering, and analytics teams to support end-to-end system and table design that meets analytics and reporting needs for new product
+Collaborate with engineers on the development of new data tables, including reviewing and validating data schemas to ensure they are analytics-friendly and aligned with business requirements.
+Conduct data validation and quality checks by comparing new tables against legacy systems and external data sources, identifying discrepancies or gaps.
+Bridge the gap between data analysis and product development by ensuring that the right data is captured and structured to support ongoing feature tracking and insights generation.
+Proactively collaborate with cross-functional stakeholders – including analysts, engineers,and product managers – to ensure alignment on data strategy, implementation plans, and delivery timelines.
+Basic Requirements
+
+A Master’s degree or Bachelor’s degree in Statistics, Mathematics, Data Science, Computer
+Science, Information Systems, or a related field Minimum of 5 years of analytics work experience
+Ability to define problems, collect data, establish facts, and draw valid conclusions to support data-driven decision-making.
+Proficient in Data Analysis and SQL; knowledge of Google Cloud Platform is highly preferred.
+Self-motivated, collaborative, and a fast learner with the ability to understand new processes and business functions quickly.
+Exceptional communication skills, with a proactive approach to sharing ideas, collaborating across teams, and contributing beyond basic responsibilities.
+Big Plus:
+
+Analytical mindset for making sound decisions, defining problems or opportunities for improvement, analyzing options, and proposing
+Thrive in a high-performance, project-oriented environment with the ability to pivot quickly and focus on critical tasks as needed.
+Experience in cross-functional product development cycles
+Strong understanding of data architecture, data modeling,and table design`,
     contact: { phone: "+91 9901561096", email: "bhagyashree.wyd@gmail.com" },
   },
   {
@@ -347,14 +749,19 @@ const jobs: Job[] = [
     type: "Full-time",
     location: "Bangalore",
     experience: "10–15 years",
-    blurb: "Define architectural standards and lead solution design across an autonomous, cross-location architecture team.",
-    responsibilities: [
-      "Define best practices and standards as part of the architecture team",
-      "Ensure sound design and clearly communicate the impact of changes",
-      "Collaborate with architects, engineering managers, and ICs on solutions",
-      "Evaluate and introduce new tools and architectural techniques",
-    ],
-    skills: ["Java / Scala / Kotlin (JVM)", "API Design Patterns", "Microservices", "Event-Driven Architecture"],
+    description: `Key Responsibilities:
+Being a member of an autonomous, cross-location architecture team to work on defining best practices and standards.
+You are responsible for making the impact of changes clear, and ensuring a sound design and approach.
+You work side-by-side with other architects, product/engineering managers, technology leads and individual contributors of varying degrees of seniority, to collaborate for solutions, decision making and leading by example.
+Anticipate and act upon issues that arise, providing alternative approaches and solutions.
+Evaluate and create new tools and techniques to facilitate effective development and architectural practices.
+Constantly updating technical knowledge and skills by attending (and sharing) in-house and/or external courses, reading manuals and testing new applications or solutions
+Required Skills & Qualifications:
+Bachelor or master degree in Computer Science, proven experience in successfully completing development of two or more complex applications or technologies, or equivalent applicable experience.
+10–15 years of hands-on development
+Strong experience as a Software Engineer programming in OO/FP languages but preferably in JVM: Java, Scala or Kotlin. Also designing or implementing API best practices as well as using design and architectural patterns. Self-motivated; works independently.
+Strong communication skills, especially in representing their expertise to a wide range of people. Forges relationships with development personnel throughout the industry.
+Expert in current software design practices, including modularity, event-driven architecture, functional programming, microservices, object-oriented design,optimization, extensibility, and Stays abreast of industry innovations and developments.`,
     contact: { phone: "+91 9632976073", email: "shreya@writeyourdestiny.in" },
   },
   {
@@ -362,14 +769,7 @@ const jobs: Job[] = [
     title: "Lead Software Development",
     type: "Full-time",
     location: "Bangalore",
-    blurb: "Lead the design and delivery of complex software projects, guiding a development team through planning, execution, and release.",
-    responsibilities: [
-      "Set technical direction and own delivery across the team's roadmap",
-      "Guide engineers through design, code review, and release planning",
-      "Partner with product and architecture on scope and sequencing",
-      "Raise the bar on engineering practices and mentor the team",
-    ],
-    skills: ["Technical Leadership", "Team Management", "Architecture", "Agile Delivery"],
+    description: `Lead the design and delivery of complex software projects, guiding a development team through planning, execution, and release.`,
     contact: { phone: "+91 9632976073", email: "shreya@writeyourdestiny.in" },
   },
   {
@@ -377,14 +777,38 @@ const jobs: Job[] = [
     title: "Cloud SW Developer",
     type: "Full-time",
     location: "Bangalore",
-    blurb: "Build bottom-up software solutions on AWS/GCP, leveraging cloud-native and open-source big data services.",
-    responsibilities: [
-      "Design and build cloud-native SaaS solutions on AWS/GCP from the ground up",
-      "Work with big data technologies — Spark, Flink, Kafka, Druid, Iceberg, Delta Lake",
-      "Develop in Java/Go with strong microservices and streaming expertise",
-      "Collaborate with peers on architecture while working independently",
-    ],
-    skills: ["Java", "Go", "AWS / GCP", "Spark / Flink / Kafka", "Kubernetes", "Microservices"],
+    description: `JOB DESCRIPTION
+
+The persona
+ 
+
+A strong software engineer to develop (with team members) a bottom-up software solution on AWS/GCP cloud that leverages cloud native/opensource services.
+
+Experience writing software from the ground up with minimal guidance and hence strong design skills. A passionate Software Engineer (love for writing high quality code, open source software).
+
+Strong individual who can stand his ground on technical depth but collaborate with peers through their technical prowess and peer respect, but is not looking to manage other engineers.
+
+Relevant experience:
+Candidate has prior experience in developing software or SAAS on AWS/GCP platform from bottom up to scale (Cradle to grave) and hands on experience using AWS/GCP services.
+
+Substantial experience in the field of Big Data Analytics. Data engineering,, Big data technologies (Spark / Flink / Kafka / Druid/Iceberg/Deltalake/Hudi).
+
+Technology does not need to match exactly, but Big data, streaming analytics battle scars are valuable.
+
+Technologies
+Languages: Java, GO, deep familiarity with AWS/GCP cloud SW tools/services.
+Hands-on / Prior experience on using technology like Flink, Kafka/Kinesis, Datalake, Spark, Deltalake
+BS/MS degree in Computer Science, Engineering or a related subject
+Expertise working in Java development, Springboot
+Expertise working with Relational DB (mysql), Timeseries(Druid), Elastic , Dynamo
+Datalake expertise or experience in Hudi, Iceberg, Delta Lake, Spark
+Expertise working with real time streaming (one of Flink, Beam, Spark)
+Microservices based development, K8s and AWS, GCP knowledge preferred
+Quick learner of concepts &amp; ability to deliver designs/solutions for problems independently
+Networking knowledge is a plus
+Education &amp; Years of experience
+BS in Engineering or equivalent experience in Cloud software development Companies:
+SAAS companies, Cloud companies, or cloud applications within networking companies, Big data infrastructure companies.`,
     contact: { phone: "+91 9632976073", email: "shreya@writeyourdestiny.in" },
   },
   {
@@ -393,14 +817,31 @@ const jobs: Job[] = [
     type: "Contract",
     location: "Bengaluru",
     experience: "5–8 years · 6-month extendable contract",
-    blurb: "Build Power BI dashboards and deliver strategic insight for Ecommerce, CPG, and Retail businesses.",
-    responsibilities: [
-      "Perform in-depth and diagnostic analysis, including post-campaign analysis",
-      "Build and manage sophisticated Power BI dashboards from multi-source data",
-      "Communicate insights to senior stakeholders through data storytelling",
-      "Establish data governance frameworks for security and compliance",
-    ],
-    skills: ["Power BI", "DAX", "SQL", "Databricks / Azure", "Python / R (nice to have)"],
+    description: `Job Overview-
+
+Location: Bengaluru
+
+Experience: 5-8 years
+
+Key Responsibilities:
+
+Data Analysis: Perform in-depth and diagnostic analyses to uncover trends and patterns, translating findings into strategic business
+Demonstrated experience in PCA – Post-Campaign
+Analysis, delivering insights that drive actionable
+Power BI Dashboard Development: Build, enhance, and manage sophisticated Power BI dashboards and reports by integrating large-scale, diverse datasets from multiple sources.
+Stakeholder Communication: Strong stakeholder engagement and data storytelling skills, with the ability to influence decisions through impactful PowerPoint
+Data Governance: Establish and oversee data governance frameworks to uphold data security, accuracy, and regulatory compliance.
+Technical Skills Requirements:
+Power BI Expertise: 5+ years of experience in developing Power BI reports and dashboards, with proficiency in DAX and Power BI service administration.
+Data Integration: Experience integrating data from various sources, including Databricks and Azure.
+SQL and Coding Skills: Master-level skills in SQL and query languages, with bonus points for proficiency in R/Python.
+Industry Experience: Must have proven experience in the Ecommerce, Consumer Packaged Goods (CPG), or Retail industries.
+Must Have Skills:
+
+Coding and Presentation: Proficient in coding and creating compelling presentations for senior stakeholders.
+Analytical Mindset: Ability to analyze and synthesize insights from complex Communication: Excellent communication skills, capable of explaining technical jargon in plain English.
+Global Collaboration: Experience working virtually with a global network of
+Note: The duration is 6 Months extendable contractual role.`,
     contact: { phone: "+91 9901561096", email: "bhagyashree.wyd@gmail.com" },
   },
   {
@@ -409,14 +850,21 @@ const jobs: Job[] = [
     type: "Full-time",
     location: "Jammu, Jammu and Kashmir",
     experience: "0–5 years · RCI Certificate required",
-    blurb: "Deliver speech and language therapy for clients aged five and above, both online and offline.",
-    responsibilities: [
-      "Conduct assessments and therapy sessions for speech and language disorders",
-      "Run parent awareness and training sessions",
-      "Track patient progress and maintain treatment documentation",
-      "Collaborate within an interdisciplinary care team",
-    ],
-    skills: ["RCI Certificate", "Speech-Language Pathology", "Patient Documentation"],
+    description: `Job Description:
+
+JOB ROLES AND RESPONSIBILITIES
+
+Conducting assessments & speech therapy sessions (offline & online) for 5 years and above to facilitate the treatment of speech and language disorders, such as stammers, stutters, tourette’s and mutism.
+Conducting parent awareness & training
+Tracking patient progress, maintaining comprehensive treatment
+Supervising/helping in the work of junior staff/colleagues involved in the same/similar cases.
+Carrying out advanced research relating to the particular area of
+Team player having a collaborative approach towards an interdisciplinary team, which includes doctors, teachers, physicians, psychologists, physical and occupational therapists, and rehabilitation counselors.
+Experience:
+
+0 – 5 years
+
+RCI Certificate is a must`,
     contact: { phone: "+91 9353019779", email: "aishwarya.wyd@gmail.com" },
   },
   {
@@ -424,14 +872,18 @@ const jobs: Job[] = [
     title: "Executive Assistant",
     type: "Full-time",
     location: "Bangalore",
-    blurb: "Support senior executives with scheduling, communication, and confidential information management.",
-    responsibilities: [
-      "Manage calendars, meetings, and travel arrangements",
-      "Handle correspondence and act as a point of contact for the executive",
-      "Prepare documents, presentations, and reports",
-      "Support special projects and expense/budget tracking",
-    ],
-    skills: ["Calendar & Travel Management", "Confidentiality", "Document Preparation"],
+    description: `Key Responsibilities:
+Calendar Management: Scheduling appointments, meetings, and travel
+Communication Management: Handling phone calls, emails, and correspondence, often acting as a point of
+Document Preparation: Creating and editing presentations, reports, and other
+Meeting Coordination: Organizing meetings, including booking rooms, arranging catering, and preparing
+Travel Arrangements: Booking flights, accommodations, and transportation for business trips.
+Information Management: Maintaining files, databases, and other information
+Confidentiality: Handling sensitive and confidential information with
+Project Support: Assisting with special projects, research, and other tasks as
+Liaison: Acting as a point of contact between the executive and internal/external
+Expense Management: Assisting with expense reports, budget tracking, and other financial tasks.
+Qualifications: Graduates`,
     contact: { phone: "+91 9632977673", email: "sabila.wyd@gmail.com" },
   },
   {
@@ -439,14 +891,57 @@ const jobs: Job[] = [
     title: "AI/LLM Data Scientist",
     type: "Full-time",
     location: "Bangalore — Hybrid",
-    blurb: "Design AI systems that power autonomous networking at Nile, using LLMs, agentic AI, and reinforcement learning.",
-    responsibilities: [
-      "Architect, train, and fine-tune models for anomaly detection and automated remediation",
-      "Build production-grade ML pipelines for multimodal telemetry data — logs, metrics, traces",
-      "Explore multimodal LLMs, RL-based control systems, and temporal pattern recognition",
-      "Partner with engineering and product teams to map AI models to customer outcomes",
-    ],
-    skills: ["PyTorch / TensorFlow", "LLM Architectures", "MLOps", "Python", "PhD / Master's in CS or ML"],
+    description: ` Job Description:
+
+The Role:
+
+As a Data Scientist at Nile, you will design and deploy AI systems that power autonomous networking—applying LLMs, agent-based AI, and reinforcement learning (RL) to turn raw data into insight and automated action.You’ll work across telemetry, observability, and service operations—collaborating with engineering and product teams to shape the intelligence layer behind Nile’s self- driving network.
+
+What You’ll Do AI/Model Development
+
+Architect, train, and fine-tune models for:
+
+Anomaly detection, root cause analysis, and automated remediation
+LLM-based reasoning agents that act on real-time network data Build production-grade ML pipelines for multimodal data—logs, metrics,traces, and topology.
+Applied Research
+
+Explore and adapt the latest in:
+
+Multimodal LLMs, RL-based control systems, and temporal pattern recognition
+Emerging architectures in perception, representation learning, and action agents
+Cross-Functional Impact
+
+Collaborate with network and cloud engineers to understand real-time operational pain points
+
+Partner with product managers to map AI models directly to customer outcomes.
+
+Thought Leadership:
+
+Contribute to Nile’s AI strategy and thought leadership in applying LLMs to enterprise infrastructure
+
+Stay at the forefront of academic and industry innovation
+
+What You Bring
+
+PhD or Master&#39;s in Computer Science, Machine Learning, or related field.
+
+Strong foundation in deep learning, LLM architectures, and representation learning
+
+Expert-level Python skills; experience with PyTorch or TensorFlow Experience with ML Ops: model lifecycle, validation, monitoring.
+
+Bonus Points For:
+
+Experience with Ray, Kubernetes, Kubeflow, or other model orchestration tools.
+
+Knowledge of networking or observability domains (e.g., OpenTelemetry, SNMP,NetFlow)
+
+Why Nile:
+
+Real-World Impact: Shape AI systems that touch every packet and every user in the enterprise.
+
+Tech Leadership: Work with industry pioneers from Cisco, Apple, Facebook,and Google
+
+Next-Gen AI: Apply the latest in LLMs and RL to build the world’s first truly autonomous network.`,
     contact: { phone: "+91 9632951356", email: "rashmivangi@writeyourdestiny.in" },
   },
   {
@@ -455,14 +950,35 @@ const jobs: Job[] = [
     type: "Full-time",
     location: "Bangalore",
     experience: "7+ years (3–5 in product management)",
-    blurb: "Own product strategy across wired switching, SD-WAN, wireless, and day-2 network operations.",
-    responsibilities: [
-      "Define and drive product requirements across switching, SD-WAN, and Wi-Fi",
-      "Author functional specs, FAQs, and field-facing collateral",
-      "Partner with customer success and AI ops on anomaly-detection workflows",
-      "Track post-launch performance and iterate on customer feedback",
-    ],
-    skills: ["Enterprise Networking", "SD-WAN / Wi-Fi", "Product Management", "CWNA / CCNA / CCNP (plus)"],
+    description: `Job Description:
+
+We’re seeking a Senior Product Manager who understands the breadth of enterprise networking—wired switching, SD-WAN, wireless (Wi-Fi), and day 2 operations. If you’ve grown from an engineering, QA, or TME role into product management—or are ready to—this
+
+role offers the opportunity to lead, build, and simplify how networking is consumed at scale.
+
+What You’ll Do
+
+Define and drive product requirements across wired access switching, SD-WAN, wireless (Wi-Fi), and cloud-based day 2 operations.
+Collaborate with engineering, QA, UX, and support to shape end-to-end capabilities—spanning system-level features to user-facing workflows.
+Author detailed functional specs, FAQs, and field-facing collateral that capture customer intent and engineering clarity.
+Participate in technical architecture reviews and work with teams on timelines, scalability, and secure implementation paths.
+Partner with customer success and AI ops teams to detect, define, and improve workflows for anomaly detection, alerting, and automated remediation.
+Track service performance post-launch and iterate quickly based on telemetry and customer feedback.
+Who You Are
+
+7+ years of experience in the tech industry, including 3–5 years in product management or related technical leadership roles.
+Bachelor’s degree in Computer Science, Electrical Engineering, Networking, or a related field.
+Hands-on experience with enterprise LAN/WAN environments—especially wired switching and SD-WAN.
+Experience with Wi-Fi technologies and wireless feature sets (e.g., onboarding, roaming,telemetry) is required.
+Background in QA, software engineering, or technical marketing engineering is a plus.
+Familiarity with operational workflows, day 2 support, and data-driven decision-making.
+CWNA/CCNA/CCNP or equivalent practical understanding of wired and Wi-Fi networking concepts.
+Strong communicator with a systems mindset and a bias toward execution and Outcomes
+What We’re Looking For
+
+A well-rounded product manager with deep exposure to enterprise networking—who’s worked on wired switches, SD-WAN gateways, and Wi-Fi APs. You understand what breaks in
+
+production, how network services are validated, and what operators need to keep networks healthy. You’re equally comfortable collaborating with engineers and simplifying decisions for customers.`,
     contact: { phone: "+91 9632976073", email: "shreya@writeyourdestiny.in" },
   },
   {
@@ -470,14 +986,35 @@ const jobs: Job[] = [
     title: "Technical Business Executive",
     type: "Full-time",
     location: "Hubli",
-    blurb: "Combine technical know-how with client engagement to drive advanced tooling adoption in manufacturing.",
-    responsibilities: [
-      "Visit customers to identify technical needs and manufacturing challenges",
-      "Apply technical knowledge to demonstrate advanced tooling solutions",
-      "Deliver product presentations and follow up to secure purchase decisions",
-      "Conduct trials with prospective customers",
-    ],
-    skills: ["Mechanical Engineering Fundamentals", "Customer Presentation", "Technical Problem-Solving"],
+    description: `Key Responsibilities:
+
+Visit customers across assigned
+Identify and understand customer technical
+Apply technical knowledge to enhance manufacturing
+Demonstrate advanced tooling solutions to
+Deliver effective product
+Follow up with clients to secure purchase
+Conduct Trials
+Qualifications:
+
+E. or M.Tech in Mechanical Engineering.
+Strong passion for technical problem-solving and engineering
+Willingness to travel
+Excellent customer interaction and presentation
+Ideal Candidate:
+
+Loves core mechanical and technical
+Eager to learn and work directly with advanced manufacturing technologies
+Driven to support and build lasting customer
+Desirable:
+
+Fluency in English
+Good communication skills at all levels
+Flexibility and ability to adapt
+Precision and attention to detail
+Self-motivation, tenacity, spirit of initiative, and problem solving attitude
+Capacity to work in team and under pressure
+Results orientation and ability to set priorities`,
     contact: { phone: "+91 9632976073", email: "shreya@writeyourdestiny.in" },
   },
   {
@@ -486,14 +1023,21 @@ const jobs: Job[] = [
     type: "Contract",
     location: "Bengaluru",
     experience: "3–6 years · 6-month extendable contract",
-    blurb: "Build short- and long-term marketing mix models to guide media spend and budget optimization.",
-    responsibilities: [
-      "Build short-term and long-term MMM models with actionable insights",
-      "Apply Python for data processing, modeling, and visualization",
-      "Use statistical modeling techniques and interpret marketing impact",
-      "Optimize media mix and budget allocation across channels",
-    ],
-    skills: ["Python", "Statistical Modeling", "Media Mix Optimization", "Campaign Analytics"],
+    description: `Job Overview-
+
+We’re on the lookout for talented professionals with 3–6 years of experience in Marketing Mix
+
+Modelling (MMM) to join us as a contractor. Location: Bengaluru
+
+Experience: 3-6 years
+
+Technical Skills Requirements:
+3–6 years of hands-on experience in MMM, with a proven track record of delivering actionable insights.
+Experience in building both short-term and long-term MMM
+Strong Python skills – including data processing, modelling, and visualization. Solid understanding of statistical modelling techniques, model diagnostics, and interpretation of marketing impact.
+Good knowledge of optimization techniques for media mix and budget Familiarity with media channels, campaign planning, and business KPIs.
+Excellent analytical thinking and communication skills
+Note: The duration is 6 Months extendable contractual role.`,
     contact: { phone: "+91 9901561096", email: "bhagyashree.wyd@gmail.com" },
   },
   {
@@ -502,14 +1046,33 @@ const jobs: Job[] = [
     type: "Remote",
     location: "Remote",
     experience: "3–5 years",
-    blurb: "Support SDLC/DevOps pipelines and Linux systems for a global, high-scale infrastructure.",
-    responsibilities: [
-      "Support builds, repositories, and packages across the DevOps pipeline",
-      "Script and develop in Java/Python and manage Linux job scheduling (Autosys/CRON)",
-      "Work with GIT, GitLab, Maven, Docker, and RDBMS platforms",
-      "Apply config-management tools (Chef, Puppet, Ansible) and troubleshoot at scale",
-    ],
-    skills: ["Linux", "DevOps", "GIT / GitLab", "Docker", "Config Management (Chef/Puppet/Ansible)"],
+    description: `Remote
+
+Job Overview:
+
+Basic Qualifications (Required skills)
+
+Bachelor’s degree in Information Technology, Computer Information Systems, Computer Science, or a related field.
+
+3 to 5 years of work experience on SDLC/Devops, LINUX system Good Linux Scripting/Development skills – JAVA, Python (any).
+Good knowledge in technologies like Autosys/Job scheduling systems like CRON, NIS, Apache, Tomcat, any RDBMS like DB/ MS-SQL/Oracle/Sybase, Public/Private Cloud.
+Good Knowledge of SDLC, CVS, SVN, GIT, Maven, GITLAB, Docker and
+Knowledge of Devops dependencies – code review, builds, repositories, packages,
+Knowledge of config management – chef, puppet, ansible and related languages . groovy, go, json, yml, ini (any)
+Strong analytical and troubleshooting
+Excellent soft skills &amp; Communication (Verbal and Written) . Must be willing to work in rotational shifts.
+Ability to Multi task in high paced
+Problem Solver and To-Do attitude, ability to face technical challenges and drive
+Preferred Qualifications (Nice to have)
+Having worked in environment supporting 10000+ servers a Multiple Application Support Experience a plus.
+ITIL and ITSM experience a
+Global clients facing Support team experience a
+Able to work within a Global team, prior experience a plus . Prior experience with Financial Institution a plus.
+MINIMUM EDUCATION AND EXPERIENCE REQUIREMENTS:
+
+Bachelor’s degree in CSE or related field
+
+3-5 years of relevant work experience on SDLC/Devops, LINUX system platforms.`,
     contact: { phone: "+91 9353019779", email: "aishwarya@writeyourdestiny.in" },
   },
 ]
@@ -529,6 +1092,66 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 }
 
 /* --------------------------- job accordion row --------------------------- */
+
+/* ------------------- description → headings + bullets ------------------- */
+
+type DescBlock = { heading: string | null; items: string[] }
+
+const HEADING_RE =
+  /(Roles\s*&\s*Responsibilities|Key Responsibilities|Responsibilities|Must[-\s]?Have Skills|Must Haves|Nice[-\s]?to[-\s]?Have Skills|Nice to haves|Required Skills|Additional Skills|Job Description|Job Overview|Overview|Required)\s*:?-?/gi
+
+function normalizeHeading(raw: string): string {
+  const clean = raw.trim().toLowerCase()
+  if (clean.includes("roles") && clean.includes("responsibilities")) return "Roles & Responsibilities"
+  if (clean.includes("key responsibilities")) return "Key Responsibilities"
+  if (clean === "responsibilities") return "Responsibilities"
+  if (clean.includes("must")) return "Must-Have Skills"
+  if (clean.includes("nice")) return "Nice-to-Have Skills"
+  if (clean.includes("required skills")) return "Required Skills"
+  if (clean.includes("additional skills")) return "Additional Skills"
+  if (clean.includes("job description")) return "Job Description"
+  if (clean.includes("job overview")) return "Job Overview"
+  if (clean.includes("overview")) return "Overview"
+  if (clean === "required") return "Required"
+  return raw.trim()
+}
+
+function parseDescription(text: string): DescBlock[] {
+  const matches: { heading: string; start: number; end: number }[] = []
+  const re = new RegExp(HEADING_RE)
+  let m: RegExpExecArray | null
+  while ((m = re.exec(text)) !== null) {
+    matches.push({ heading: m[1], start: m.index, end: m.index + m[0].length })
+  }
+
+  const toItems = (chunk: string) =>
+    chunk
+      .split("\n")
+      .map((l) => l.trim().replace(/^[-•]\s*/, ""))
+      .filter(Boolean)
+
+  if (matches.length === 0) {
+    return [{ heading: null, items: toItems(text) }]
+  }
+
+  const blocks: DescBlock[] = []
+
+  const introText = text.slice(0, matches[0].start).trim()
+  if (introText) {
+    blocks.push({ heading: null, items: toItems(introText) })
+  }
+
+  for (let i = 0; i < matches.length; i++) {
+    const start = matches[i].end
+    const end = i + 1 < matches.length ? matches[i + 1].start : text.length
+    const items = toItems(text.slice(start, end))
+    if (items.length > 0) {
+      blocks.push({ heading: normalizeHeading(matches[i].heading), items })
+    }
+  }
+
+  return blocks
+}
 
 function JobCard({
   job,
@@ -590,40 +1213,42 @@ function JobCard({
       <div className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
         <div className="overflow-hidden">
           <div className="px-6 md:px-7 pb-7 pt-0 sm:pl-[6.5rem]" style={{ borderTop: "1px solid #f1eee6" }}>
-            <p className="font-body text-sm leading-relaxed pt-6" style={{ color: "#6b7a99" }}>
-              {job.blurb}
-            </p>
-
             <div className="mt-6">
               <h4 className="font-body text-[11px] font-bold uppercase tracking-widest" style={{ color: accent }}>
-                What You'll Do
+                Job Description
               </h4>
-              <ul className="mt-3 space-y-2">
-                {job.responsibilities.map((r, i) => (
-                  <li key={i} className="flex gap-2.5 items-start">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: accent }} />
-                    <span className="font-body text-sm leading-relaxed" style={{ color: "#6b7a99" }}>
-                      {r}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mt-6">
-              <h4 className="font-body text-[11px] font-bold uppercase tracking-widest" style={{ color: accent }}>
-                Skills
-              </h4>
-              <div className="flex flex-wrap gap-2 mt-3">
-                {job.skills.map((s) => (
-                  <span
-                    key={s}
-                    className="font-body text-xs px-3 py-1.5 rounded-full"
-                    style={{ background: BLUSH, color: DARK }}
-                  >
-                    {s}
-                  </span>
-                ))}
+              <div className="mt-4 space-y-5">
+                {parseDescription(job.description).map((block, bi) =>
+                  block.heading ? (
+                    <div key={bi}>
+                      <h5
+                        className="font-body text-xs font-bold uppercase tracking-wide mb-2.5"
+                        style={{ color: DARK }}
+                      >
+                        {block.heading}
+                      </h5>
+                      <ul className="space-y-1.5">
+                        {block.items.map((item, ii) => (
+                          <li
+                            key={ii}
+                            className="font-body text-sm leading-relaxed flex gap-2.5"
+                            style={{ color: "#6b7a99" }}
+                          >
+                            <span
+                              className="shrink-0 mt-[9px] w-1.5 h-1.5 rounded-full"
+                              style={{ background: accent }}
+                            />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : (
+                    <p key={bi} className="font-body text-sm leading-relaxed" style={{ color: "#6b7a99" }}>
+                      {block.items.join(" ")}
+                    </p>
+                  )
+                )}
               </div>
             </div>
 
