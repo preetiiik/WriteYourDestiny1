@@ -53,6 +53,35 @@ const UserCheckIcon = ({ className, style }: IconProps) => (
   </svg>
 )
 
+const MapPinIcon = ({ className, style }: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+    strokeLinecap="round" strokeLinejoin="round" className={className} style={style}>
+    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+    <circle cx="12" cy="10" r="3" />
+  </svg>
+)
+
+const PhoneIcon = ({ className, style }: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+    strokeLinecap="round" strokeLinejoin="round" className={className} style={style}>
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z" />
+  </svg>
+)
+
+const MailIcon = ({ className, style }: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+    strokeLinecap="round" strokeLinejoin="round" className={className} style={style}>
+    <rect x="2" y="4" width="20" height="16" rx="2" />
+    <path d="m22 6-10 7L2 6" />
+  </svg>
+)
+
+const LinkedinIcon = ({ className, style }: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
+    <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z" />
+  </svg>
+)
+
 const BLUE = "#1355B2"
 const PINK = "#F5569B"
 const BLUSH = "#FFCBEB"
@@ -451,7 +480,7 @@ export default function App() {
                     className="font-display font-bold text-sm"
                     style={{ color: DARK }}
                   >
-                    2016 · Hubli, KA
+                    2019 · Hubli, KA
                   </p>
                 </div>
               </div>
@@ -827,10 +856,19 @@ export default function App() {
                 className="h-8 w-auto object-contain"
               />
             </div>
-            <p className="font-body text-sm text-white/70 leading-relaxed">
+            <p className="font-body text-sm text-white/70 leading-relaxed mb-4">
               Welcome to Write Your Destiny (WYD), a global HR boutique
               dedicated to shaping careers.
             </p>
+            <a
+              href="https://www.linkedin.com/company/write-your-destiny/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Write Your Destiny (WYD) on LinkedIn"
+              className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            >
+              <LinkedinIcon className="w-4.5 h-4.5 text-white" style={{ width: 18, height: 18 }} />
+            </a>
           </div>
 
           {/* Quick Links */}
@@ -883,19 +921,34 @@ export default function App() {
             <h3 className="font-display text-white font-bold mb-4">
               Contact Us
             </h3>
-            <p className="font-body text-sm text-white/70 leading-relaxed mb-3">
-              WYD 3rd Floor, BM Plaza
-              <br />
-              Near Sharada Hotel
-              <br />
-              Deshpande Nagar, Hubli
-            </p>
-            <p className="font-body text-sm text-white/70 mb-1">
-              Phone: +91 9606351695
-            </p>
-            <p className="font-body text-sm text-white/70">
-              Email: shreedevi.roogi@writeyourdestiny.in
-            </p>
+            <div className="flex items-start gap-3 mb-3">
+              <MapPinIcon className="text-white/70 shrink-0 mt-0.5" style={{ width: 16, height: 16 }} />
+              <p className="font-body text-sm text-white/70 leading-relaxed">
+                WYD 3rd Floor, BM Plaza
+                <br />
+                Near Sharada Hotel
+                <br />
+                Deshpande Nagar, Hubli
+              </p>
+            </div>
+            <div className="flex items-center gap-3 mb-2">
+              <PhoneIcon className="text-white/70 shrink-0" style={{ width: 16, height: 16 }} />
+              <a
+                href="tel:+919606351695"
+                className="font-body text-sm text-white/70 hover:text-white transition-colors"
+              >
+                +91 9606351695
+              </a>
+            </div>
+            <div className="flex items-center gap-3">
+              <MailIcon className="text-white/70 shrink-0" style={{ width: 16, height: 16 }} />
+              <a
+                href="mailto:shreedevi.roogi@writeyourdestiny.in"
+                className="font-body text-sm text-white/70 hover:text-white transition-colors"
+              >
+                shreedevi.roogi@writeyourdestiny.in
+              </a>
+            </div>
           </div>
 
           {/* Working Hours */}
