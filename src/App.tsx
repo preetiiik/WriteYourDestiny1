@@ -4,6 +4,9 @@ import logo from "@/imports/ChatGPT_Image_Aug_24__2026__12_02_21_PM.png"
 import reelResumeTips from "@/imports/reel-resume-tips.png"
 import reelOverseasEducation from "@/imports/reel-overseas-education.png"
 import ctaBg from "@/imports/cta-support-illustration.png"
+import heroBg from "@/imports/hero-bg.png"
+import imgAboutUs1 from "@/imports/about-us-1.png"
+import imgAboutUs2 from "@/imports/about-us-2.png"
 
 // const DARK = "#0a1a3d"
 
@@ -89,12 +92,9 @@ const DARK = "#0a1a3d"
 const SKYBLUE = "C3DBFD"
 
 // Real images from writeyourdestiny.in
-const IMG_HERO =
-  "https://writeyourdestiny.in/wp-content/uploads/2026/07/InShot_20260710_110530721.jpg-1024x1024.jpeg"
-const IMG_ABOUT =
-  "https://writeyourdestiny.in/wp-content/uploads/2026/07/IMG_20260709_094726.jpg.jpeg"
-const IMG_TEAM =
-  "https://writeyourdestiny.in/wp-content/uploads/2026/07/IMG_20260709_094910.jpg.jpeg"
+const IMG_HERO = heroBg
+const IMG_ABOUT = imgAboutUs1
+const IMG_TEAM = imgAboutUs2
 
 // Blog / reels / video content for the "Stories & Inspiration" section
 const YOUTUBE_ID = "Y907dQjIoMo"
@@ -155,9 +155,54 @@ const services = [
 ]
 
 const stats = [
-  { value: "50+", label: "Clients" },
-  { value: "1,400+", label: "Successful Placements" },
+  { value: 50, suffix: "+", label: "Clients" },
+  { value: 1400, suffix: "+", label: "Successful Placements" },
 ]
+
+/* Animates a number counting up from 0 to `value` once it scrolls into view */
+function AnimatedStat({
+  value,
+  suffix = "",
+  duration = 1600,
+}: {
+  value: number
+  suffix?: string
+  duration?: number
+}) {
+  const [display, setDisplay] = useState(0)
+  const [hasRun, setHasRun] = useState(false)
+  const ref = (node: HTMLDivElement | null) => {
+    if (!node || hasRun) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasRun) {
+            setHasRun(true)
+            const start = performance.now()
+            const tick = (now: number) => {
+              const progress = Math.min((now - start) / duration, 1)
+              // ease-out for a natural deceleration near the end
+              const eased = 1 - Math.pow(1 - progress, 3)
+              setDisplay(Math.round(eased * value))
+              if (progress < 1) requestAnimationFrame(tick)
+            }
+            requestAnimationFrame(tick)
+            observer.disconnect()
+          }
+        })
+      },
+      { threshold: 0.4 }
+    )
+    observer.observe(node)
+  }
+
+  return (
+    <div ref={ref}>
+      {display.toLocaleString()}
+      {suffix}
+    </div>
+  )
+}
 
 const marqueeItems = [
   "Crafting Futures",
@@ -344,7 +389,7 @@ export default function App() {
         />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-10 min-h-[calc(100vh-4rem)] flex items-center">
-          <div className="grid md:grid-cols-2 gap-12 items-center w-full py-16 md:py-0">
+          <div className="grid md:grid-cols-2 gap-12 items-center w-full">
             {/* Left — text */}
             <div>
               <div
@@ -411,32 +456,10 @@ export default function App() {
                 </button>
               </div>
 
-              {/* Stats row */}
-              <div
-                className="flex gap-8 mt-12 fade-up"
-                style={{ animationDelay: "0.5s" }}
-              >
-                {[
-                  { v: "50+", l: "Clients" },
-                  { v: "1,400+", l: "Successful Placements" },
-                ].map((s) => (
-                  <div key={s.l}>
-                    <div
-                      className="font-display text-2xl font-bold"
-                      style={{ color: PINK }}
-                    >
-                      {s.v}
-                    </div>
-                    <div className="font-body text-xs text-[#9aa3b5] mt-0.5">
-                      {s.l}
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* Right — image */}
-            <div className="relative">
+            <div className="relative md:-translate-y-12">
               {/* Decorative ring */}
               <div
                 className="absolute -top-6 -right-6 w-48 h-48 rounded-full border-2 opacity-20"
@@ -447,10 +470,7 @@ export default function App() {
                 style={{ background: `${PINK}20` }}
               />
 
-              <div
-                className="relative overflow-hidden"
-                style={{ borderRadius: "60% 40% 70% 30% / 50% 60% 40% 60%" }}
-              >
+              <div className="relative overflow-hidden rounded-[2rem] md:rounded-[60%_40%_70%_30%/50%_60%_40%_60%]">
                 <img
                   src={IMG_HERO}
                   alt="Write Your Destiny team professional"
@@ -472,7 +492,7 @@ export default function App() {
                 >
                   ✦
                 </div>
-                <div>
+                {/* <div>
                   <p className="font-body text-xs text-[#9aa3b5]">
                     Trusted since
                   </p>
@@ -482,7 +502,7 @@ export default function App() {
                   >
                     2019 · Hubli, KA
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -700,7 +720,7 @@ export default function App() {
                   className="font-display text-3xl sm:text-4xl md:text-6xl font-bold mb-1 md:mb-2"
                   style={{ color: i % 2 === 0 ? BLUSH : PINK }}
                 >
-                  {s.value}
+                  <AnimatedStat value={s.value} suffix={s.suffix} />
                 </div>
                 <div className="font-body text-[10px] md:text-xs text-white/40 tracking-wide uppercase leading-tight">
                   {s.label}

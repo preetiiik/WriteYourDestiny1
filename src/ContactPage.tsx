@@ -55,10 +55,36 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   )
 }
 
+const initialFormState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  role: "",
+  message: "",
+}
+
 export default function Contact() {
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [formData, setFormData] = useState(initialFormState)
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    // TODO: replace with an actual API call / email service (e.g. Formspree, EmailJS)
+    // once a backend or third-party form endpoint is set up.
+    setFormData(initialFormState)
+    setSubmitted(true)
+    setTimeout(() => setSubmitted(false), 5000)
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -276,6 +302,29 @@ export default function Contact() {
                 </div>
               </a>
 
+              {/* Email */}
+              <a
+                href="mailto:shreedevi.roogi@writeyourdestiny.in"
+                className="flex items-start gap-4 group cursor-pointer"
+              >
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 transition-transform duration-300 group-hover:scale-110"
+                  style={{ background: BLUE }}
+                >
+                  ✉️
+                </div>
+
+                <div>
+                  <p className="font-body text-xs text-[#9aa3b5] uppercase tracking-widest mb-0.5">
+                    Email
+                  </p>
+
+                  <p className="font-body text-sm text-[#0a1a3d] group-hover:text-[#1355B2] transition-colors">
+                    shreedevi.roogi@writeyourdestiny.in
+                  </p>
+                </div>
+              </a>
+
               {/* Hours */}
               <div className="flex items-start gap-4">
                 <div
@@ -304,7 +353,16 @@ export default function Contact() {
             className="bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100"
             style={{ boxShadow: `0 24px 64px ${BLUE}20` }}
           >
-            <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+            {submitted && (
+              <div
+                className="mb-5 rounded-xl px-4 py-3 font-body text-sm font-medium"
+                style={{ background: "#E7F5EC", color: "#1E7A46" }}
+                role="status"
+              >
+                ✓ Thanks for reaching out! Your message has been sent — we'll get back to you soon.
+              </div>
+            )}
+            <form className="space-y-5" onSubmit={handleSubmit}>
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2">
@@ -312,7 +370,11 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
+                    name="firstName"
                     placeholder="Arjun"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    required
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors"
                   />
                 </div>
@@ -322,7 +384,11 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
+                    name="lastName"
                     placeholder="Sharma"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    required
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors"
                   />
                 </div>
@@ -333,7 +399,11 @@ export default function Contact() {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="arjun@company.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                   className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors"
                 />
               </div>
@@ -341,7 +411,13 @@ export default function Contact() {
                 <label className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2">
                   I am a
                 </label>
-                <select className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] focus:outline-none focus:border-[#1355B2] transition-colors bg-white">
+                <select
+                  name="role"
+                  value={formData.role}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] focus:outline-none focus:border-[#1355B2] transition-colors bg-white"
+                >
                   <option value="">Select one</option>
                   <option>Job Seeker</option>
                   <option>Employer / Company</option>
@@ -355,7 +431,11 @@ export default function Contact() {
                 </label>
                 <textarea
                   rows={4}
+                  name="message"
                   placeholder="Tell us about your goals…"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
                   className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors resize-none"
                 />
               </div>

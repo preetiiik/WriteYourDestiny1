@@ -10,6 +10,7 @@ import iconBehavioralSkills from "@/imports/icon-behavioral-skills.png"
 import iconInterviewingSkills from "@/imports/icon-interviewing-skills.png"
 import iconPsychologicalTraining from "@/imports/icon-psychological-training.png"
 import imgAbroad from "@/imports/ielts-overseas.png"
+import imgAboutUs2 from "@/imports/about-us-2.png"
 import ctaBg from "@/imports/cta-support-illustration.png"
 
 // const DARK = "#0a1a3d"
@@ -53,9 +54,7 @@ const BLUSH = "#FFCBEB"
 const DARK = "#0a1a3d"
 const SKYBLUE = "C3DBFD"
 
-// Swap these for real WYD service photos when available (same pattern as homepage IMG_ constants)
-const IMG_HERO =
-  "https://writeyourdestiny.in/wp-content/uploads/2026/07/IMG_20260709_094910.jpg.jpeg"
+const IMG_HERO = imgAboutUs2
 const IMG_ABROAD = imgAbroad
 
 // Blog / reels / video content for the "Stories & Inspiration" section
@@ -413,7 +412,7 @@ export default function Services() {
       </section>
 
       {/* MARQUEE */}
-      <div className="border-y border-pink-100 py-3 overflow-hidden" style={{ background: BLUE }}>
+      <div className="py-3 overflow-hidden" style={{ background: BLUE }}>
         <div className="marquee-track flex whitespace-nowrap gap-10">
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
             <span
