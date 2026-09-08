@@ -762,7 +762,7 @@ export default function Services() {
 
   <div className="relative max-w-2xl mx-auto text-center">
     <div className="inline-block text-xs font-semibold tracking-[0.2em] uppercase px-4 py-1.5 rounded-full bg-white/15 text-white">
-      Ready When You Are
+      When You Are Ready
     </div>
 
     <h2 className="font-display mt-6 text-3xl md:text-4xl font-bold text-white leading-tight">
