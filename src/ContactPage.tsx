@@ -1,6 +1,7 @@
 import { useState, useEffect, CSSProperties } from "react"
 import { useNavigate } from "react-router-dom"
 import logo from "@/imports/ChatGPT_Image_Aug_24__2026__12_02_21_PM.png"
+import contactHeroBg from "@/imports/contact-hero.png"
 
 
 /* Lightweight inline SVG icons (same pattern as App.tsx / Services.tsx / About.tsx) */
@@ -65,35 +66,235 @@ const initialFormState = {
 
 export default function Contact() {
   const navigate = useNavigate()
+
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [formData, setFormData] = useState(initialFormState)
   const [submitted, setSubmitted] = useState(false)
+  const [formError, setFormError] = useState("")
+
+  const MAX_NAME_LENGTH = 50
+  const MAX_EMAIL_LENGTH = 254
+  const MAX_MESSAGE_LENGTH = 1000
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
+
+    /*
+     * FIRST NAME / LAST NAME
+     * Only letters, spaces, hyphens and apostrophes are allowed.
+     * Numbers and special characters are automatically removed.
+     */
+    if (name === "firstName" || name === "lastName") {
+      const cleanedValue = value.replace(
+        /[^A-Za-zÀ-ÖØ-öø-ÿ' -]/g,
+        ""
+      )
+
+      setFormData((prev) => ({
+        ...prev,
+        [name]: cleanedValue.slice(0, MAX_NAME_LENGTH),
+      }))
+
+      setFormError("")
+      setSubmitted(false)
+      return
+    }
+
+    /*
+     * EMAIL
+     */
+    if (name === "email") {
+      setFormData((prev) => ({
+        ...prev,
+        email: value.slice(0, MAX_EMAIL_LENGTH),
+      }))
+
+      setFormError("")
+      setSubmitted(false)
+      return
+    }
+
+    /*
+     * MESSAGE
+     */
+    if (name === "message") {
+      setFormData((prev) => ({
+        ...prev,
+        message: value.slice(0, MAX_MESSAGE_LENGTH),
+      }))
+
+      setFormError("")
+      setSubmitted(false)
+      return
+    }
+
+    /*
+     * ROLE
+     */
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+
+    setFormError("")
+    setSubmitted(false)
+  }
+
+  const validateForm = () => {
+    const firstName = formData.firstName.trim()
+    const lastName = formData.lastName.trim()
+    const email = formData.email.trim()
+    const message = formData.message.trim()
+
+    /*
+     * FIRST NAME VALIDATION
+     */
+    if (!firstName) {
+      return "Please enter your first name."
+    }
+
+    if (
+      !/^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$/.test(
+        firstName
+      )
+    ) {
+      return "Please enter a valid first name using letters only."
+    }
+
+    /*
+     * LAST NAME VALIDATION
+     */
+    if (!lastName) {
+      return "Please enter your last name."
+    }
+
+    if (
+      !/^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$/.test(
+        lastName
+      )
+    ) {
+      return "Please enter a valid last name using letters only."
+    }
+
+    /*
+     * EMAIL VALIDATION
+     */
+    const emailRegex =
+      /^[A-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?(?:\.[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?)+$/i
+
+    if (!email) {
+      return "Please enter your email address."
+    }
+
+    if (email.length > MAX_EMAIL_LENGTH) {
+      return "Email address is too long."
+    }
+
+    if (!emailRegex.test(email)) {
+      return "Please enter a valid email address."
+    }
+
+    /*
+     * ROLE VALIDATION
+     */
+    if (!formData.role) {
+      return "Please select who you are."
+    }
+
+    /*
+     * MESSAGE VALIDATION
+     */
+    if (!message) {
+      return "Message cannot be empty or contain only spaces."
+    }
+
+    return ""
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // TODO: replace with an actual API call / email service (e.g. Formspree, EmailJS)
-    // once a backend or third-party form endpoint is set up.
-    setFormData(initialFormState)
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 5000)
+
+    setSubmitted(false)
+    setFormError("")
+
+    const validationError = validateForm()
+
+    if (validationError) {
+      setFormError(validationError)
+      return
+    }
+
+    /*
+     * IMPORTANT:
+     * Do not clear the form before the backend confirms submission.
+     *
+     * When your real API/email service is connected, put the API request
+     * here and only clear the form after a successful response.
+     */
+
+    try {
+      // -------------------------------------------------------
+      // CONNECT YOUR REAL API / EMAIL SERVICE HERE
+      // -------------------------------------------------------
+      //
+      // Example:
+      //
+      // const response = await fetch("/api/contact", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     firstName: formData.firstName.trim(),
+      //     lastName: formData.lastName.trim(),
+      //     email: formData.email.trim(),
+      //     role: formData.role,
+      //     message: formData.message.trim(),
+      //   }),
+      // })
+      //
+      // if (!response.ok) {
+      //   throw new Error("Submission failed")
+      // }
+
+      setSubmitted(true)
+
+      setFormData(initialFormState)
+
+      setTimeout(() => {
+        setSubmitted(false)
+      }, 5000)
+    } catch (error) {
+      console.error("Contact form submission failed:", error)
+
+      setFormError(
+        "We couldn't send your message. Please check your internet connection and try again."
+      )
+    }
   }
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40)
+    }
+
     window.addEventListener("scroll", onScroll)
-    return () => window.removeEventListener("scroll", onScroll)
+
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+    }
   }, [])
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+    document
+      .getElementById(id)
+      ?.scrollIntoView({ behavior: "smooth" })
+
     setMenuOpen(false)
   }
 
@@ -209,33 +410,41 @@ export default function Contact() {
         </div>
       </nav>
 
-      {/* PAGE HEADER */}
-      <section className="pt-32 pb-16 md:pt-36 md:pb-20 relative overflow-hidden">
-        <div
-          className="absolute top-0 right-0 w-1/2 h-full"
-          style={{
-            background: `linear-gradient(135deg, ${SKYBLUE}60 0%, ${BLUSH}20 100%)`,
-          }}
-        />
-        <div
-          className="absolute -top-32 -right-32 w-96 h-96 rounded-full"
-          style={{ background: BLUSH, filter: "blur(80px)", opacity: 0.6 }}
-        />
-
-        <div className="relative max-w-7xl mx-auto px-6 md:px-10 text-center">
-          <div className="flex justify-center mb-6">
-            <Eyebrow>Get In Touch</Eyebrow>
-          </div>
-          <h1 className="font-display text-4xl md:text-5xl font-bold leading-tight">
-            Let's write your
-            <br />
-            <em className="italic font-light" style={{ color: BLUE }}>
-              next chapter.
-            </em>
-          </h1>
+{/* PAGE HEADER */}
+<section
+  className="relative overflow-hidden min-h-[520px] md:min-h-[560px] flex items-center"
+  style={{
+    backgroundImage: `url(${contactHeroBg})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  <div className="relative z-10 w-full">
+    <div className="max-w-7xl mx-auto px-6 md:px-10">
+      
+      {/* Content on the LEFT */}
+      <div className="w-full md:w-[50%] lg:w-[48%] text-center md:text-left">
+        
+        <div className="flex justify-center md:justify-start mb-6">
+          <Eyebrow>Get In Touch</Eyebrow>
         </div>
-      </section>
 
+        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          Let's write your
+          <br />
+          <em
+            className="italic font-light"
+            style={{ color: PINK }}
+          >
+            next chapter.
+          </em>
+        </h1>
+
+      </div>
+
+    </div>
+  </div>
+</section>
       {/* CONTACT */}
       <section id="contact" className="py-20 px-6 md:px-10">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
@@ -274,7 +483,7 @@ export default function Contact() {
                   </p>
 
                   <p className="font-body text-sm text-[#0a1a3d] group-hover:text-[#1355B2] transition-colors">
-                    BM Plaza, Deshpande Nagar, Hubli, Karnataka
+                    WYD 3rd Floor, BM Plaza, Near  Sharada Hotel, Deshpande Nagar, Hubli, Karnataka
                   </p>
                 </div>
               </a>
@@ -348,108 +557,183 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Form */}
-          <div
-            className="bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100"
-            style={{ boxShadow: `0 24px 64px ${BLUE}20` }}
-          >
-            {submitted && (
-              <div
-                className="mb-5 rounded-xl px-4 py-3 font-body text-sm font-medium"
-                style={{ background: "#E7F5EC", color: "#1E7A46" }}
-                role="status"
-              >
-                ✓ Thanks for reaching out! Your message has been sent — we'll get back to you soon.
-              </div>
-            )}
-            <form className="space-y-5" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2">
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    placeholder="Arjun"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    placeholder="Sharma"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    required
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="arjun@company.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors"
-                />
-              </div>
-              <div>
-                <label className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2">
-                  I am a
-                </label>
-                <select
-                  name="role"
-                  value={formData.role}
-                  onChange={handleChange}
-                  required
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] focus:outline-none focus:border-[#1355B2] transition-colors bg-white"
-                >
-                  <option value="">Select one</option>
-                  <option>Job Seeker</option>
-                  <option>Employer / Company</option>
-                  <option>Looking for Training</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div>
-                <label className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2">
-                  Message
-                </label>
-                <textarea
-                  rows={4}
-                  name="message"
-                  placeholder="Tell us about your goals…"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors resize-none"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full py-4 font-body font-semibold text-sm tracking-wide text-white rounded-xl transition-all duration-300 hover:opacity-90 hover:shadow-lg"
-                style={{
-                  background: `linear-gradient(135deg, ${BLUE} 0%, #1355B2 100%)`,
-                  boxShadow: `0 4px 20px ${BLUE}40`,
-                }}
-              >
-                Send Message
-              </button>
-            </form>
+          {/* FORM */}
+<div
+  className="bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100"
+  style={{
+    boxShadow: `0 24px 64px ${BLUE}20`,
+  }}
+>
+  {/* SUCCESS MESSAGE */}
+  {submitted && (
+    <div
+      className="mb-5 rounded-xl px-4 py-3 font-body text-sm font-medium"
+      style={{
+        background: "#E7F5EC",
+        color: "#1E7A46",
+      }}
+      role="status"
+    >
+      ✓ Thanks for reaching out! Your message has been sent — we'll
+      get back to you soon.
+    </div>
+  )}
+
+  {/* ERROR MESSAGE */}
+  {formError && (
+    <div
+      className="mb-5 rounded-xl px-4 py-3 font-body text-sm font-medium"
+      style={{
+        background: "#FDECEC",
+        color: "#B42318",
+      }}
+      role="alert"
+    >
+      {formError}
+    </div>
+  )}
+
+  <form
+    className="space-y-5"
+    onSubmit={handleSubmit}
+    noValidate
+  >
+    {/* FIRST + LAST NAME */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+      {/* FIRST NAME */}
+      <div>
+        <label
+          htmlFor="firstName"
+          className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2"
+        >
+          First Name
+        </label>
+
+        <input
+          id="firstName"
+          type="text"
+          name="firstName"
+          placeholder="Arjun"
+          value={formData.firstName}
+          onChange={handleChange}
+          maxLength={MAX_NAME_LENGTH}
+          autoComplete="given-name"
+          required
+          className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors"
+        />
+      </div>
+
+      {/* LAST NAME */}
+      <div>
+        <label
+          htmlFor="lastName"
+          className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2"
+        >
+          Last Name
+        </label>
+
+        <input
+          id="lastName"
+          type="text"
+          name="lastName"
+          placeholder="Sharma"
+          value={formData.lastName}
+          onChange={handleChange}
+          maxLength={MAX_NAME_LENGTH}
+          autoComplete="family-name"
+          required
+          className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors"
+        />
+      </div>
+    </div>
+
+    {/* EMAIL */}
+    <div>
+      <label
+        htmlFor="email"
+        className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2"
+      >
+        Email
+      </label>
+
+      <input
+        id="email"
+        type="email"
+        name="email"
+        placeholder="arjun@company.com"
+        value={formData.email}
+        onChange={handleChange}
+        maxLength={MAX_EMAIL_LENGTH}
+        autoComplete="email"
+        required
+        className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors"
+      />
+    </div>
+
+    {/* ROLE */}
+    <div>
+      <label
+        htmlFor="role"
+        className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2"
+      >
+        I am a
+      </label>
+
+      <select
+        id="role"
+        name="role"
+        value={formData.role}
+        onChange={handleChange}
+        required
+        className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] focus:outline-none focus:border-[#1355B2] transition-colors bg-white"
+      >
+        <option value="">Select one</option>
+        <option value="Job Seeker">Job Seeker</option>
+        <option value="Employer / Company">
+          Employer / Company
+        </option>
+        <option value="Looking for Training">
+          Looking for Training
+        </option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    {/* MESSAGE */}
+    <div>
+      <label
+        htmlFor="message"
+        className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2"
+      >
+        Message
+      </label>
+
+      <textarea
+        id="message"
+        rows={4}
+        name="message"
+        placeholder="Tell us about your goals…"
+        value={formData.message}
+        onChange={handleChange}
+        maxLength={MAX_MESSAGE_LENGTH}
+        required
+        className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors resize-none"
+      />
+    </div>
+
+    {/* SUBMIT */}
+    <button
+      type="submit"
+      className="w-full py-4 font-body font-semibold text-sm tracking-wide text-white rounded-xl transition-all duration-300 hover:opacity-90 hover:shadow-lg"
+      style={{
+        background: `linear-gradient(135deg, ${BLUE} 0%, #1355B2 100%)`,
+        boxShadow: `0 4px 20px ${BLUE}40`,
+      }}
+    >
+      Send Message
+    </button>
+  </form>
           </div>
         </div>
       </section>
