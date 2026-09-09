@@ -188,6 +188,13 @@ export default function About() {
           </button>
 
           <div className="hidden md:flex items-center gap-8">
+            {/* Home → Home Page */}
+  <button
+    onClick={() => navigate("/")}
+    className="nav-link font-body text-sm font-medium text-[#4a5568] hover:text-[#0a1a3d] transition-colors"
+  >
+    Home
+  </button>
             <button
               onClick={() => scrollTo("story")}
               className="nav-link font-body text-sm font-semibold transition-colors"
@@ -244,10 +251,19 @@ export default function About() {
 
         <div
           className={`md:hidden overflow-hidden transition-all duration-300 ${
-            menuOpen ? "max-h-56" : "max-h-0"
+            menuOpen ? "max-h-60" : "max-h-0"
           }`}
         >
           <div className="bg-white border-t border-gray-100 px-6 py-5 flex flex-col gap-4">
+                        <button
+  onClick={() => {
+    navigate("/")
+    setMenuOpen(false)
+  }}
+  className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+>
+  Home
+</button>
   <button
     onClick={() => navigate("/about")}
     className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
