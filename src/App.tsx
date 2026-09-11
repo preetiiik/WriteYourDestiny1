@@ -302,7 +302,7 @@ export default function App() {
               onClick={() => navigate("/about")}
               className="nav-link font-body text-sm font-medium text-[#4a5568] hover:text-[#0a1a3d] transition-colors"
             >
-              About
+              About Us
             </button>
 
             {/* Services → Separate Page */}

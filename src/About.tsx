@@ -221,7 +221,7 @@ export default function About() {
               className="nav-link font-body text-sm font-semibold transition-colors"
               style={{ color: PINK }}
             >
-              About
+              About Us
             </button>
 
             <button
