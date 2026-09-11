@@ -348,7 +348,7 @@ export default function Services() {
     onClick={() => navigate("/about")}
     className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
   >
-    About
+    About Us
   </button>
 
   <button
