@@ -48,6 +48,27 @@ const LinkedinIcon = ({ className, style }: IconProps) => (
   </svg>
 )
 
+const InstagramIcon = ({ className, style }: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+    strokeLinecap="round" strokeLinejoin="round" className={className} style={style}>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+)
+
+const FacebookIcon = ({ className, style }: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
+    <path d="M14 9.5V7.5c0-.83.67-1.5 1.5-1.5H17V3h-2.5C11.46 3 10 4.46 10 7.5v2H7v3.5h3V21h4v-8h2.5l.5-3.5H14Z" />
+  </svg>
+)
+
+const WhatsappIcon = ({ className, style }: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
+    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.71.45 3.37 1.3 4.85L2.05 22l5.36-1.36a9.94 9.94 0 0 0 4.63 1.14h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Zm5.85 14.03c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.62-.6-2.85-1.23-4.7-4.1-4.85-4.29-.14-.19-1.16-1.55-1.16-2.96 0-1.4.73-2.09 1-2.37.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.6.46.24.57.79 1.98.86 2.12.07.14.11.31.02.5-.09.19-.14.31-.27.47-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.18 1.53 1.91 1.05.94 1.94 1.24 2.21 1.38.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34Z" />
+  </svg>
+)
+
 /* Same design tokens as the home page (App.tsx) */
 const BLUE = "#1355B2"
 const PINK = "#F5569B"
@@ -695,15 +716,44 @@ export default function About() {
               Welcome to Write Your Destiny (WYD), a global HR boutique dedicated to shaping
               careers.
             </p>
-            <a
-              href="https://www.linkedin.com/company/write-your-destiny/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Write Your Destiny (WYD) on LinkedIn"
-              className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-            >
-              <LinkedinIcon className="text-white" style={{ width: 18, height: 18 }} />
-            </a>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.linkedin.com/company/write-your-destiny/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Write Your Destiny (WYD) on LinkedIn"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                <LinkedinIcon className="text-white" style={{ width: 18, height: 18 }} />
+              </a>
+              <a
+                href="https://www.instagram.com/write.your.destiny007/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Write Your Destiny (WYD) on Instagram"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                <InstagramIcon className="text-white" style={{ width: 18, height: 18 }} />
+              </a>
+              <a
+                href="https://www.facebook.com/wyd007"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Write Your Destiny (WYD) on Facebook"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                <FacebookIcon className="text-white" style={{ width: 18, height: 18 }} />
+              </a>
+              <a
+                href="https://wa.me/919606351695"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Chat with Write Your Destiny (WYD) on WhatsApp"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                <WhatsappIcon className="text-white" style={{ width: 18, height: 18 }} />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
