@@ -445,7 +445,7 @@ export default function App() {
               </div>
 
               <h1
-                className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.0] mb-6 fade-up"
+                className="font-display text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.0] mb-6 fade-up"
                 style={{ animationDelay: "0.15s" }}
               >
                 Crafting
@@ -454,11 +454,13 @@ export default function App() {
                 <br />
                 Connecting
                 <br />
-                <span style={{ color: PINK }}>Talents</span>: Your
+                <span style={{ color: PINK }}>Talents</span>: 
                 <br />
-                Destiny, Our
-                <br />
-                <span style={{ color: PINK }}>Expertise!</span>
+                Your
+                
+                Destiny, Our 
+                {/* <br /> */}
+                <span style={{ color: PINK }}> Expertise!</span>
               </h1>
 
               <p
@@ -496,7 +498,7 @@ export default function App() {
             </div>
 
             {/* Right — image */}
-<div className="relative md:-translate-y-12">
+<div className="relative md:-translate-y-18 fade-up" style={{ animationDelay: "0.5s" }}>
   {/* Decorative ring */}
   <div
     className="absolute -top-6 -right-6 w-48 h-48 rounded-full border-2 opacity-20"
@@ -524,7 +526,7 @@ export default function App() {
   </div>
 
   <div
-  className="absolute bottom-5 -left-4 bg-white shadow-xl px-3 py-2 rounded-lg flex items-center gap-2
+  className="absolute bottom-3 -left-4 bg-white shadow-xl px-3 py-2 rounded-lg flex items-center gap-2
              md:px-5 md:py-3 md:rounded-xl md:gap-3"
   style={{ boxShadow: `0 8px 32px ${BLUE}20` }}
 >
@@ -563,7 +565,7 @@ export default function App() {
               key={i}
               className="font-display italic text-lg font-light shrink-0"
               style={{
-                color: item === "✦" ? PINK : "#9aa3b5",
+                color: item === "✦" ? PINK : "#ffff",
               }}
             >
               {item}
@@ -859,10 +861,10 @@ export default function App() {
                 <div className="absolute inset-0 bg-black/20" />
 
                 <div className="absolute top-4 left-4 flex items-center gap-2">
-                  <span className="text-white text-lg">◎</span>
+                  {/* <span className="text-white text-lg">◎</span>
                   <span className="font-body text-xs font-semibold text-white/90">
                     {i === 0 ? "Resume making tips" : "Overseas Education"}
-                  </span>
+                  </span> */}
                 </div>
                 <div className="relative w-14 h-14 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <span className="text-2xl" style={{ color: PINK }}>
@@ -1018,9 +1020,9 @@ export default function App() {
               <p className="font-body text-sm text-white/70 leading-relaxed">
                 WYD, 3rd Floor, BM Plaza
                 <br />
-                Near Sharada Hotel
+                Near Sharada Hotel,
                 <br />
-                Deshpande Nagar, Hubli
+                Deshpande Nagar, Hubli, Karnataka.
               </p>
             </div>
             <div className="flex items-center gap-3 mb-2">

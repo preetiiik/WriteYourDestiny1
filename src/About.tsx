@@ -131,7 +131,7 @@ const values = [
   {
     number: "01",
     title: "People First",
-    text: "Every career, ambition and business has a unique story. We begin by understanding it.",
+    text: "Every career, ambition, and business has a unique story. We begin by understanding it.",
     color: BLUE,
   },
   {
@@ -407,7 +407,7 @@ export default function About() {
             <span
               key={i}
               className="font-display italic text-lg font-light shrink-0"
-              style={{ color: item === "✦" ? PINK : "#9aa3b5" }}
+              style={{ color: item === "✦" ? PINK : "#ffff" }}
             >
               {item}
             </span>
@@ -439,10 +439,16 @@ export default function About() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {values.map((value) => (
+              // <div
+              //   key={value.number}
+              //   className="service-card bg-white border-2 border-gray-100 rounded-2xl p-7 cursor-default"
+              // >
+
               <div
-                key={value.number}
-                className="service-card bg-white border-2 border-gray-100 rounded-2xl p-7 cursor-default"
-              >
+  key={value.number}
+  className="service-card group bg-white border-2 border-gray-100 rounded-2xl p-7 cursor-default transition-all duration-500 hover:shadow-lg hover:border-[var(--value-color)]"
+  style={{ "--value-color": value.color } as CSSProperties}
+>
                 <div className="flex items-start justify-between mb-5">
                   <span
                     className="font-body text-xs font-semibold tracking-widest"
@@ -466,7 +472,8 @@ export default function About() {
       </section>
 
       {/* VISION + MISSION */}
-      <section className="py-24 px-6 md:px-10">
+      {/* <section className="py-24 px-6 md:px-10"> */}
+      <section className="py-8 md:py-12 px-6 md:px-10">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-6">
           <div className="rounded-2xl p-9 md:p-11" style={{ background: DARK }}>
             <span
@@ -660,10 +667,10 @@ export default function About() {
                 )}
                 <div className="absolute inset-0 bg-black/20" />
 
-                <div className="absolute top-4 left-4 flex items-center gap-2">
+                {/* <div className="absolute top-4 left-4 flex items-center gap-2">
                   <span className="text-white text-lg">◎</span>
                   <span className="font-body text-xs font-semibold text-white/90">{r.label}</span>
-                </div>
+                </div> */}
                 <div className="relative w-14 h-14 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <span className="text-2xl" style={{ color: PINK }}>
                     ▶
@@ -807,9 +814,9 @@ export default function About() {
               <p className="font-body text-sm text-white/70 leading-relaxed">
                 WYD, 3rd Floor, BM Plaza
                 <br />
-                Near Sharada Hotel
+                Near Sharada Hotel,
                 <br />
-                Deshpande Nagar, Hubli
+                Deshpande Nagar, Hubli, Karnataka.
               </p>
             </div>
             <div className="flex items-center gap-3 mb-2">

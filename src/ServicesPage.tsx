@@ -458,7 +458,7 @@ export default function Services() {
             <span
               key={i}
               className="font-display italic text-lg font-light shrink-0"
-              style={{ color: item === "✦" ? PINK : "#9aa3b5" }}
+              style={{ color: item === "✦" ? PINK : "#ffff" }}
             >
               {item}
             </span>
@@ -865,10 +865,10 @@ export default function Services() {
                 )}
                 <div className="absolute inset-0 bg-black/20" />
 
-                <div className="absolute top-4 left-4 flex items-center gap-2">
+                {/* <div className="absolute top-4 left-4 flex items-center gap-2">
                   <span className="text-white text-lg">◎</span>
                   <span className="font-body text-xs font-semibold text-white/90">{r.label}</span>
-                </div>
+                </div> */}
                 <div className="relative w-14 h-14 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <span className="text-2xl" style={{ color: PINK }}>
                     ▶
@@ -1016,9 +1016,9 @@ export default function Services() {
               <p className="font-body text-sm text-white/70 leading-relaxed">
                 WYD, 3rd Floor, BM Plaza
                 <br />
-                Near Sharada Hotel
+                Near Sharada Hotel,
                 <br />
-                Deshpande Nagar, Hubli
+                Deshpande Nagar, Hubli, Karnataka.
               </p>
             </div>
             <div className="flex items-center gap-3 mb-2">

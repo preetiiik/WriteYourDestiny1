@@ -66,9 +66,8 @@ body:hover::-webkit-scrollbar-thumb { background: rgba(19,85,178,0.25); }
 .service-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 48px rgba(28,109,217,0.12);
-  border-color: #1C6DD9 !important;
+  border-color: var(--value-color) !important;
 }
-
 .nav-link {
   position: relative;
 }

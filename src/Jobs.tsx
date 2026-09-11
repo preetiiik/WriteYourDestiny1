@@ -1848,9 +1848,9 @@ export default function Jobs() {
               <p className="font-body text-sm text-white/70 leading-relaxed">
                 WYD, 3rd Floor, BM Plaza
                 <br />
-                Near Sharada Hotel
+                Near Sharada Hotel,
                 <br />
-                Deshpande Nagar, Hubli
+                Deshpande Nagar, Hubli, Karnataka.
               </p>
             </div>
             <div className="flex items-center gap-3 mb-2">
