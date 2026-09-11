@@ -728,12 +728,12 @@ export default function About() {
               >
                 Our Services
               </button>
-              <button
+              {/* <button
                 onClick={() => scrollTo("blogs")}
                 className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
               >
                 Our Blogs
-              </button>
+              </button> */}
               <button
                 onClick={() => navigate("/jobs")}
                 className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
@@ -755,7 +755,7 @@ export default function About() {
             <div className="flex items-start gap-3 mb-3">
               <MapPinIcon className="text-white/70 shrink-0 mt-0.5" style={{ width: 16, height: 16 }} />
               <p className="font-body text-sm text-white/70 leading-relaxed">
-                WYD 3rd Floor, BM Plaza
+                WYD, 3rd Floor, BM Plaza
                 <br />
                 Near Sharada Hotel
                 <br />
@@ -786,7 +786,7 @@ export default function About() {
           <div>
             <h3 className="font-display text-white font-bold mb-4">Working Hours</h3>
             <p className="font-body text-sm text-white/70 leading-relaxed">
-              Monday to Friday 9:30 am to 6:30 pm
+              Mon - Fri: 9:30 am to 6:30 pm
               <br />
               Saturday 9:30 am to 2:30 pm
             </p>

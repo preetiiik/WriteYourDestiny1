@@ -84,7 +84,7 @@ const coreServices = [
   {
     num: "01",
     title: "Talent Acquisition",
-    desc: "Contract & full-time hiring solutions for growing teams across every industry we serve.",
+    desc: "Contract and full-time hiring solutions for growing teams across every industry we serve.",
     icon: "◈",
     color: BLUE,
   },
@@ -131,7 +131,7 @@ const modules: {
   },
   {
     key: "nlp",
-    title: "Neuro Linguistic Program",
+    title: "Neuro-Linguistic Programming",
     icon: iconNlp,
     iconFit: "contain",
     desc: "Neuro-Linguistic Programming (NLP) explores how communication with ourselves and others shapes our thoughts, behaviors, and outcomes. It focuses on the connection between neural processes, language, and behavior. NLP techniques enhance:",
@@ -162,7 +162,7 @@ const modules: {
   },
   {
     key: "psychological",
-    title: "Psychological training",
+    title: "Psychological Training",
     icon: iconPsychologicalTraining,
     desc: "Psychological training teaches evidence-based skills to enhance mental well-being and improve performance in both personal and professional settings. It fosters self-awareness, perspective, and resilience, helping individuals manage stress, improve focus, and unlock their full potential. This structured, goal-oriented approach supports success in the workplace and beyond by equipping individuals with the tools for growth and peak performance.",
   },
@@ -533,7 +533,7 @@ export default function Services() {
 
             <div className="bg-white border-2 border-gray-100 rounded-2xl p-8 md:p-9">
               <h3 className="font-display text-xl font-bold mb-3" style={{ color: PINK }}>
-                Full Time Hiring
+                Full-Time Hiring
               </h3>
               <p className="font-body text-sm font-semibold italic mb-3" style={{ color: DARK }}>
                 "Build Lasting Partnerships with Exceptional Talent"
@@ -935,12 +935,12 @@ export default function Services() {
               >
                 Our Services
               </button>
-              <button
+              {/* <button
                 onClick={() => scrollTo("blogs")}
                 className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
               >
                 Our Blogs
-              </button>
+              </button> */}
               <button
                 onClick={() => navigate("/contact")}
                 className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
@@ -964,7 +964,7 @@ export default function Services() {
             <div className="flex items-start gap-3 mb-3">
               <MapPinIcon className="text-white/70 shrink-0 mt-0.5" style={{ width: 16, height: 16 }} />
               <p className="font-body text-sm text-white/70 leading-relaxed">
-                WYD 3rd Floor, BM Plaza
+                WYD, 3rd Floor, BM Plaza
                 <br />
                 Near Sharada Hotel
                 <br />
@@ -997,7 +997,7 @@ export default function Services() {
               Working Hours
             </h3>
             <p className="font-body text-sm text-white/70 leading-relaxed">
-              Monday to Friday 9:30 am to 6:30 pm
+              Mon - Fri: 9:30 am to 6:30 pm
               <br />
               Saturday 9:30 am to 2:30 pm
             </p>

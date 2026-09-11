@@ -475,52 +475,58 @@ export default function App() {
             </div>
 
             {/* Right — image */}
-            <div className="relative md:-translate-y-12">
-              {/* Decorative ring */}
-              <div
-                className="absolute -top-6 -right-6 w-48 h-48 rounded-full border-2 opacity-20"
-                style={{ borderColor: BLUE }}
-              />
-              <div
-                className="absolute -bottom-6 -left-6 w-32 h-32 rounded-full opacity-30"
-                style={{ background: `${PINK}20` }}
-              />
+<div className="relative md:-translate-y-12">
+  {/* Decorative ring */}
+  <div
+    className="absolute -top-6 -right-6 w-48 h-48 rounded-full border-2 opacity-20"
+    style={{ borderColor: BLUE }}
+  />
+  <div
+    className="absolute -bottom-6 -left-4 w-32 h-32 rounded-full opacity-30"
+    style={{ background: `${PINK}20` }}
+  />
 
-              <div className="relative overflow-hidden rounded-[2rem] md:rounded-[60%_40%_70%_30%/50%_60%_40%_60%]">
-                <img
-                  src={IMG_HERO}
-                  alt="Write Your Destiny team professional"
-                  className="w-full h-[500px] object-cover object-top"
-                  onError={(e) => {
-                    ;(e.target as HTMLImageElement).style.display = "none"
-                  }}
-                />
-                {/* Overlay badge */}
-              </div>
+  <div
+    className="relative overflow-hidden mx-auto aspect-square max-w-[320px]
+               rounded-full
+               md:mx-0 md:aspect-auto md:max-w-none
+               md:rounded-[60%_40%_70%_30%/50%_60%_40%_60%]"
+  >
+    <img
+      src={IMG_HERO}
+      alt="Write Your Destiny team professional"
+      className="w-full h-full md:h-[500px] object-cover object-top"
+      onError={(e) => {
+        ;(e.target as HTMLImageElement).style.display = "none"
+      }}
+    />
+  </div>
 
-              <div
-                className="absolute bottom-8 -left-4 bg-white shadow-xl px-5 py-3 rounded-xl flex items-center gap-3"
-                style={{ boxShadow: `0 8px 32px ${BLUE}20` }}
-              >
-                <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0"
-                  style={{ background: PINK }}
-                >
-                  ✦
-                </div>
-                <div>
-                  <p className="font-body text-xs text-[#9aa3b5]">
-                    Trusted since
-                  </p>
-                  <p
-                    className="font-display font-bold text-sm"
-                    style={{ color: DARK }}
-                  >
-                    2019 · Hubli, KA
-                  </p>
-                </div>
-              </div>
-            </div>
+  <div
+  className="absolute bottom-5 -left-4 bg-white shadow-xl px-3 py-2 rounded-lg flex items-center gap-2
+             md:px-5 md:py-3 md:rounded-xl md:gap-3"
+  style={{ boxShadow: `0 8px 32px ${BLUE}20` }}
+>
+  <div
+    className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0
+               md:w-10 md:h-10 md:text-sm"
+    style={{ background: PINK }}
+  >
+    ✦
+  </div>
+  <div>
+    <p className="font-body text-[10px] text-[#9aa3b5] md:text-xs">
+      Trusted since
+    </p>
+    <p
+      className="font-display font-bold text-xs md:text-sm"
+      style={{ color: DARK }}
+    >
+      2019 · Hubli, KA
+    </p>
+  </div>
+</div>
+</div>
           </div>
         </div>
       </section>
@@ -931,12 +937,12 @@ export default function App() {
               >
                 Our Services
               </button>
-              <button
+              {/* <button
                 onClick={() => scrollTo("blogs")}
                 className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
               >
                 Our Blogs
-              </button>
+              </button> */}
               <button
                 onClick={() => navigate("/contact")}
                 className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
@@ -960,7 +966,7 @@ export default function App() {
             <div className="flex items-start gap-3 mb-3">
               <MapPinIcon className="text-white/70 shrink-0 mt-0.5" style={{ width: 16, height: 16 }} />
               <p className="font-body text-sm text-white/70 leading-relaxed">
-                WYD 3rd Floor, BM Plaza
+                WYD, 3rd Floor, BM Plaza
                 <br />
                 Near Sharada Hotel
                 <br />
@@ -993,7 +999,7 @@ export default function App() {
               Working Hours
             </h3>
             <p className="font-body text-sm text-white/70 leading-relaxed">
-              Monday to Friday 9:30 am to 6:30 pm
+              Mon - Fri: 9:30 am to 6:30 pm
               <br />
               Saturday 9:30 am to 2:30 pm
             </p>

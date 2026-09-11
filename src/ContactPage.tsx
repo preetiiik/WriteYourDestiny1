@@ -35,6 +35,27 @@ const LinkedinIcon = ({ className, style }: IconProps) => (
     <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z" />
   </svg>
 )
+
+const InstagramIcon = ({ className, style }: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+    strokeLinecap="round" strokeLinejoin="round" className={className} style={style}>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+)
+
+const FacebookIcon = ({ className, style }: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
+    <path d="M14 9.5V7.5c0-.83.67-1.5 1.5-1.5H17V3h-2.5C11.46 3 10 4.46 10 7.5v2H7v3.5h3V21h4v-8h2.5l.5-3.5H14Z" />
+  </svg>
+)
+
+const WhatsappIcon = ({ className, style }: IconProps) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
+    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.71.45 3.37 1.3 4.85L2.05 22l5.36-1.36a9.94 9.94 0 0 0 4.63 1.14h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Zm5.85 14.03c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.62-.6-2.85-1.23-4.7-4.1-4.85-4.29-.14-.19-1.16-1.55-1.16-2.96 0-1.4.73-2.09 1-2.37.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.6.46.24.57.79 1.98.86 2.12.07.14.11.31.02.5-.09.19-.14.31-.27.47-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.18 1.53 1.91 1.05.94 1.94 1.24 2.21 1.38.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34Z" />
+  </svg>
+)
  
 
 /* Same design tokens as the home page (App.tsx) */
@@ -428,24 +449,36 @@ export default function Contact() {
 
 {/* PAGE HEADER */}
 <section
-  className="relative overflow-hidden min-h-[520px] md:min-h-[560px] flex items-center"
+  className="relative overflow-hidden min-h-[480px] sm:min-h-[520px] md:min-h-[560px] flex items-center bg-center bg-cover md:bg-[position:75%_center]"
   style={{
     backgroundImage: `url(${contactHeroBg})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
   }}
 >
+  {/* Scrim so the heading stays legible over the busy part of the photo, on every breakpoint */}
+  <div
+    className="absolute inset-0"
+    style={{
+      background: `linear-gradient(to right, ${BLUE}E6 0%, ${BLUE}B3 40%, ${BLUE}40 65%, ${BLUE}00 100%)`,
+    }}
+  />
+  <div
+    className="absolute inset-0 md:hidden"
+    style={{
+      background: `linear-gradient(to bottom, ${BLUE}00 0%, ${BLUE}CC 75%, ${BLUE} 100%)`,
+    }}
+  />
+
   <div className="relative z-10 w-full">
     <div className="max-w-7xl mx-auto px-6 md:px-10">
-      
+
       {/* Content on the LEFT */}
       <div className="w-full md:w-[50%] lg:w-[48%] text-center md:text-left">
-        
+
         <div className="flex justify-center md:justify-start mb-6">
           <Eyebrow>Get In Touch</Eyebrow>
         </div>
 
-        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
           Let's write your
           <br />
           <em
@@ -499,7 +532,7 @@ export default function Contact() {
                   </p>
 
                   <p className="font-body text-sm text-[#0a1a3d] group-hover:text-[#1355B2] transition-colors">
-                    WYD 3rd Floor, BM Plaza, Near  Sharada Hotel, Deshpande Nagar, Hubli, Karnataka
+                    WYD, 3rd Floor, BM Plaza, Near  Sharada Hotel, Deshpande Nagar, Hubli, Karnataka
                   </p>
                 </div>
               </a>
@@ -565,8 +598,8 @@ export default function Contact() {
                   </p>
 
                   <p className="font-body text-sm text-[#0a1a3d] whitespace-pre-line">
-                    Mon–Fri: 9:30am – 6:30pm{"\n"}
-                    Sat: 9:30am – 2:30pm
+                    Mon–Fri: 9:30am to 6:30pm{"\n"}
+                    Sat: 9:30am to 2:30pm
                   </p>
                 </div>
               </div>
@@ -770,15 +803,44 @@ export default function Contact() {
               Welcome to Write Your Destiny (WYD), a global HR boutique dedicated to shaping
               careers.
             </p>
-            <a
-              href="https://www.linkedin.com/company/write-your-destiny/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Write Your Destiny (WYD) on LinkedIn"
-              className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-            >
-              <LinkedinIcon className="text-white" style={{ width: 18, height: 18 }} />
-            </a>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.linkedin.com/company/write-your-destiny/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Write Your Destiny (WYD) on LinkedIn"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                <LinkedinIcon className="text-white" style={{ width: 18, height: 18 }} />
+              </a>
+              <a
+                href="https://www.instagram.com/write.your.destiny007/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Write Your Destiny (WYD) on Instagram"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                <InstagramIcon className="text-white" style={{ width: 18, height: 18 }} />
+              </a>
+              <a
+                href="https://www.facebook.com/wyd007"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Write Your Destiny (WYD) on Facebook"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                <FacebookIcon className="text-white" style={{ width: 18, height: 18 }} />
+              </a>
+              <a
+                href="https://wa.me/919606351695"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Chat with Write Your Destiny (WYD) on WhatsApp"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                <WhatsappIcon className="text-white" style={{ width: 18, height: 18 }} />
+              </a>
+            </div>
           </div>
  
           {/* Quick Links */}
@@ -803,12 +865,12 @@ export default function Contact() {
               >
                 Our Services
               </button>
-              <button
+              {/* <button
                 onClick={() => navigate("/about#blogs")}
                 className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
               >
                 Our Blogs
-              </button>
+              </button> */}
               <button
                 onClick={() => navigate("/jobs")}
                 className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
@@ -829,8 +891,11 @@ export default function Contact() {
             <h3 className="font-display text-white font-bold mb-4">Contact Us</h3>
             <div className="flex items-start gap-3 mb-3">
               <MapPinIcon className="text-white/70 shrink-0 mt-0.5" style={{ width: 16, height: 16 }} />
-              <p className="font-body text-sm text-white/70 leading-relaxed">
-                WYD 3rd Floor, BM Plaza
+              <p className="font-body text-sm text-white/70 leading-relaxed md:hidden">
+                WYD, 3rd Floor, BM Plaza, Near Sharada Hotel, Deshpande Nagar, Hubli
+              </p>
+              <p className="hidden md:block font-body text-sm text-white/70 leading-relaxed">
+                WYD, 3rd Floor, BM Plaza
                 <br />
                 Near Sharada Hotel
                 <br />
@@ -861,7 +926,7 @@ export default function Contact() {
           <div>
             <h3 className="font-display text-white font-bold mb-4">Working Hours</h3>
             <p className="font-body text-sm text-white/70 leading-relaxed">
-              Monday to Friday 9:30 am to 6:30 pm
+              Mon - Fri: 9:30 am to 6:30 pm
               <br />
               Saturday 9:30 am to 2:30 pm
             </p>
