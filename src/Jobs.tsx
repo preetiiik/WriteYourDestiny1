@@ -1879,7 +1879,7 @@ export default function Jobs() {
             <p className="font-body text-sm text-white/70 leading-relaxed">
               Mon - Fri: 9:30 am to 6:30 pm
               <br />
-              Saturday 9:30 am to 2:30 pm
+              Sat: 9:30 am to 2:30 pm
             </p>
           </div>
         </div>

@@ -1199,7 +1199,7 @@ export default function Contact() {
     return ""
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     setSubmitted(false)
@@ -1212,13 +1212,6 @@ export default function Contact() {
       return
     }
 
-    /*
-     * NETWORK AVAILABILITY CHECK
-     * If the browser has no network connection at all, fail fast with a
-     * clear error instead of pretending the message went through. This
-     * also guarantees the user's entered information is preserved so
-     * they don't have to retype it once they're back online.
-     */
     if (typeof navigator !== "undefined" && !navigator.onLine) {
       setFormError(
         "You appear to be offline. Please check your internet connection and try again — your message has not been lost."
@@ -1226,41 +1219,35 @@ export default function Contact() {
       return
     }
 
-    /*
-     * IMPORTANT:
-     * Do not clear the form before the backend confirms submission.
-     *
-     * When your real API/email service is connected, put the API request
-     * here and only clear the form after a successful response.
-     */
-
     try {
-      // -------------------------------------------------------
-      // CONNECT YOUR REAL API / EMAIL SERVICE HERE
-      // -------------------------------------------------------
-      //
-      // Example:
-      //
-      // const response = await fetch("/api/contact", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     firstName: formData.firstName.trim(),
-      //     lastName: formData.lastName.trim(),
-      //     email: formData.email.trim(),
-      //     role: formData.role,
-      //     message: formData.message.trim(),
-      //   }),
-      // })
-      //
-      // if (!response.ok) {
-      //   throw new Error("Submission failed")
-      // }
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName.trim(),
+          lastName: formData.lastName.trim(),
+          email: formData.email.trim(),
+          role: formData.role,
+          message: formData.message.trim(),
+        }),
+      })
 
+      let data: { success?: boolean; message?: string } = {}
+
+      try {
+        data = await response.json()
+      } catch {
+        // Keep the generic error below if the server did not return JSON.
+      }
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "Unable to send your message.")
+      }
+
+      // Only clear the form after the backend confirms success.
       setSubmitted(true)
-
       setFormData(initialFormState)
 
       setTimeout(() => {
@@ -1270,7 +1257,9 @@ export default function Contact() {
       console.error("Contact form submission failed:", error)
 
       setFormError(
-        "We couldn't send your message. Please check your internet connection and try again."
+        error instanceof Error
+          ? error.message
+          : "We couldn't send your message. Please try again."
       )
     }
   }
@@ -1904,7 +1893,7 @@ export default function Contact() {
             <p className="font-body text-sm text-white/70 leading-relaxed">
               Mon - Fri: 9:30 am to 6:30 pm
               <br />
-              Saturday 9:30 am to 2:30 pm
+              Sat: 9:30 am to 2:30 pm
             </p>
           </div>
         </div>

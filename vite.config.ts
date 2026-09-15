@@ -29,12 +29,24 @@ export default defineConfig(({ mode }) => {
         '@': path.resolve(__dirname, './src'),
       },
     },
-    server: {
-      host: '0.0.0.0',
-      port: parseInt(process.env.PORT || '8443'),
-      strictPort: true,
-      watch: { ignored: ['**/.figma/**'] },
+    // server: {
+    //   host: '0.0.0.0',
+    //   port: parseInt(process.env.PORT || '8443'),
+    //   strictPort: true,
+    //   watch: { ignored: ['**/.figma/**'] },
+    // },
+    // Keep your existing Vite config/plugins/aliases. Add this `server` block to it.
+server: {
+  port: 5173,
+  open: true,
+  proxy: {
+    "/api": {
+      target: "http://localhost:5000",
+      changeOrigin: true,
     },
+  },
+},
+
     preview: {
       host: '0.0.0.0',
       port: parseInt(process.env.PORT || '8443'),
