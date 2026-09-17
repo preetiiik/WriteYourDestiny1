@@ -1,5 +1,6 @@
 import { useEffect, useState, type CSSProperties } from "react"
 import { useNavigate } from "react-router-dom"
+import { MarqueeTrack } from "@/MarqueeTrack"
 
 import logo from "@/imports/ChatGPT_Image_Aug_24__2026__12_02_21_PM.png"
 import reelResumeTips from "@/imports/reel-resume-tips.png"
@@ -414,17 +415,7 @@ export default function About() {
 
       {/* MARQUEE */}
       <div className="border-y border-pink-100 py-3 overflow-hidden" style={{ background: BLUE }}>
-        <div className="marquee-track flex whitespace-nowrap gap-10">
-          {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span
-              key={i}
-              className="font-display italic text-lg font-light shrink-0"
-              style={{ color: item === "✦" ? PINK : "#ffff" }}
-            >
-              {item}
-            </span>
-          ))}
-        </div>
+        <MarqueeTrack items={marqueeItems} pinkColor={PINK} />
       </div>
 
       {/* VALUES */}
