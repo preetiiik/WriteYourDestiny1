@@ -1,13 +1,5 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 
-/**
- * Scrolling marquee track. Speed is derived from the track's actual
- * rendered width (px) divided by a constant px/second rate, so it scrolls
- * at the same visual speed on every screen size instead of relying on
- * fixed-second durations + media query breakpoints (which silently break
- * on devices without a proper viewport meta tag, and drift out of sync
- * whenever the marquee text changes length).
- */
 export function MarqueeTrack({
   items,
   pinkColor,
@@ -18,48 +10,95 @@ export function MarqueeTrack({
   pxPerSecond?: number
 }) {
   const trackRef = useRef<HTMLDivElement>(null)
-  const [duration, setDuration] = useState(22)
+  const animationRef = useRef<number | null>(null)
+  const positionRef = useRef(0)
+  const lastTimeRef = useRef<number | null>(null)
 
   useEffect(() => {
     const el = trackRef.current
     if (!el) return
 
-    const setSpeed = () => {
-      // el contains two copies of `items` back to back, so half its
-      // scrollWidth is the distance one full loop needs to travel.
-      const loopWidth = el.scrollWidth / 2
-      if (loopWidth > 0) setDuration(loopWidth / pxPerSecond)
+    // Reset position whenever the items or speed changes
+    positionRef.current = 0
+    lastTimeRef.current = null
+    el.style.transform = "translate3d(0, 0, 0)"
+
+    const getLoopWidth = () => {
+      // Two identical copies are rendered, so half the width
+      // represents one complete marquee loop.
+      return el.scrollWidth / 2
     }
 
-    setSpeed()
-    window.addEventListener("resize", setSpeed)
-    return () => window.removeEventListener("resize", setSpeed)
+    const animate = (currentTime: number) => {
+      if (lastTimeRef.current === null) {
+        lastTimeRef.current = currentTime
+      }
+
+      const deltaTime = (currentTime - lastTimeRef.current) / 1000
+      lastTimeRef.current = currentTime
+
+      const loopWidth = getLoopWidth()
+
+      if (loopWidth > 0) {
+        // Move by a fixed number of pixels per second.
+        positionRef.current -= pxPerSecond * deltaTime
+
+        // Reset seamlessly after one complete loop.
+        if (Math.abs(positionRef.current) >= loopWidth) {
+          positionRef.current += loopWidth
+        }
+
+        el.style.transform = `translate3d(${positionRef.current}px, 0, 0)`
+      }
+
+      animationRef.current = requestAnimationFrame(animate)
+    }
+
+    animationRef.current = requestAnimationFrame(animate)
+
+    // Recalculate/restart cleanly if the screen size changes.
+    const handleResize = () => {
+      const loopWidth = getLoopWidth()
+
+      if (loopWidth > 0) {
+        positionRef.current = positionRef.current % loopWidth
+      }
+    }
+
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      if (animationRef.current !== null) {
+        cancelAnimationFrame(animationRef.current)
+      }
+
+      window.removeEventListener("resize", handleResize)
+    }
   }, [items, pxPerSecond])
 
   return (
     <>
       <style>{`
-        @keyframes wyd-marquee-scroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
         .marquee-track {
-          animation-name: wyd-marquee-scroll;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
+          display: flex;
+          width: max-content;
+          white-space: nowrap;
+          gap: 2.5rem;
           will-change: transform;
         }
       `}</style>
+
       <div
         ref={trackRef}
-        className="marquee-track flex whitespace-nowrap gap-10"
-        style={{ animationDuration: `${duration}s` }}
+        className="marquee-track"
       >
         {[...items, ...items].map((item, i) => (
           <span
             key={i}
             className="font-display italic text-lg font-light shrink-0"
-            style={{ color: item === "✦" ? pinkColor : "#ffff" }}
+            style={{
+              color: item === "✦" ? pinkColor : "#ffff",
+            }}
           >
             {item}
           </span>
