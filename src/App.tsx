@@ -4579,6 +4579,18 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white text-[#0a1a3d] overflow-x-clip">
+      <style>{`
+        @keyframes wyd-fade-up {
+          from { opacity: 0; transform: translateY(24px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up {
+          animation: wyd-fade-up 0.7s ease-out both;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .fade-up { animation: none; }
+        }
+      `}</style>
       {/* NAV */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -5374,7 +5386,7 @@ export default function App() {
             <p className="font-body text-sm text-white/70 leading-relaxed">
               Mon - Fri: 9:30 am to 6:30 pm
               <br />
-              Saturday 9:30 am to 2:30 pm
+              Sat: 9:30 am to 2:30 pm
             </p>
           </div>
         </div>

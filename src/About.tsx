@@ -191,6 +191,18 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-white text-[#0a1a3d] overflow-x-clip">
+      <style>{`
+        @keyframes wyd-fade-up {
+          from { opacity: 0; transform: translateY(24px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up {
+          animation: wyd-fade-up 0.7s ease-out both;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .fade-up { animation: none; }
+        }
+      `}</style>
       {/* NAV */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -336,16 +348,16 @@ export default function About() {
     />
     <div className="px-6 py-8" style={{ background: DARK }}>
       <div
-        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide mb-5"
+        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide mb-5 fade-up"
         style={{ background: "rgba(255,255,255,0.1)", color: "#FFCBEB" }}
       >
         <span className="w-1.5 h-1.5 rounded-full" style={{ background: PINK }} />
         Who We Are
       </div>
-      <h1 className="font-display text-4xl font-bold leading-tight text-white">
+      <h1 className="font-display text-4xl font-bold leading-tight text-white fade-up" style={{ animationDelay: "0.1s" }}>
         About <span style={{ color: PINK }}>Us.</span>
       </h1>
-      <p className="font-display italic text-lg font-light mt-3 text-white/85">
+      <p className="font-display italic text-lg font-light mt-3 text-white/85 fade-up" style={{ animationDelay: "0.2s" }}>
         Know us a little more here.
       </p>
     </div>
@@ -372,16 +384,16 @@ export default function About() {
     <div className="relative max-w-7xl mx-auto px-10 pb-14 w-full">
       <div className="max-w-2xl" style={{ textShadow: "0 2px 16px rgba(10,26,61,0.55)" }}>
         <div
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide mb-6"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide mb-6 fade-up"
           style={{ background: "rgba(10,26,61,0.55)", color: "#FFCBEB", backdropFilter: "blur(6px)" }}
         >
           <span className="w-1.5 h-1.5 rounded-full" style={{ background: PINK }} />
           Who We Are
         </div>
-        <h1 className="font-display text-5xl lg:text-6xl font-bold leading-tight text-white">
+        <h1 className="font-display text-5xl lg:text-6xl font-bold leading-tight text-white fade-up" style={{ animationDelay: "0.1s" }}>
           About <span style={{ color: PINK }}>Us.</span>
         </h1>
-        <p className="font-display italic text-xl font-light mt-3 text-white/85">
+        <p className="font-display italic text-xl font-light mt-3 text-white/85 fade-up" style={{ animationDelay: "0.2s" }}>
           Know us a little more here.
         </p>
       </div>

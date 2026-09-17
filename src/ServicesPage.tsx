@@ -255,6 +255,18 @@ export default function Services() {
 
   return (
     <div className="min-h-screen bg-white text-[#0a1a3d] overflow-x-hidden">
+      <style>{`
+        @keyframes wyd-fade-up {
+          from { opacity: 0; transform: translateY(24px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up {
+          animation: wyd-fade-up 0.7s ease-out both;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .fade-up { animation: none; }
+        }
+      `}</style>
       {/* NAV */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -401,27 +413,27 @@ export default function Services() {
         <div className="relative max-w-7xl mx-auto px-6 md:px-10">
           <div className="max-w-2xl">
             <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide mb-6"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide mb-6 fade-up"
               style={{ background: BLUSH, color: PINK }}
             >
               <span className="w-1.5 h-1.5 rounded-full" style={{ background: PINK }} />
               What We Do
             </div>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white fade-up" style={{ animationDelay: "0.1s" }}>
               Solutions that empower people.
               <br />
               Transform <span style={{ color: PINK }}>futures.</span>
             </h1>
-            <p className="font-display italic text-lg md:text-xl font-light mt-3 text-white/90">
+            <p className="font-display italic text-lg md:text-xl font-light mt-3 text-white/90 fade-up" style={{ animationDelay: "0.2s" }}>
               End-to-end solutions that create real impact.
             </p>
 
-            <p className="font-body text-lg text-white/80 leading-relaxed mt-8 mb-10 max-w-xl">
+            <p className="font-body text-lg text-white/80 leading-relaxed mt-8 mb-10 max-w-xl fade-up" style={{ animationDelay: "0.3s" }}>
               From hiring the right talent to building skills and guiding global dreams — we
               provide end-to-end solutions that create real impact.
             </p>
 
-            <div className="flex gap-8 mb-10">
+            <div className="flex gap-8 mb-10 fade-up" style={{ animationDelay: "0.4s" }}>
               <div>
                 <div className="font-display text-2xl font-bold" style={{ color: PINK }}>
                   50+

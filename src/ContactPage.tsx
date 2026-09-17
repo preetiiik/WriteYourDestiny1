@@ -1286,6 +1286,18 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-white text-[#0a1a3d] overflow-x-hidden">
+      <style>{`
+        @keyframes wyd-fade-up {
+          from { opacity: 0; transform: translateY(24px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up {
+          animation: wyd-fade-up 0.7s ease-out both;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .fade-up { animation: none; }
+        }
+      `}</style>
       {/* NAV */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -1439,11 +1451,11 @@ export default function Contact() {
       {/* Content on the LEFT */}
       <div className="w-full md:w-[50%] lg:w-[48%] text-center md:text-left">
 
-        <div className="flex justify-center md:justify-start mb-6">
+        <div className="flex justify-center md:justify-start mb-6 fade-up">
           <Eyebrow>Get In Touch</Eyebrow>
         </div>
 
-        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white fade-up" style={{ animationDelay: "0.1s" }}>
           Let's write your
           <br />
           <em
@@ -1573,7 +1585,7 @@ export default function Contact() {
 
           {/* FORM */}
 <div
-  className="bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100"
+  className="bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 fade-up"
   style={{
     boxShadow: `0 24px 64px ${BLUE}20`,
   }}

@@ -1503,6 +1503,18 @@ export default function Jobs() {
 
   return (
     <div className="min-h-screen bg-white text-[#0a1a3d] overflow-x-hidden">
+      <style>{`
+        @keyframes wyd-fade-up {
+          from { opacity: 0; transform: translateY(24px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up {
+          animation: wyd-fade-up 0.7s ease-out both;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .fade-up { animation: none; }
+        }
+      `}</style>
       {/* NAV */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -1647,12 +1659,14 @@ export default function Jobs() {
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-10">
           <div className="max-w-2xl">
-            <Eyebrow>Now Hiring</Eyebrow>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mt-6">
+            <div className="fade-up">
+              <Eyebrow>Now Hiring</Eyebrow>
+            </div>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mt-6 fade-up" style={{ animationDelay: "0.1s" }}>
               Current{" "}
               <span style={{ color: PINK }}>Openings.</span>
             </h1>
-            <p className="font-display italic text-lg md:text-xl font-light mt-3" style={{ color: BLUE }}>
+            <p className="font-display italic text-lg md:text-xl font-light mt-3 fade-up" style={{ animationDelay: "0.2s", color: BLUE }}>
               {jobs.length} roles open across our client organizations right now.
             </p>
           </div>
