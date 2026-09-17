@@ -1,52 +1,100 @@
+
 import { useState, useEffect, CSSProperties } from "react"
 import { useNavigate } from "react-router-dom"
 import logo from "@/imports/ChatGPT_Image_Aug_24__2026__12_02_21_PM.png"
 import contactHeroBg from "@/imports/contact-hero.png"
 
+/* Lightweight inline SVG icons */
+type IconProps = {
+  className?: string
+  style?: CSSProperties
+}
 
-/* Lightweight inline SVG icons (same pattern as App.tsx / Services.tsx / About.tsx) */
-type IconProps = { className?: string; style?: CSSProperties }
- 
 const MapPinIcon = ({ className, style }: IconProps) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-    strokeLinecap="round" strokeLinejoin="round" className={className} style={style}>
-    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    style={style}
+  >
+    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z" />
     <circle cx="12" cy="10" r="3" />
   </svg>
 )
- 
+
 const PhoneIcon = ({ className, style }: IconProps) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-    strokeLinecap="round" strokeLinejoin="round" className={className} style={style}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    style={style}
+  >
     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z" />
   </svg>
 )
- 
+
 const MailIcon = ({ className, style }: IconProps) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-    strokeLinecap="round" strokeLinejoin="round" className={className} style={style}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    style={style}
+  >
     <rect x="2" y="4" width="20" height="16" rx="2" />
     <path d="m22 6-10 7L2 6" />
   </svg>
 )
 
 const ClockIcon = ({ className, style }: IconProps) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-    strokeLinecap="round" strokeLinejoin="round" className={className} style={style}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    style={style}
+  >
     <circle cx="12" cy="12" r="10" />
     <polyline points="12 6 12 12 16 14" />
   </svg>
 )
- 
+
 const LinkedinIcon = ({ className, style }: IconProps) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+    style={style}
+  >
     <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z" />
   </svg>
 )
 
 const InstagramIcon = ({ className, style }: IconProps) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-    strokeLinecap="round" strokeLinejoin="round" className={className} style={style}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    style={style}
+  >
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z" />
     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
@@ -54,19 +102,28 @@ const InstagramIcon = ({ className, style }: IconProps) => (
 )
 
 const FacebookIcon = ({ className, style }: IconProps) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+    style={style}
+  >
     <path d="M14 9.5V7.5c0-.83.67-1.5 1.5-1.5H17V3h-2.5C11.46 3 10 4.46 10 7.5v2H7v3.5h3V21h4v-8h2.5l.5-3.5H14Z" />
   </svg>
 )
 
 const WhatsappIcon = ({ className, style }: IconProps) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className={className} style={style}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+    style={style}
+  >
     <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.71.45 3.37 1.3 4.85L2.05 22l5.36-1.36a9.94 9.94 0 0 0 4.63 1.14h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Zm5.85 14.03c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.62-.6-2.85-1.23-4.7-4.1-4.85-4.29-.14-.19-1.16-1.55-1.16-2.96 0-1.4.73-2.09 1-2.37.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.6.46.24.57.79 1.98.86 2.12.07.14.11.31.02.5-.09.19-.14.31-.27.47-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.18 1.53 1.91 1.05.94 1.94 1.24 2.21 1.38.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.34Z" />
   </svg>
 )
- 
 
-/* Same design tokens as the home page (App.tsx) */
+/* Same design tokens as the home page */
 const BLUE = "#1355B2"
 const PINK = "#F5569B"
 const BLUSH = "#FFCBEB"
@@ -79,7 +136,10 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
       className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide"
       style={{ background: BLUSH, color: PINK }}
     >
-      <span className="w-1.5 h-1.5 rounded-full" style={{ background: PINK }} />
+      <span
+        className="w-1.5 h-1.5 rounded-full"
+        style={{ background: PINK }}
+      />
       {children}
     </div>
   )
@@ -115,14 +175,19 @@ export default function Contact() {
 
     /*
      * FIRST NAME / LAST NAME
-     * Only letters, spaces, hyphens and apostrophes are allowed.
-     * Numbers and special characters are automatically removed.
+     * ONLY normal English alphabets A-Z and a-z are allowed.
+     *
+     * No:
+     * - numbers
+     * - spaces
+     * - hyphens
+     * - apostrophes
+     * - accented characters
+     * - emojis
+     * - special characters
      */
     if (name === "firstName" || name === "lastName") {
-      const cleanedValue = value.replace(
-        /[^A-Za-zÀ-ÖØ-öø-ÿ' -]/g,
-        ""
-      )
+      const cleanedValue = value.replace(/[^A-Za-z]/g, "")
 
       setFormData((prev) => ({
         ...prev,
@@ -182,31 +247,25 @@ export default function Contact() {
 
     /*
      * FIRST NAME VALIDATION
+     * Only A-Z and a-z.
      */
     if (!firstName) {
       return "Please enter your first name."
     }
 
-    if (
-      !/^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$/.test(
-        firstName
-      )
-    ) {
+    if (!/^[A-Za-z]+$/.test(firstName)) {
       return "Please enter a valid first name using letters only."
     }
 
     /*
      * LAST NAME VALIDATION
+     * Only A-Z and a-z.
      */
     if (!lastName) {
       return "Please enter your last name."
     }
 
-    if (
-      !/^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[ '-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$/.test(
-        lastName
-      )
-    ) {
+    if (!/^[A-Za-z]+$/.test(lastName)) {
       return "Please enter a valid last name using letters only."
     }
 
@@ -402,12 +461,20 @@ export default function Contact() {
 
       <style>{`
         @keyframes wyd-fade-up {
-          from { opacity: 0; transform: translateY(24px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(24px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
+
         .fade-up {
           animation: wyd-fade-up 0.7s ease-out both;
         }
+
         @keyframes wyd-success-popup {
           from {
             opacity: 0;
@@ -420,9 +487,12 @@ export default function Contact() {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .fade-up { animation: none; }
+          .fade-up {
+            animation: none;
+          }
         }
       `}</style>
+
       {/* NAV */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -432,7 +502,10 @@ export default function Contact() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
-          <button onClick={() => navigate("/")} className="flex items-center">
+          <button
+            onClick={() => navigate("/")}
+            className="flex items-center"
+          >
             <img
               src={logo}
               alt="Write Your Destiny logo"
@@ -441,31 +514,34 @@ export default function Contact() {
           </button>
 
           <div className="hidden md:flex items-center gap-8">
-            {/* Home → Home Page */}
-  <button
-    onClick={() => navigate("/")}
-    className="nav-link font-body text-sm font-medium text-[#4a5568] hover:text-[#0a1a3d] transition-colors"
-  >
-    Home
-  </button>
+            <button
+              onClick={() => navigate("/")}
+              className="nav-link font-body text-sm font-medium text-[#4a5568] hover:text-[#0a1a3d] transition-colors"
+            >
+              Home
+            </button>
+
             <button
               onClick={() => navigate("/about")}
               className="nav-link font-body text-sm font-medium text-[#4a5568] hover:text-[#0a1a3d] transition-colors"
             >
               About Us
             </button>
+
             <button
               onClick={() => navigate("/services")}
               className="nav-link font-body text-sm font-medium text-[#4a5568] hover:text-[#0a1a3d] transition-colors"
             >
               Services
             </button>
+
             <button
               onClick={() => navigate("/jobs")}
               className="nav-link font-body text-sm font-medium text-[#4a5568] hover:text-[#0a1a3d] transition-colors"
             >
               Find Jobs
             </button>
+
             <button
               onClick={() => scrollTo("contact")}
               className="px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
@@ -485,11 +561,13 @@ export default function Contact() {
                 menuOpen ? "rotate-45 translate-y-2" : ""
               }`}
             />
+
             <span
               className={`block w-6 h-0.5 bg-[#0a1a3d] transition-all duration-300 ${
                 menuOpen ? "opacity-0" : ""
               }`}
             />
+
             <span
               className={`block w-6 h-0.5 bg-[#0a1a3d] transition-all duration-300 ${
                 menuOpen ? "-rotate-45 -translate-y-2" : ""
@@ -504,102 +582,111 @@ export default function Contact() {
           }`}
         >
           <div className="bg-white border-t border-gray-100 px-6 py-5 flex flex-col gap-4">
-                        <button
-  onClick={() => {
-    navigate("/")
-    setMenuOpen(false)
-  }}
-  className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
->
-  Home
-</button>
-  <button
-    onClick={() => navigate("/about")}
-    className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
-  >
-    About Us
-  </button>
+            <button
+              onClick={() => {
+                navigate("/")
+                setMenuOpen(false)
+              }}
+              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+            >
+              Home
+            </button>
 
-  <button
-    onClick={() => navigate("/services")}
-    className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
-  >
-    Services
-  </button>
+            <button
+              onClick={() => {
+                navigate("/about")
+                setMenuOpen(false)
+              }}
+              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+            >
+              About Us
+            </button>
 
-  <button
-    onClick={() => navigate("/jobs")}
-    className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
-  >
-    Find Jobs
-  </button>
+            <button
+              onClick={() => {
+                navigate("/services")
+                setMenuOpen(false)
+              }}
+              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+            >
+              Services
+            </button>
 
-  {/* Get Started */}
-  <button
-    onClick={() => {
-      navigate("/contact")
-      setMenuOpen(false)
-    }}
-    className="w-full py-3 mt-2 text-sm font-semibold text-white transition-all duration-300 hover:opacity-90"
-    style={{ background: PINK }}
-  >
-    Get Started →
-  </button>
-</div>
+            <button
+              onClick={() => {
+                navigate("/jobs")
+                setMenuOpen(false)
+              }}
+              className="text-left text-[#4a5568] hover:text-[#0a1a3d] font-body text-base transition-colors"
+            >
+              Find Jobs
+            </button>
+
+            <button
+              onClick={() => {
+                navigate("/contact")
+                setMenuOpen(false)
+              }}
+              className="w-full py-3 mt-2 text-sm font-semibold text-white transition-all duration-300 hover:opacity-90"
+              style={{ background: PINK }}
+            >
+              Get Started →
+            </button>
+          </div>
         </div>
       </nav>
 
-{/* PAGE HEADER */}
-<section
-  className="relative overflow-hidden min-h-[480px] sm:min-h-[520px] md:min-h-[560px] flex items-center bg-center bg-cover md:bg-[position:75%_center]"
-  style={{
-    backgroundImage: `url(${contactHeroBg})`,
-  }}
->
-  {/* Scrim so the heading stays legible over the busy part of the photo, on every breakpoint */}
-  <div
-    className="absolute inset-0"
-    style={{
-      background: `linear-gradient(to right, ${BLUE}E6 0%, ${BLUE}B3 40%, ${BLUE}40 65%, ${BLUE}00 100%)`,
-    }}
-  />
-  <div
-    className="absolute inset-0 md:hidden"
-    style={{
-      background: `linear-gradient(to bottom, ${BLUE}00 0%, ${BLUE}CC 75%, ${BLUE} 100%)`,
-    }}
-  />
+      {/* PAGE HEADER */}
+      <section
+        className="relative overflow-hidden min-h-[480px] sm:min-h-[520px] md:min-h-[560px] flex items-center bg-center bg-cover md:bg-[position:75%_center]"
+        style={{
+          backgroundImage: `url(${contactHeroBg})`,
+        }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(to right, ${BLUE}E6 0%, ${BLUE}B3 40%, ${BLUE}40 65%, ${BLUE}00 100%)`,
+          }}
+        />
 
-  <div className="relative z-10 w-full">
-    <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div
+          className="absolute inset-0 md:hidden"
+          style={{
+            background: `linear-gradient(to bottom, ${BLUE}00 0%, ${BLUE}CC 75%, ${BLUE} 100%)`,
+          }}
+        />
 
-      {/* Content on the LEFT */}
-      <div className="w-full md:w-[50%] lg:w-[48%] text-center md:text-left">
+        <div className="relative z-10 w-full">
+          <div className="max-w-7xl mx-auto px-6 md:px-10">
+            <div className="w-full md:w-[50%] lg:w-[48%] text-center md:text-left">
+              <div className="flex justify-center md:justify-start mb-6 fade-up">
+                <Eyebrow>Get In Touch</Eyebrow>
+              </div>
 
-        <div className="flex justify-center md:justify-start mb-6 fade-up">
-          <Eyebrow>Get In Touch</Eyebrow>
+              <h1
+                className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white fade-up"
+                style={{ animationDelay: "0.1s" }}
+              >
+                Let's write your
+                <br />
+                <em
+                  className="italic font-light"
+                  style={{ color: PINK }}
+                >
+                  next chapter.
+                </em>
+              </h1>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white fade-up" style={{ animationDelay: "0.1s" }}>
-          Let's write your
-          <br />
-          <em
-            className="italic font-light"
-            style={{ color: PINK }}
-          >
-            next chapter.
-          </em>
-        </h1>
-
-      </div>
-
-    </div>
-  </div>
-</section>
       {/* CONTACT */}
       <section id="contact" className="py-20 px-6 md:px-10">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
-          {/* Info */}
+
+          {/* INFO */}
           <div>
             <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-6">
               Your story
@@ -608,13 +695,15 @@ export default function Contact() {
                 starts now.
               </em>
             </h2>
+
             <p className="font-body text-[#6b7a99] leading-relaxed mb-10">
               Whether you're looking for your next role, seeking top talent for
               your team, or need professional training — we're ready to help.
             </p>
 
             <div className="space-y-6">
-              {/* Location */}
+
+              {/* LOCATION */}
               <a
                 href="https://www.google.com/maps/search/?api=1&query=BM+Plaza,+Deshpande+Nagar,+Hubli,+Karnataka"
                 target="_blank"
@@ -625,7 +714,10 @@ export default function Contact() {
                   className="w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 transition-transform duration-300 group-hover:scale-110"
                   style={{ background: BLUE }}
                 >
-                  <MapPinIcon className="text-white" style={{ width: 18, height: 18 }} />
+                  <MapPinIcon
+                    className="text-white"
+                    style={{ width: 18, height: 18 }}
+                  />
                 </div>
 
                 <div>
@@ -634,12 +726,12 @@ export default function Contact() {
                   </p>
 
                   <p className="font-body text-sm text-[#0a1a3d] group-hover:text-[#1355B2] transition-colors">
-                    WYD, 3rd Floor, BM Plaza, Near  Sharada Hotel, Deshpande Nagar, Hubli, Karnataka
+                    WYD, 3rd Floor, BM Plaza, Near Sharada Hotel, Deshpande Nagar, Hubli, Karnataka
                   </p>
                 </div>
               </a>
 
-              {/* Phone */}
+              {/* PHONE */}
               <a
                 href="tel:+919606351695"
                 className="flex items-start gap-4 group cursor-pointer"
@@ -648,7 +740,10 @@ export default function Contact() {
                   className="w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 transition-transform duration-300 group-hover:scale-110"
                   style={{ background: BLUE }}
                 >
-                  <PhoneIcon className="text-white" style={{ width: 18, height: 18 }} />
+                  <PhoneIcon
+                    className="text-white"
+                    style={{ width: 18, height: 18 }}
+                  />
                 </div>
 
                 <div>
@@ -662,7 +757,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              {/* Email */}
+              {/* EMAIL */}
               <a
                 href="mailto:shreedevi.roogi@writeyourdestiny.in"
                 className="flex items-start gap-4 group cursor-pointer"
@@ -671,7 +766,10 @@ export default function Contact() {
                   className="w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 transition-transform duration-300 group-hover:scale-110"
                   style={{ background: BLUE }}
                 >
-                  <MailIcon className="text-white" style={{ width: 18, height: 18 }} />
+                  <MailIcon
+                    className="text-white"
+                    style={{ width: 18, height: 18 }}
+                  />
                 </div>
 
                 <div>
@@ -685,13 +783,16 @@ export default function Contact() {
                 </div>
               </a>
 
-              {/* Hours */}
+              {/* HOURS */}
               <div className="flex items-start gap-4">
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0"
                   style={{ background: BLUE }}
                 >
-                  <ClockIcon className="text-white" style={{ width: 18, height: 18 }} />
+                  <ClockIcon
+                    className="text-white"
+                    style={{ width: 18, height: 18 }}
+                  />
                 </div>
 
                 <div>
@@ -700,8 +801,8 @@ export default function Contact() {
                   </p>
 
                   <p className="font-body text-sm text-[#0a1a3d] whitespace-pre-line">
-                    Mon–Fri: 9:30am to 6:30pm{"\n"}
-                    Sat: 9:30am to 2:30pm
+                    {"Mon–Fri: 9:30am to 6:30pm\n"}
+                    {"Sat: 9:30am to 2:30pm"}
                   </p>
                 </div>
               </div>
@@ -709,187 +810,201 @@ export default function Contact() {
           </div>
 
           {/* FORM */}
-<div
-  className="bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 fade-up"
-  style={{
-    boxShadow: `0 24px 64px ${BLUE}20`,
-  }}
->
-  {/* ERROR MESSAGE */}
-  {formError && (
-    <div
-      className="mb-5 rounded-xl px-4 py-3 font-body text-sm font-medium"
-      style={{
-        background: "#FDECEC",
-        color: "#B42318",
-      }}
-      role="alert"
-    >
-      {formError}
-    </div>
-  )}
+          <div
+            className="bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-100 fade-up"
+            style={{
+              boxShadow: `0 24px 64px ${BLUE}20`,
+            }}
+          >
+            {/* ERROR MESSAGE */}
+            {formError && (
+              <div
+                className="mb-5 rounded-xl px-4 py-3 font-body text-sm font-medium"
+                style={{
+                  background: "#FDECEC",
+                  color: "#B42318",
+                }}
+                role="alert"
+              >
+                {formError}
+              </div>
+            )}
 
-  <form
-    className="space-y-5"
-    onSubmit={handleSubmit}
-    noValidate
-  >
-    {/* FIRST + LAST NAME */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form
+              className="space-y-5"
+              onSubmit={handleSubmit}
+              noValidate
+            >
+              {/* FIRST + LAST NAME */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-      {/* FIRST NAME */}
-      <div>
-        <label
-          htmlFor="firstName"
-          className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2"
-        >
-          First Name
-        </label>
+                {/* FIRST NAME */}
+                <div>
+                  <label
+                    htmlFor="firstName"
+                    className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2"
+                  >
+                    First Name
+                  </label>
 
-        <input
-          id="firstName"
-          type="text"
-          name="firstName"
-          placeholder="Arjun"
-          value={formData.firstName}
-          onChange={handleChange}
-          maxLength={MAX_NAME_LENGTH}
-          autoComplete="given-name"
-          required
-          className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors"
-        />
-      </div>
+                  <input
+                    id="firstName"
+                    type="text"
+                    name="firstName"
+                    placeholder="Arjun"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    maxLength={MAX_NAME_LENGTH}
+                    autoComplete="given-name"
+                    required
+                    pattern="[A-Za-z]+"
+                    title="First name can contain only English letters A-Z and a-z."
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors"
+                  />
+                </div>
 
-      {/* LAST NAME */}
-      <div>
-        <label
-          htmlFor="lastName"
-          className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2"
-        >
-          Last Name
-        </label>
+                {/* LAST NAME */}
+                <div>
+                  <label
+                    htmlFor="lastName"
+                    className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2"
+                  >
+                    Last Name
+                  </label>
 
-        <input
-          id="lastName"
-          type="text"
-          name="lastName"
-          placeholder="Sharma"
-          value={formData.lastName}
-          onChange={handleChange}
-          maxLength={MAX_NAME_LENGTH}
-          autoComplete="family-name"
-          required
-          className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors"
-        />
-      </div>
-    </div>
+                  <input
+                    id="lastName"
+                    type="text"
+                    name="lastName"
+                    placeholder="Sharma"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    maxLength={MAX_NAME_LENGTH}
+                    autoComplete="family-name"
+                    required
+                    pattern="[A-Za-z]+"
+                    title="Last name can contain only English letters A-Z and a-z."
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors"
+                  />
+                </div>
+              </div>
 
-    {/* EMAIL */}
-    <div>
-      <label
-        htmlFor="email"
-        className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2"
-      >
-        Email
-      </label>
+              {/* EMAIL */}
+              <div>
+                <label
+                  htmlFor="email"
+                  className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2"
+                >
+                  Email
+                </label>
 
-      <input
-        id="email"
-        type="email"
-        name="email"
-        placeholder="arjun@company.com"
-        value={formData.email}
-        onChange={handleChange}
-        maxLength={MAX_EMAIL_LENGTH}
-        autoComplete="email"
-        required
-        className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors"
-      />
-    </div>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="arjun@company.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  maxLength={MAX_EMAIL_LENGTH}
+                  autoComplete="email"
+                  required
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors"
+                />
+              </div>
 
-    {/* ROLE */}
-    <div>
-      <label
-        htmlFor="role"
-        className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2"
-      >
-        I am a
-      </label>
+              {/* ROLE */}
+              <div>
+                <label
+                  htmlFor="role"
+                  className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2"
+                >
+                  I am a
+                </label>
 
-      <select
-        id="role"
-        name="role"
-        value={formData.role}
-        onChange={handleChange}
-        required
-        className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] focus:outline-none focus:border-[#1355B2] transition-colors bg-white"
-      >
-        <option value="">Select one</option>
-        <option value="Job Seeker">Job Seeker</option>
-        <option value="Employer / Company">
-          Employer / Company
-        </option>
-        <option value="Looking for Training">
-          Looking for Training
-        </option>
-        <option value="Other">Other</option>
-      </select>
-    </div>
+                <select
+                  id="role"
+                  name="role"
+                  value={formData.role}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] focus:outline-none focus:border-[#1355B2] transition-colors bg-white"
+                >
+                  <option value="">Select one</option>
+                  <option value="Job Seeker">Job Seeker</option>
+                  <option value="Employer / Company">
+                    Employer / Company
+                  </option>
+                  <option value="Looking for Training">
+                    Looking for Training
+                  </option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
 
-    {/* MESSAGE */}
-    <div>
-      <label
-        htmlFor="message"
-        className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2"
-      >
-        Message
-      </label>
+              {/* MESSAGE */}
+              <div>
+                <label
+                  htmlFor="message"
+                  className="font-body text-xs font-semibold uppercase tracking-widest text-[#9aa3b5] block mb-2"
+                >
+                  Message
+                </label>
 
-      <textarea
-        id="message"
-        rows={4}
-        name="message"
-        placeholder="Tell us about your goals…"
-        value={formData.message}
-        onChange={handleChange}
-        maxLength={MAX_MESSAGE_LENGTH}
-        required
-        className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors resize-none"
-      />
-    </div>
+                <textarea
+                  id="message"
+                  rows={4}
+                  name="message"
+                  placeholder="Tell us about your goals…"
+                  value={formData.message}
+                  onChange={handleChange}
+                  maxLength={MAX_MESSAGE_LENGTH}
+                  required
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#0a1a3d] placeholder-gray-300 focus:outline-none focus:border-[#1355B2] transition-colors resize-none"
+                />
+              </div>
 
-    {/* SUBMIT */}
-    <button
-      type="submit"
-      className="w-full py-4 font-body font-semibold text-sm tracking-wide text-white rounded-xl transition-all duration-300 hover:opacity-90 hover:shadow-lg"
-      style={{
-        background: `linear-gradient(135deg, ${BLUE} 0%, #1355B2 100%)`,
-        boxShadow: `0 4px 20px ${BLUE}40`,
-      }}
-    >
-      Send Message
-    </button>
-  </form>
+              {/* SUBMIT */}
+              <button
+                type="submit"
+                className="w-full py-4 font-body font-semibold text-sm tracking-wide text-white rounded-xl transition-all duration-300 hover:opacity-90 hover:shadow-lg"
+                style={{
+                  background: `linear-gradient(135deg, ${BLUE} 0%, #1355B2 100%)`,
+                  boxShadow: `0 4px 20px ${BLUE}40`,
+                }}
+              >
+                Send Message
+              </button>
+            </form>
           </div>
         </div>
       </section>
 
-            {/* FOOTER */}
-      <footer className="pt-16 pb-8 px-6 md:px-10" style={{ background: BLUE }}>
+      {/* FOOTER */}
+      <footer
+        className="pt-16 pb-8 px-6 md:px-10"
+        style={{ background: BLUE }}
+      >
         <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Logo + tagline */}
+
+          {/* LOGO + TAGLINE */}
           <div>
             <button
               onClick={() => navigate("/")}
               className="bg-white rounded-xl px-4 py-2 inline-flex items-center shrink-0 mb-4 transition-transform duration-300 hover:scale-105"
               aria-label="Go to home"
             >
-              <img src={logo} alt="Write Your Destiny" className="h-8 w-auto object-contain" />
+              <img
+                src={logo}
+                alt="Write Your Destiny"
+                className="h-8 w-auto object-contain"
+              />
             </button>
+
             <p className="font-body text-sm text-white/70 leading-relaxed mb-4">
-              Welcome to Write Your Destiny (WYD), a global HR boutique dedicated to shaping
-              careers.
+              Welcome to Write Your Destiny (WYD), a global HR boutique dedicated
+              to shaping careers.
             </p>
+
             <div className="flex items-center gap-3">
               <a
                 href="https://www.linkedin.com/company/write-your-destiny/"
@@ -898,8 +1013,12 @@ export default function Contact() {
                 aria-label="Write Your Destiny (WYD) on LinkedIn"
                 className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
               >
-                <LinkedinIcon className="text-white" style={{ width: 18, height: 18 }} />
+                <LinkedinIcon
+                  className="text-white"
+                  style={{ width: 18, height: 18 }}
+                />
               </a>
+
               <a
                 href="https://www.instagram.com/write.your.destiny007/"
                 target="_blank"
@@ -907,8 +1026,12 @@ export default function Contact() {
                 aria-label="Write Your Destiny (WYD) on Instagram"
                 className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
               >
-                <InstagramIcon className="text-white" style={{ width: 18, height: 18 }} />
+                <InstagramIcon
+                  className="text-white"
+                  style={{ width: 18, height: 18 }}
+                />
               </a>
+
               <a
                 href="https://www.facebook.com/wyd007"
                 target="_blank"
@@ -916,8 +1039,12 @@ export default function Contact() {
                 aria-label="Write Your Destiny (WYD) on Facebook"
                 className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
               >
-                <FacebookIcon className="text-white" style={{ width: 18, height: 18 }} />
+                <FacebookIcon
+                  className="text-white"
+                  style={{ width: 18, height: 18 }}
+                />
               </a>
+
               <a
                 href="https://wa.me/919606351695"
                 target="_blank"
@@ -925,14 +1052,20 @@ export default function Contact() {
                 aria-label="Chat with Write Your Destiny (WYD) on WhatsApp"
                 className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
               >
-                <WhatsappIcon className="text-white" style={{ width: 18, height: 18 }} />
+                <WhatsappIcon
+                  className="text-white"
+                  style={{ width: 18, height: 18 }}
+                />
               </a>
             </div>
           </div>
- 
-          {/* Quick Links */}
+
+          {/* QUICK LINKS */}
           <div>
-            <h3 className="font-display text-white font-bold mb-4">Quick Links</h3>
+            <h3 className="font-display text-white font-bold mb-4">
+              Quick Links
+            </h3>
+
             <div className="flex flex-col gap-2.5">
               <button
                 onClick={() => navigate("/")}
@@ -940,30 +1073,28 @@ export default function Contact() {
               >
                 Home
               </button>
+
               <button
                 onClick={() => navigate("/about")}
                 className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
               >
                 About Us
               </button>
+
               <button
                 onClick={() => navigate("/services")}
                 className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
               >
                 Our Services
               </button>
-              {/* <button
-                onClick={() => navigate("/about#blogs")}
-                className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
-              >
-                Our Blogs
-              </button> */}
+
               <button
                 onClick={() => navigate("/jobs")}
                 className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
               >
                 Find Jobs
               </button>
+
               <button
                 onClick={() => navigate("/contact")}
                 className="text-left font-body text-sm text-white/70 hover:text-white transition-colors"
@@ -972,15 +1103,23 @@ export default function Contact() {
               </button>
             </div>
           </div>
- 
-          {/* Contact Us */}
+
+          {/* CONTACT US */}
           <div>
-            <h3 className="font-display text-white font-bold mb-4">Contact Us</h3>
+            <h3 className="font-display text-white font-bold mb-4">
+              Contact Us
+            </h3>
+
             <div className="flex items-start gap-3 mb-3">
-              <MapPinIcon className="text-white/70 shrink-0 mt-0.5" style={{ width: 16, height: 16 }} />
+              <MapPinIcon
+                className="text-white/70 shrink-0 mt-0.5"
+                style={{ width: 16, height: 16 }}
+              />
+
               <p className="font-body text-sm text-white/70 leading-relaxed md:hidden">
                 WYD, 3rd Floor, BM Plaza, Near Sharada Hotel, Deshpande Nagar, Hubli
               </p>
+
               <p className="hidden md:block font-body text-sm text-white/70 leading-relaxed">
                 WYD, 3rd Floor, BM Plaza
                 <br />
@@ -989,8 +1128,13 @@ export default function Contact() {
                 Deshpande Nagar, Hubli, Karnataka.
               </p>
             </div>
+
             <div className="flex items-center gap-3 mb-2">
-              <PhoneIcon className="text-white/70 shrink-0" style={{ width: 16, height: 16 }} />
+              <PhoneIcon
+                className="text-white/70 shrink-0"
+                style={{ width: 16, height: 16 }}
+              />
+
               <a
                 href="tel:+919606351695"
                 className="font-body text-sm text-white/70 hover:text-white transition-colors"
@@ -998,8 +1142,13 @@ export default function Contact() {
                 +91 9606351695
               </a>
             </div>
+
             <div className="flex items-center gap-3">
-              <MailIcon className="text-white/70 shrink-0" style={{ width: 16, height: 16 }} />
+              <MailIcon
+                className="text-white/70 shrink-0"
+                style={{ width: 16, height: 16 }}
+              />
+
               <a
                 href="mailto:shreedevi.roogi@writeyourdestiny.in"
                 className="font-body text-sm text-white/70 hover:text-white transition-colors"
@@ -1008,10 +1157,13 @@ export default function Contact() {
               </a>
             </div>
           </div>
- 
-          {/* Working Hours */}
+
+          {/* WORKING HOURS */}
           <div>
-            <h3 className="font-display text-white font-bold mb-4">Working Hours</h3>
+            <h3 className="font-display text-white font-bold mb-4">
+              Working Hours
+            </h3>
+
             <p className="font-body text-sm text-white/70 leading-relaxed">
               Mon - Fri: 9:30 am to 6:30 pm
               <br />
@@ -1019,11 +1171,11 @@ export default function Contact() {
             </p>
           </div>
         </div>
- 
+
         <div className="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/10">
           <p className="font-body text-xs text-white/50 text-center">
-            © {new Date().getFullYear()} Write Your Destiny. All Rights Reserved. Hubli, Karnataka.
-            Powered by{" "}
+            © {new Date().getFullYear()} Write Your Destiny. All Rights Reserved.
+            Hubli, Karnataka. Powered by{" "}
             <a
               href="https://www.spitel.com/"
               target="_blank"
@@ -1038,3 +1190,4 @@ export default function Contact() {
     </div>
   )
 }
+
