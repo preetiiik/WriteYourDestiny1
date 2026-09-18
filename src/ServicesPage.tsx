@@ -6,6 +6,7 @@ import reelResumeTips from "@/imports/reel-resume-tips.png"
 import reelOverseasEducation from "@/imports/reel-overseas-education.png"
 import iconResumeWriting from "@/imports/icon-resume-writing (3).png"
 import recruiterLaunchpad from "@/imports/recruiters-launchpad.png"
+import wholeBrainActivattion from "@/imports/whole-brain-activation.png"
 import iconNlp from "@/imports/icon-nlp.png"
 import iconLeadershipSkills from "@/imports/icon-leadership-skills.png"
 import iconBehavioralSkills from "@/imports/icon-behavioral-skills.png"
@@ -194,6 +195,12 @@ const modules: {
     title: "Recruiter's Launchpad Certificate Course",
     icon: recruiterLaunchpad,
     desc: "A 5-day hands-on certification program in HR, Recruitment, and Talent Acquisition, designed to equip students with practical, job-ready recruitment skills. Students learn LinkedIn recruiter search, Boolean search techniques, AI in recruitment, mock interviews, and live case studies. The program also provides placement assistance and offers internship opportunities at Write Your Destiny based on performance during the course."
+  },
+  {
+    key: "Whole-Brain-Activation",
+    title: "Whole Brain Activation",
+    icon: wholeBrainActivattion,
+    desc: "A fun and engaging Whole Brain Development workshop for kids aged 7–14, designed to nurture intuition, concentration, confidence, memory, sensory awareness, coordination, and problem-solving skills through interactive activities. The workshop includes blindfold activities, tactile object identification, memory and pattern games, concentration challenges, brain gym, and mindfulness and relaxation exercises."
   },
 ]
 
