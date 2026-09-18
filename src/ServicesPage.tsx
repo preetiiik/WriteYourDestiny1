@@ -16,6 +16,15 @@ import imgAbroad from "@/imports/ielts-overseas.png"
 import imgAboutUs2 from "@/imports/about-us-2.png"
 import ctaBg from "@/imports/cta-support-illustration.png"
 
+/* Mobile-only training module images (shown in place of the desktop icon panel below md breakpoint) */
+import iconResumeWritingMobile from "@/imports/RW-mobile.jpeg"
+import iconNlpMobile from "@/imports/nlp-mobile.png"
+import iconBehavioralSkillsMobile from "@/imports/BS-mobile.png"
+import iconInterviewingSkillsMobile from "@/imports/IS-mobile.png"
+import iconPsychologicalTrainingMobile from "@/imports/PT-mobile.png"
+import recruiterLaunchpadMobile from "@/imports/RL-mobile.jpeg"
+import wholeBrainActivattionMobile from "@/imports/WBA-mobile.jpeg"
+
 // const DARK = "#0a1a3d"
 
 /* Lightweight inline SVG icons (same pattern as App.tsx) */
@@ -134,6 +143,7 @@ const modules: {
   key: string
   title: string
   icon: string
+  mobileIcon?: string
   iconFit?: "cover" | "contain"
   desc: string
   subheading?: string
@@ -143,6 +153,7 @@ const modules: {
     key: "resume",
     title: "Resume Writing",
     icon: iconResumeWriting,
+    mobileIcon: iconResumeWritingMobile,
     desc: "Resume writing training equips you with the tools to craft a resume that highlights your skills and qualifications effectively.",
     subheading: "Why Choose Our Resume Writing Training?",
     bullets: [
@@ -157,6 +168,7 @@ const modules: {
     key: "nlp",
     title: "Neuro-Linguistic Programming",
     icon: iconNlp,
+    mobileIcon: iconNlpMobile,
     iconFit: "contain",
     desc: "Neuro-Linguistic Programming (NLP) explores how communication with ourselves and others shapes our thoughts, behaviors, and outcomes. It focuses on the connection between neural processes, language, and behavior. NLP techniques enhance:",
     bullets: [
@@ -176,30 +188,35 @@ const modules: {
     key: "behavioral",
     title: "Behavioral Skills",
     icon: iconBehavioralSkills,
+    mobileIcon: iconBehavioralSkillsMobile,
     desc: "Behavioral skills are essential for effective interactions and appropriate responses in various situations. They shape our thoughts, feelings, and actions, influencing how we connect and collaborate with others. While some may excel naturally, anyone can develop these skills to enhance professional success. Improving behavioral skills boosts communication, social dynamics, and adaptability—key elements for long-term career growth.",
   },
   {
     key: "interviewing",
     title: "Interviewing Skills",
     icon: iconInterviewingSkills,
+    mobileIcon: iconInterviewingSkillsMobile,
     desc: "Interviewing skills are key to assessing job opportunities and presenting yourself as the ideal candidate. These skills help match your abilities to the role and provide a competitive edge. Mastering them boosts performance in interviews and plays a vital role in professional growth, including handling challenges and pressure. Many skills, like clear communication, are transferable, improving both interview success and overall career performance.",
   },
   {
     key: "psychological",
     title: "Psychological Training",
     icon: iconPsychologicalTraining,
+    mobileIcon: iconPsychologicalTrainingMobile,
     desc: "Psychological training teaches evidence-based skills to enhance mental well-being and improve performance in both personal and professional settings. It fosters self-awareness, perspective, and resilience, helping individuals manage stress, improve focus, and unlock their full potential. This structured, goal-oriented approach supports success in the workplace and beyond by equipping individuals with the tools for growth and peak performance.",
   },
   {
     key: "recruiter-launchpad",
     title: "Recruiter's Launchpad Certificate Course",
     icon: recruiterLaunchpad,
+    mobileIcon: recruiterLaunchpadMobile,
     desc: "A 5-day hands-on certification program in HR, Recruitment, and Talent Acquisition, designed to equip students with practical, job-ready recruitment skills. Students learn LinkedIn recruiter search, Boolean search techniques, AI in recruitment, mock interviews, and live case studies. The program also provides placement assistance and offers internship opportunities at Write Your Destiny based on performance during the course."
   },
   {
     key: "Whole-Brain-Activation",
     title: "Whole Brain Activation",
     icon: wholeBrainActivattion,
+    mobileIcon: wholeBrainActivattionMobile,
     desc: "A fun and engaging Whole Brain Development workshop for kids aged 7–14, designed to nurture intuition, concentration, confidence, memory, sensory awareness, coordination, and problem-solving skills through interactive activities. The workshop includes blindfold activities, tactile object identification, memory and pattern games, concentration challenges, brain gym, and mindfulness and relaxation exercises."
   },
 ]
@@ -228,11 +245,13 @@ const marqueeItems = [
 
 function IconPanel({
   icon,
+  mobileIcon,
   color,
   fit = "cover",
   className = "",
 }: {
   icon: string
+  mobileIcon?: string
   color: string
   fit?: "cover" | "contain"
   className?: string
@@ -242,7 +261,18 @@ function IconPanel({
       className={`w-full overflow-hidden flex items-center justify-center rounded-2xl ${className}`}
       style={{ border: `2px solid ${color}20`, background: fit === "contain" ? `${color}10` : undefined }}
     >
-      <img src={icon} alt="" className={`w-full h-full ${fit === "contain" ? "object-contain" : "object-cover"}`} />
+      {/* Mobile-only image (below md breakpoint) */}
+      {mobileIcon && (
+        <img src={mobileIcon} alt="" className="md:hidden w-full h-full object-contain" />
+      )}
+      {/* Desktop image (md and up) — unchanged from before */}
+      <img
+        src={icon}
+        alt=""
+        className={`${mobileIcon ? "hidden md:block" : ""} w-full h-full ${
+          fit === "contain" ? "object-contain" : "object-cover"
+        }`}
+      />
     </div>
   )
 }
@@ -691,7 +721,13 @@ export default function Services() {
               )}
             </div>
 
-            <IconPanel icon={active.icon} color={BLUE} fit={active.iconFit} className="min-h-[220px]" />
+            <IconPanel
+              icon={active.icon}
+              mobileIcon={active.mobileIcon}
+              color={BLUE}
+              fit={active.iconFit}
+              className="min-h-[220px]"
+            />
           </div>
 
           <div className="text-center mt-10">
