@@ -4,7 +4,8 @@ import { MarqueeTrack } from "@/MarqueeTrack"
 import logo from "@/imports/ChatGPT_Image_Aug_24__2026__12_02_21_PM.png"
 import reelResumeTips from "@/imports/reel-resume-tips.png"
 import reelOverseasEducation from "@/imports/reel-overseas-education.png"
-import iconResumeWriting from "@/imports/icon-resume-writing.png"
+import iconResumeWriting from "@/imports/icon-resume-writing (3).png"
+import recruiterLaunchpad from "@/imports/recruiters-launchpad.png"
 import iconNlp from "@/imports/icon-nlp.png"
 import iconLeadershipSkills from "@/imports/icon-leadership-skills.png"
 import iconBehavioralSkills from "@/imports/icon-behavioral-skills.png"
@@ -187,6 +188,12 @@ const modules: {
     title: "Psychological Training",
     icon: iconPsychologicalTraining,
     desc: "Psychological training teaches evidence-based skills to enhance mental well-being and improve performance in both personal and professional settings. It fosters self-awareness, perspective, and resilience, helping individuals manage stress, improve focus, and unlock their full potential. This structured, goal-oriented approach supports success in the workplace and beyond by equipping individuals with the tools for growth and peak performance.",
+  },
+  {
+    key: "recruiter-launchpad",
+    title: "Recruiter's Launchpad Certificate Course",
+    icon: recruiterLaunchpad,
+    desc: "A 5-day hands-on certification program in HR, Recruitment, and Talent Acquisition, designed to equip students with practical, job-ready recruitment skills. Students learn LinkedIn recruiter search, Boolean search techniques, AI in recruitment, mock interviews, and live case studies. The program also provides placement assistance and offers internship opportunities at Write Your Destiny based on performance during the course."
   },
 ]
 
